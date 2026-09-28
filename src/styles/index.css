@@ -9,11 +9,43 @@
   --color-outline: #e9dee0;
   --color-ink: #241417;
   --color-muted: #665659;
+  --color-success: #166534;
+  --color-success-soft: #dcfce7;
+  --color-warning: #92400e;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #b42318;
+  --color-danger-soft: #fee2e2;
+  --color-info: #1d4ed8;
+  --color-info-soft: #dbeafe;
 }
 
 @layer base {
   body {
     margin: 0;
     min-width: 320px;
+    background: var(--color-canvas);
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+  }
+
+  button:not(:disabled), a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:not(:disabled) { cursor: pointer; }
+  html:has(dialog[open]) { overflow: hidden; }
+  ::selection { background: var(--color-brand-soft); color: var(--color-brand); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
   }
 }
