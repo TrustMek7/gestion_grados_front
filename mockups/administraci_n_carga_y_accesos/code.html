@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "primary": "#4f0319",
+        "primary-fixed": "#ffd9dc",
+        "surface-container-highest": "#fadbdf",
+        "secondary-fixed-dim": "#d3c3c6",
+        "secondary-fixed": "#efdee1",
+        "on-background": "#27171a",
+        "on-primary-fixed": "#400011",
+        "secondary": "#675b5e",
+        "inverse-on-surface": "#ffecee",
+        "tertiary-container": "#67222d",
+        "on-tertiary-fixed": "#3e0310",
+        "inverse-surface": "#3e2b2f",
+        "outline": "#887273",
+        "on-tertiary": "#ffffff",
+        "surface": "#fff8f7",
+        "on-primary-fixed-variant": "#7e2839",
+        "surface-tint": "#9c3f50",
+        "on-surface-variant": "#554244",
+        "surface-container-low": "#fff0f1",
+        "surface-dim": "#f1d3d7",
+        "primary-container": "#6d1b2d",
+        "surface-bright": "#fff8f7",
+        "on-tertiary-container": "#e88993",
+        "tertiary": "#4a0c19",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#f28393",
+        "on-error": "#ffffff",
+        "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff",
+        "error-container": "#ffdad6",
+        "on-secondary-container": "#6e6164",
+        "on-surface": "#27171a",
+        "tertiary-fixed": "#ffdadc",
+        "error": "#ba1a1a",
+        "surface-container": "#ffe9eb",
+        "tertiary-fixed-dim": "#ffb2b9",
+        "surface-container-high": "#ffe1e5",
+        "background": "#fff8f7",
+        "surface-variant": "#fadbdf",
+        "on-secondary-fixed-variant": "#4f4447",
+        "on-primary": "#ffffff",
+        "secondary-container": "#efdee1",
+        "primary-fixed-dim": "#ffb2bb",
+        "outline-variant": "#dbc0c2",
+        "on-secondary-fixed": "#22191c",
+        "inverse-primary": "#ffb2bb",
+        "on-tertiary-fixed-variant": "#772e39"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "margin": "1.5rem",
+        "space-xs": "0.25rem",
+        "gutter": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem"
+      },
+      "fontFamily": {
+        "caption-medium": ["Inter"],
+        "body-md-medium": ["Inter"],
+        "body-sm": ["Inter"],
+        "caption": ["Inter"],
+        "label-xs": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"]
+      },
+      "fontSize": {
+        "caption-medium": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "body-md-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+        "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-sm": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed top-0 left-0 bottom-0 w-[240px] bg-primary-container z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary border-b border-white/10"><img alt="Logo UNASAM" class="w-8 h-8 rounded-full object-cover ring-1 ring-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary leading-tight truncate">UNASAM</span><span class="font-caption text-caption text-on-primary-container leading-tight truncate">Grados y Títulos</span></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-xs text-label-xs text-on-primary-container uppercase tracking-wider">Módulos Principales</span></div><nav class="flex flex-col gap-space-xs px-space-xs" data-active-classes="bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="inicio" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md truncate">Inicio</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="expedientes" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span class="font-body-md text-body-md truncate">Expedientes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="docentes" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span class="font-body-md text-body-md truncate">Docentes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="reportes" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md truncate">Reportes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="administracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md truncate">Administración</span></a></nav></div><div class="p-space-md border-t border-white/10"><div class="bg-tertiary-container/60 rounded-lg p-space-sm flex items-center justify-between"><div class="flex flex-col min-w-0"><span class="font-caption-medium text-caption-medium text-on-primary truncate">Soporte Técnico</span><span class="font-label-xs text-label-xs text-on-primary-container truncate">Anexo 1042</span></div><span class="material-symbols-outlined text-on-primary-container text-[18px]">help_outline</span></div></div></aside><div class="pl-[240px] flex flex-col min-h-screen"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 border-b border-outline-variant/30 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-primary transition-colors cursor-pointer">Plataforma</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="font-body-md-medium text-body-md-medium text-on-surface">Gestión de Grados y Títulos</span></div><span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-fixed font-caption-medium text-caption-medium border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Semestre 2025-I</span></div><div class="flex items-center gap-space-lg"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col text-left"><span class="font-body-md-medium text-body-md-medium text-on-surface leading-tight">Lic. Carmen Morales</span><span class="font-caption text-caption text-on-surface-variant leading-tight">Jefa de Grados y Títulos</span></div><a class="ml-space-xs p-space-xs rounded-lg text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login" href="#" title="Cerrar Sesión"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></header><main class="relative pt-16 w-full px-space-xl pb-space-xl flex-1 bg-surface"><div class="flex flex-col w-full">
+<!-- Header Context Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption-medium text-caption-medium mb-1">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-primary"></span>
+<span class="uppercase tracking-widest text-[10px] text-primary font-bold">Consola Institucional UNASAM</span>
+<span class="text-outline-variant">•</span>
+<span>Mantenimiento & Seguridad</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Módulo de Administración del Sistema</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+        Migración de expedientes históricos, configuración de catálogos y auditoría de accesos.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-body-md-medium text-body-md-medium shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+        Plantilla Oficial (.xlsx)
+      </button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-body-md-medium text-body-md-medium shadow-sm transition-all" id="btn-nuevo-usuario-main" type="button">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+        + Registrar Nuevo Usuario
+      </button>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<div class="flex items-center justify-between border-b border-outline-variant/30 mb-space-lg">
+<nav aria-label="Pestañas de Administración" class="flex gap-space-sm -mb-px">
+<button class="tab-indicator group inline-flex items-center gap-space-xs py-space-sm px-space-md font-body-md-medium text-body-md-medium text-primary border-b-2 border-primary transition-all" id="tab-btn-carga" onclick="switchTab('carga')" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">cloud_upload</span>
+<span>Carga Histórica</span>
+<span class="ml-1 px-1.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-[11px] font-semibold">4 Lotes</span>
+</button>
+<button class="tab-indicator group inline-flex items-center gap-space-xs py-space-sm px-space-md font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface border-b-2 border-transparent hover:border-outline-variant transition-all" id="tab-btn-accesos" onclick="switchTab('accesos')" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:text-on-surface">manage_accounts</span>
+<span>Accesos y Permisos</span>
+<span class="ml-1 px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-semibold">6 Registrados</span>
+</button>
+</nav>
+<div class="hidden sm:flex items-center gap-space-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+      Auditoría activa (SHA-256 enabled)
+    </div>
+</div>
+<!-- VIEW 1: CARGA HISTÓRICA -->
+<div class="flex flex-col gap-space-xl" id="view-carga">
+<!-- Top Bento Section: Dropzone & Active Batch Metric -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Drag & Drop Zone (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Subida de Paquetes Históricos</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Incorpore libros de actas de grados y títulos anteriores a la digitalización SUNEDU.</p>
+</div>
+<span class="px-2 py-1 rounded bg-surface-container-high text-on-surface-variant font-label-xs text-label-xs uppercase">UTF-8 / ANSI</span>
+</div>
+<div class="group relative flex flex-col items-center justify-center p-space-xl rounded-xl border-2 border-dashed border-[#E9DEE0] bg-surface-container-low/40 hover:bg-surface-container-highest/20 hover:border-primary/40 transition-all cursor-pointer text-center" id="drop-zone">
+<input accept=".xlsx, .csv" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" id="file-input" type="file"/>
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-space-sm group-hover:scale-105 group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined text-[28px]">upload_file</span>
+</div>
+<p class="font-body-md-medium text-body-md-medium text-on-surface mb-1">
+            Arrastra aquí el archivo consolidado (<span class="font-semibold text-primary">.xlsx</span> / <span class="font-semibold text-primary">.csv</span>) o haz clic para examinar
+          </p>
+<p class="font-caption text-caption text-on-surface-variant">
+            Límite máx. 25MB • Estructura normalizada según Resolución Rectoral N° 0418-2023
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container flex flex-wrap items-center justify-between gap-space-xs text-on-surface-variant font-caption text-caption">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span>Validación automática de 8 dígitos de DNI y cruce con Padrón SUNEDU.</span>
+</div>
+<button class="text-primary hover:underline font-caption-medium text-caption-medium" type="button">Ver especificaciones de campos</button>
+</div>
+</div>
+<!-- Last Batch Summary Card (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-on-surface-variant">Último Lote Procesado</span>
+</div>
+<span class="font-body-md-medium text-body-md-medium text-primary px-2 py-0.5 rounded bg-primary-fixed/40 font-mono">#2025-BATCH-04</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">180</span>
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Registros Totales</span>
+</div>
+<!-- Segmented Progress Bar -->
+<div class="w-full h-3 bg-surface-container rounded-full mt-2 overflow-hidden flex shadow-inner">
+<div class="h-full bg-[#166534] transition-all" style="width: 91.6%" title="91.6% Aceptados"></div>
+<div class="h-full bg-[#C0392B] transition-all" style="width: 8.4%" title="8.4% Observados"></div>
+</div>
+<!-- Metrics split -->
+<div class="grid grid-cols-2 gap-space-md mt-space-md">
+<!-- Aceptados -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<div class="flex items-center gap-1 mb-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                    165 Aceptados
+                  </span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">Expedientes ingresados a libros digitales</span>
+</div>
+<!-- Observados -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col">
+<div class="flex items-center gap-1 mb-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#FEE2E2] text-[#C0392B] font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C0392B]"></span>
+                    15 Observados
+                  </span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">Incongruencia DNI o duplicidad de código</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Hoy, 10:45 AM</span>
+</div>
+<button class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-lg bg-[#FEE2E2] hover:bg-[#ffdad6] text-[#C0392B] font-body-sm-medium text-body-sm font-semibold transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">error</span>
+            Descargar reporte de errores
+          </button>
+</div>
+</div>
+</div>
+<!-- Data Table: Previous Uploads -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-md border-b border-surface-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm bg-surface-container-low/30">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">history</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Historial de Lotes Migrados</h3>
+<p class="font-caption text-caption text-on-surface-variant">Trazabilidad de ejecuciones por el personal de secretaría general y auditoría.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Actualizar" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="inline-flex items-center gap-1 px-space-sm py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-caption-medium text-caption-medium hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">filter_list</span> Filtrar historial
+          </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase tracking-wider border-b border-surface-container">
+<th class="py-3 px-space-md font-semibold">Fecha / Hora</th>
+<th class="py-3 px-space-md font-semibold">Responsable</th>
+<th class="py-3 px-space-md font-semibold">Archivo Fuente</th>
+<th class="py-3 px-space-md font-semibold text-right">Total Reg.</th>
+<th class="py-3 px-space-md font-semibold text-right">Válidos</th>
+<th class="py-3 px-space-md font-semibold text-right">Observados</th>
+<th class="py-3 px-space-md font-semibold text-center">Estado</th>
+<th class="py-3 px-space-md font-semibold text-center">Log de Auditoría</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface">
+                24/02/2025 <span class="text-on-surface-variant">10:45</span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-caption-medium text-[10px]">CM</div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Lic. Carmen Morales</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface-variant">
+                Actas_FCAM_2018_2022.xlsx
+              </td>
+<td class="py-3 px-space-md text-right font-mono font-medium">180</td>
+<td class="py-3 px-space-md text-right font-mono text-[#166534] font-semibold">165</td>
+<td class="py-3 px-space-md text-right font-mono text-[#C0392B] font-semibold">15</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Completado
+                </span>
+</td>
+<td class="py-3 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span> LOG-8941
+                </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface">
+                21/02/2025 <span class="text-on-surface-variant">16:12</span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-caption-medium text-[10px]">RG</div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Ing. Raúl Guerrero</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface-variant">
+                Consolidado_FII_Pregrado.csv
+              </td>
+<td class="py-3 px-space-md text-right font-mono font-medium">320</td>
+<td class="py-3 px-space-md text-right font-mono text-[#166534] font-semibold">320</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">0</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Completado
+                </span>
+</td>
+<td class="py-3 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span> LOG-8890
+                </button>
+</td>
+</tr>
+<!-- Row 3 (En proceso) -->
+<tr class="bg-surface-container-highest/10 hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface">
+                19/02/2025 <span class="text-on-surface-variant">09:30</span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-caption-medium text-[10px]">MA</div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Abog. Mirtha Alva</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface-variant">
+                Derecho_Titulaciones_Retro_2015.xlsx
+              </td>
+<td class="py-3 px-space-md text-right font-mono font-medium">95</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">--</td>
+<td class="py-3 px-space-md text-right font-mono text-on-surface-variant">--</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DBEAFE] text-[#1D4ED8] font-caption-medium text-caption-medium animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-[#1D4ED8]"></span>
+                  En proceso (72%)
+                </span>
+</td>
+<td class="py-3 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span> TTY-8834
+                </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface">
+                12/02/2025 <span class="text-on-surface-variant">14:20</span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-caption-medium text-[10px]">CM</div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Lic. Carmen Morales</span>
+</div>
+</td>
+<td class="py-3 px-space-md font-mono text-body-sm text-on-surface-variant">
+                Posgrado_Maestrias_Educacion.xlsx
+              </td>
+<td class="py-3 px-space-md text-right font-mono font-medium">142</td>
+<td class="py-3 px-space-md text-right font-mono text-[#166534] font-semibold">138</td>
+<td class="py-3 px-space-md text-right font-mono text-[#C0392B] font-semibold">4</td>
+<td class="py-3 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Completado
+                </span>
+</td>
+<td class="py-3 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span> LOG-8761
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Metadata footer -->
+<div class="p-space-md bg-surface-container-low/30 border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm font-caption text-caption text-on-surface-variant">
+<span>Mostrando 4 de 28 lotes históricos procesados</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high disabled:opacity-40" disabled="" type="button">Anterior</button>
+<span class="px-2 py-1 text-primary font-bold">1</span>
+<button class="px-2 py-1 rounded hover:bg-surface-container" type="button">2</button>
+<button class="px-2 py-1 rounded hover:bg-surface-container" type="button">3</button>
+<button class="px-2 py-1 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high" type="button">Siguiente</button>
+</div>
+</div>
+</div>
+</div>
+<!-- VIEW 2: ACCESOS Y PERMISOS -->
+<div class="hidden flex flex-col gap-space-lg" id="view-accesos">
+<!-- Filter Ribbon & Summary -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Search box -->
+<div class="relative min-w-[260px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-outline" placeholder="Buscar por nombre, correo o DNI..." type="text"/>
+</div>
+<!-- Role Select Filter -->
+<select class="px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="">Todos los roles</option>
+<option>Jefatura de Grados</option>
+<option>Asistente de Mesa de Partes</option>
+<option>Secretaria de Facultad</option>
+<option>Auditor</option>
+</select>
+<!-- Faculty Filter -->
+<select class="px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="">Todas las facultades</option>
+<option>Sede Central / Rectorado</option>
+<option>Facultad de Ciencias Agrarias (FCAM)</option>
+<option>Facultad de Ingeniería Civil (FIC)</option>
+<option>Facultad de Economía y Contabilidad (FEC)</option>
+<option>Facultad de Ciencias Médicas (FCM)</option>
+</select>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-body-md-medium text-body-md-medium shadow-sm transition-colors" id="btn-registrar-usuario" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+          + Registrar Nuevo Usuario
+        </button>
+</div>
+</div>
+<!-- Users Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase tracking-wider border-b border-surface-container">
+<th class="py-3 px-space-md font-semibold">Nombre Completo</th>
+<th class="py-3 px-space-md font-semibold">Usuario / Correo Institucional</th>
+<th class="py-3 px-space-md font-semibold">Rol Asignado</th>
+<th class="py-3 px-space-md font-semibold">Facultad / Unidad</th>
+<th class="py-3 px-space-md font-semibold">Último Acceso</th>
+<th class="py-3 px-space-md font-semibold text-center">Estado de Cuenta</th>
+<th class="py-3 px-space-md font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md text-on-surface">
+<!-- User 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-caption">CM</div>
+<div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface block">Lic. Carmen Morales Sifuentes</span>
+<span class="font-caption text-caption text-on-surface-variant">DNI 41209384</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-mono text-body-sm text-on-surface">
+                cmorales@unasam.edu.pe
+              </td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-primary/10 text-primary font-caption-medium text-caption-medium">
+                  Jefatura de Grados
+                </span>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface">
+                Dirección General de Asuntos Académicos
+              </td>
+<td class="py-3.5 px-space-md font-caption text-caption text-on-surface-variant">
+                Hoy, 11:22 AM
+              </td>
+<td class="py-3.5 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] hover:ring-1 hover:ring-[#166534] font-caption-medium text-caption-medium transition-all" onclick="openConfirmModal('Lic. Carmen Morales Sifuentes', 'inhabilitar')" title="Click para alternar estado" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Habilitado
+                </button>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Editar permisos" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Restablecer clave" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- User 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-caption">RG</div>
+<div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface block">Ing. Raúl Guerrero Mendoza</span>
+<span class="font-caption text-caption text-on-surface-variant">DNI 32901928</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-mono text-body-sm text-on-surface">
+                rguerrero@unasam.edu.pe
+              </td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium">
+                  Secretaria de Facultad
+                </span>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface">
+                Facultad de Ingeniería de Industrias Alimentarias
+              </td>
+<td class="py-3.5 px-space-md font-caption text-caption text-on-surface-variant">
+                Ayer, 18:40 PM
+              </td>
+<td class="py-3.5 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] hover:ring-1 hover:ring-[#166534] font-caption-medium text-caption-medium transition-all" onclick="openConfirmModal('Ing. Raúl Guerrero Mendoza', 'inhabilitar')" title="Click para alternar estado" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Habilitado
+                </button>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Editar permisos" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Restablecer clave" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- User 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-caption">MA</div>
+<div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface block">Abog. Mirtha Alva Valverde</span>
+<span class="font-caption text-caption text-on-surface-variant">DNI 71092834</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-mono text-body-sm text-on-surface">
+                malva_mesa@unasam.edu.pe
+              </td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium">
+                  Asistente de Mesa de Partes
+                </span>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface">
+                Unidad de Trámite Documentario
+              </td>
+<td class="py-3.5 px-space-md font-caption text-caption text-on-surface-variant">
+                19/02/2025 15:10
+              </td>
+<td class="py-3.5 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] hover:ring-1 hover:ring-[#166534] font-caption-medium text-caption-medium transition-all" onclick="openConfirmModal('Abog. Mirtha Alva Valverde', 'inhabilitar')" title="Click para alternar estado" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Habilitado
+                </button>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Editar permisos" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Restablecer clave" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- User 4 (Deshabilitado) -->
+<tr class="bg-surface-container-low/20 hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm opacity-80">
+<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center font-bold text-caption">JP</div>
+<div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface block">Dr. Juan Pérez Córdova</span>
+<span class="font-caption text-caption text-on-surface-variant">DNI 08761234</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-mono text-body-sm text-on-surface-variant">
+                jperez_audit@unasam.edu.pe
+              </td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-medium text-caption-medium">
+                  Auditor Externo
+                </span>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface-variant">
+                Órgano de Control Institucional (OCI)
+              </td>
+<td class="py-3.5 px-space-md font-caption text-caption text-on-surface-variant">
+                02/01/2025 08:15
+              </td>
+<td class="py-3.5 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#C0392B] hover:ring-1 hover:ring-[#C0392B] font-caption-medium text-caption-medium transition-all" onclick="openConfirmModal('Dr. Juan Pérez Córdova', 'habilitar')" title="Click para habilitar" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C0392B]"></span>
+                  Deshabilitado
+                </button>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Editar permisos" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Restablecer clave" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- User 5 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-caption">SP</div>
+<div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface block">Bach. Sonia Paucar León</span>
+<span class="font-caption text-caption text-on-surface-variant">DNI 45192837</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-md font-mono text-body-sm text-on-surface">
+                spaucar@unasam.edu.pe
+              </td>
+<td class="py-3.5 px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-caption-medium text-caption-medium">
+                  Secretaria de Facultad
+                </span>
+</td>
+<td class="py-3.5 px-space-md font-body-sm text-body-sm text-on-surface">
+                Facultad de Ciencias Agrarias (FCAM)
+              </td>
+<td class="py-3.5 px-space-md font-caption text-caption text-on-surface-variant">
+                Hoy, 08:50 AM
+              </td>
+<td class="py-3.5 px-space-md text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#166534] hover:ring-1 hover:ring-[#166534] font-caption-medium text-caption-medium transition-all" onclick="openConfirmModal('Bach. Sonia Paucar León', 'inhabilitar')" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-[#166534]"></span>
+                  Habilitado
+                </button>
+</td>
+<td class="py-3.5 px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Editar permisos" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors" title="Restablecer clave" type="button">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State Fallback (Hidden by default for demonstration toggle) -->
+<div class="hidden p-space-xl flex-col items-center justify-center text-center" id="users-empty-state">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-outline mb-space-sm">
+<span class="material-symbols-outlined text-[32px]">person_off</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">No se encontraron registros de usuario</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mt-1">
+          Ajusta los parámetros de búsqueda o registra una nueva cuenta administrativa para habilitar el acceso a los módulos.
+        </p>
+<button class="mt-space-md inline-flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-primary text-on-primary font-body-sm-medium text-body-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span> Añadir nuevo usuario
+        </button>
+</div>
+<div class="p-space-md bg-surface-container-low/30 border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm font-caption text-caption text-on-surface-variant">
+<span>5 usuarios activos • 1 usuario inhabilitado</span>
+<div class="flex items-center gap-space-xs">
+<button class="text-primary hover:underline font-caption-medium text-caption-medium" type="button">Exportar padrón de usuarios (CSV)</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action & Catalog Reference Banner -->
+<div class="mt-space-xl p-space-md rounded-xl bg-surface-container-low/70 flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">database</span>
+</div>
+<div>
+<span class="font-body-md-medium text-body-md-medium text-on-surface block">Catálogo de Programas y Menciones 2025</span>
+<span class="font-caption text-caption text-on-surface-variant">Última sincronización con Secretaría General: 15 de Febrero, 2025.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-container text-on-surface-variant font-body-sm-medium text-body-sm transition-colors" type="button">
+        Revisar Códigos SUNEDU
+      </button>
+<button class="px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-body-sm-medium text-body-sm transition-colors" type="button">
+        Sincronizar Catálogos
+      </button>
+</div>
+</div>
+<!-- CONFIRMATION MODAL (Standard 12px Radius, Centered Overlay) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#27171a]/50 backdrop-blur-xs transition-opacity duration-200 opacity-0 pointer-events-none" id="modal-confirm">
+<div class="relative w-full max-w-[480px] bg-surface-container-lowest rounded-xl shadow-2xl p-space-xl flex flex-col transform transition-transform duration-200 scale-95" style="border-radius: 12px;">
+<!-- Modal Header -->
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-[#FEE2E2] text-[#C0392B] flex items-center justify-center shrink-0" id="modal-icon-bg">
+<span class="material-symbols-outlined text-[26px]" id="modal-icon">person_off</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<h3 class="font-headline-md text-headline-md text-on-surface" id="modal-title">Inhabilitar usuario administrativo</h3>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">Seguridad y control de accesos al sistema</p>
+</div>
+<button class="p-1 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors" onclick="closeConfirmModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="mt-space-md text-on-surface font-body-md text-body-md">
+<p id="modal-message">
+          ¿Está seguro de revocar los privilegios del usuario <strong class="text-on-surface" id="modal-user-target">Lic. Carmen Morales</strong>?
+        </p>
+<div class="mt-space-sm p-space-sm rounded-lg bg-surface-container-low text-on-surface-variant font-caption text-caption flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">warning</span>
+<span>El usuario será desconectado inmediatamente de todas las sesiones activas y no podrá visar ni autorizar diplomas hasta su reactivación formal.</span>
+</div>
+</div>
+<!-- Modal Footer Actions -->
+<div class="mt-space-xl pt-space-md border-t border-surface-container flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-md-medium text-body-md-medium transition-colors" onclick="closeConfirmModal()" type="button">
+          Cancelar
+        </button>
+<button class="px-space-md py-2 rounded-lg bg-[#C0392B] hover:bg-[#a92b1f] text-[#ffffff] font-body-md-medium text-body-md-medium transition-colors shadow-sm" id="modal-action-btn" onclick="confirmModalAction()" type="button">
+          Sí, inhabilitar usuario
+        </button>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Logic -->
+<script>
+    function switchTab(tab) {
+      const viewCarga = document.getElementById('view-carga');
+      const viewAccesos = document.getElementById('view-accesos');
+      const tabBtnCarga = document.getElementById('tab-btn-carga');
+      const tabBtnAccesos = document.getElementById('tab-btn-accesos');
+
+      if (tab === 'carga') {
+        viewCarga.classList.remove('hidden');
+        viewAccesos.classList.add('hidden');
+
+        // Style Tab 1 Active
+        tabBtnCarga.className = "tab-indicator group inline-flex items-center gap-space-xs py-space-sm px-space-md font-body-md-medium text-body-md-medium text-primary border-b-2 border-primary transition-all";
+        tabBtnAccesos.className = "tab-indicator group inline-flex items-center gap-space-xs py-space-sm px-space-md font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface border-b-2 border-transparent hover:border-outline-variant transition-all";
+      } else {
+        viewCarga.classList.add('hidden');
+        viewAccesos.classList.remove('hidden');
+
+        // Style Tab 2 Active
+        tabBtnAccesos.className = "tab-indicator group inline-flex items-center gap-space-xs py-space-sm px-space-md font-body-md-medium text-body-md-medium text-primary border-b-2 border-primary transition-all";
+        tabBtnCarga.className = "tab-indicator group inline-flex items-center gap-space-xs py-space-sm px-space-md font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface border-b-2 border-transparent hover:border-outline-variant transition-all";
+      }
+    }
+
+    // Modal Handling
+    let activeUser = '';
+    let currentAction = 'inhabilitar';
+
+    function openConfirmModal(userName, action) {
+      activeUser = userName;
+      currentAction = action;
+      const modal = document.getElementById('modal-confirm');
+      const modalContent = modal.querySelector('div');
+      const userTarget = document.getElementById('modal-user-target');
+      const modalTitle = document.getElementById('modal-title');
+      const modalBtn = document.getElementById('modal-action-btn');
+      const modalIcon = document.getElementById('modal-icon');
+      const modalIconBg = document.getElementById('modal-icon-bg');
+
+      userTarget.textContent = userName;
+
+      if (action === 'inhabilitar') {
+        modalTitle.textContent = 'Inhabilitar usuario administrativo';
+        modalBtn.textContent = 'Sí, inhabilitar usuario';
+        modalBtn.className = 'px-space-md py-2 rounded-lg bg-[#C0392B] hover:bg-[#a92b1f] text-[#ffffff] font-body-md-medium text-body-md-medium transition-colors shadow-sm';
+        modalIconBg.className = 'w-12 h-12 rounded-full bg-[#FEE2E2] text-[#C0392B] flex items-center justify-center shrink-0';
+        modalIcon.textContent = 'person_off';
+      } else {
+        modalTitle.textContent = 'Habilitar usuario administrativo';
+        modalBtn.textContent = 'Reactivar credenciales';
+        modalBtn.className = 'px-space-md py-2 rounded-lg bg-[#166534] hover:bg-[#14532d] text-[#ffffff] font-body-md-medium text-body-md-medium transition-colors shadow-sm';
+        modalIconBg.className = 'w-12 h-12 rounded-full bg-[#DCFCE7] text-[#166534] flex items-center justify-center shrink-0';
+        modalIcon.textContent = 'how_to_reg';
+      }
+
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      modalContent.classList.remove('scale-95');
+      modalContent.classList.add('scale-100');
+    }
+
+    function closeConfirmModal() {
+      const modal = document.getElementById('modal-confirm');
+      const modalContent = modal.querySelector('div');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+    }
+
+    function confirmModalAction() {
+      closeConfirmModal();
+    }
+
+    // Drag and Drop Visual Feedback
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('bg-primary-fixed/20', 'border-primary');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('bg-primary-fixed/20', 'border-primary');
+      }, false);
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files.length) {
+        alert('Archivo seleccionado: ' + e.target.files[0].name + ' (Listo para validar esquema)');
+      }
+    });
+
+    document.getElementById('btn-registrar-usuario')?.addEventListener('click', () => {
+      switchTab('accesos');
+      alert('Formulario de alta de usuario listo.');
+    });
+
+    document.getElementById('btn-nuevo-usuario-main')?.addEventListener('click', () => {
+      switchTab('accesos');
+    });
+  </script>
+</div></main></div></body></html>

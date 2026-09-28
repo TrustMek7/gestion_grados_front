@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "primary": "#4f0319",
+        "primary-fixed": "#ffd9dc",
+        "surface-container-highest": "#fadbdf",
+        "secondary-fixed-dim": "#d3c3c6",
+        "secondary-fixed": "#efdee1",
+        "on-background": "#27171a",
+        "on-primary-fixed": "#400011",
+        "secondary": "#675b5e",
+        "inverse-on-surface": "#ffecee",
+        "tertiary-container": "#67222d",
+        "on-tertiary-fixed": "#3e0310",
+        "inverse-surface": "#3e2b2f",
+        "outline": "#887273",
+        "on-tertiary": "#ffffff",
+        "surface": "#fff8f7",
+        "on-primary-fixed-variant": "#7e2839",
+        "surface-tint": "#9c3f50",
+        "on-surface-variant": "#554244",
+        "surface-container-low": "#fff0f1",
+        "surface-dim": "#f1d3d7",
+        "primary-container": "#6d1b2d",
+        "surface-bright": "#fff8f7",
+        "on-tertiary-container": "#e88993",
+        "tertiary": "#4a0c19",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#f28393",
+        "on-error": "#ffffff",
+        "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff",
+        "error-container": "#ffdad6",
+        "on-secondary-container": "#6e6164",
+        "on-surface": "#27171a",
+        "tertiary-fixed": "#ffdadc",
+        "error": "#ba1a1a",
+        "surface-container": "#ffe9eb",
+        "tertiary-fixed-dim": "#ffb2b9",
+        "surface-container-high": "#ffe1e5",
+        "background": "#fff8f7",
+        "surface-variant": "#fadbdf",
+        "on-secondary-fixed-variant": "#4f4447",
+        "on-primary": "#ffffff",
+        "secondary-container": "#efdee1",
+        "primary-fixed-dim": "#ffb2bb",
+        "outline-variant": "#dbc0c2",
+        "on-secondary-fixed": "#22191c",
+        "inverse-primary": "#ffb2bb",
+        "on-tertiary-fixed-variant": "#772e39"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "margin": "1.5rem",
+        "space-xs": "0.25rem",
+        "gutter": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem"
+      },
+      "fontFamily": {
+        "caption-medium": ["Inter"],
+        "body-md-medium": ["Inter"],
+        "body-sm": ["Inter"],
+        "caption": ["Inter"],
+        "label-xs": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"]
+      },
+      "fontSize": {
+        "caption-medium": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "body-md-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+        "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-sm": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed top-0 left-0 bottom-0 w-[240px] bg-primary-container z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary border-b border-white/10"><img alt="Logo UNASAM" class="w-8 h-8 rounded-full object-cover ring-1 ring-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary leading-tight truncate">UNASAM</span><span class="font-caption text-caption text-on-primary-container leading-tight truncate">Grados y Títulos</span></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-xs text-label-xs text-on-primary-container uppercase tracking-wider">Módulos Principales</span></div><nav class="flex flex-col gap-space-xs px-space-xs" data-active-classes="bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white" data-path="inicio" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md truncate">Inicio</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="expedientes" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span class="font-body-md text-body-md truncate">Expedientes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="docentes" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span class="font-body-md text-body-md truncate">Docentes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="reportes" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md truncate">Reportes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="administracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md truncate">Administración</span></a></nav></div><div class="p-space-md border-t border-white/10"><div class="bg-tertiary-container/60 rounded-lg p-space-sm flex items-center justify-between"><div class="flex flex-col min-w-0"><span class="font-caption-medium text-caption-medium text-on-primary truncate">Soporte Técnico</span><span class="font-label-xs text-label-xs text-on-primary-container truncate">Anexo 1042</span></div><span class="material-symbols-outlined text-on-primary-container text-[18px]">help_outline</span></div></div></aside><div class="pl-[240px] flex flex-col min-h-screen"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 border-b border-outline-variant/30 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-primary transition-colors cursor-pointer">Plataforma</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="font-body-md-medium text-body-md-medium text-on-surface">Gestión de Grados y Títulos</span></div><span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-fixed font-caption-medium text-caption-medium border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Semestre 2025-I</span></div><div class="flex items-center gap-space-lg"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col text-left"><span class="font-body-md-medium text-body-md-medium text-on-surface leading-tight">Lic. Carmen Morales</span><span class="font-caption text-caption text-on-surface-variant leading-tight">Jefa de Grados y Títulos</span></div><a class="ml-space-xs p-space-xs rounded-lg text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login" href="#" title="Cerrar Sesión"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></header><main class="relative pt-16 w-full px-space-xl pb-space-xl flex-1 bg-surface"><div class="flex flex-col w-full gap-space-xl">
+<!-- 1. Encabezado Institucional y Filtros Rápidos -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-primary font-semibold">Módulo de Secretaría General • UNASAM</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-caption text-caption">Viernes, 24 de Octubre de 2025</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Panel de Control — Grados y Títulos</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Monitoreo procedimental de expedientes académicos, dictámenes jurados y cumplimiento SUNEDU.</p>
+</div>
+<!-- Selectores Rápidos -->
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container-low p-space-xs rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">domain</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none cursor-pointer pr-space-xs">
+<option value="all">Todas las Facultades</option>
+<option value="fc">Ciencias (FC)</option>
+<option value="fii">Ingeniería de Industrias Alimentarias (FIIA)</option>
+<option value="fic">Ingeniería Civil (FIC)</option>
+<option value="fcm">Ciencias Médicas (FCM)</option>
+<option value="fceac">Economía y Contabilidad (FCEAC)</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">date_range</span>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none cursor-pointer pr-space-xs">
+<option value="2025-1">Semestre 2025-I</option>
+<option value="2024-2">Semestre 2024-II</option>
+<option value="2024-1">Semestre 2024-I</option>
+</select>
+</div>
+<button class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-1.5 rounded-lg font-body-md-medium text-body-md-medium hover:bg-primary-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Nuevo Trámite</span>
+</button>
+</div>
+</section>
+<!-- 2. 4 KPIs Principales -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: Expedientes Activos -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-secondary uppercase tracking-wider">Flujo Operativo</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface mt-0.5">Expedientes Activos</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">folder_shared</span>
+</div>
+</div>
+<div class="my-space-md flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface text-[32px] leading-none">142</span>
+<span class="font-caption text-caption text-secondary">en circulación</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-space-xs rounded-b-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-caption-medium text-caption-medium text-on-surface">86 Bachiller</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-caption-medium text-caption-medium text-on-surface">56 Título</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Sustentados este Mes -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-secondary uppercase tracking-wider">Actas Culminadas</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface mt-0.5">Sustentados este Mes</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+</div>
+<div class="my-space-md flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface text-[32px] leading-none">28</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-medium text-caption-medium">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +12%
+        </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-space-xs rounded-b-lg">
+<span class="font-caption text-caption text-on-surface-variant">Corte: Octubre 2025</span>
+<span class="font-caption-medium text-caption-medium text-on-surface">Meta 25 alcanzada</span>
+</div>
+</div>
+<!-- KPI 3: Observados / Subsanación -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-secondary uppercase tracking-wider">Atención Requerida</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface mt-0.5">Observados / Subsanación</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">assignment_late</span>
+</div>
+</div>
+<div class="my-space-md flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface text-[32px] leading-none">19</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-medium text-caption-medium">
+          Acción Pendiente
+        </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-low/60 -mx-space-lg -mb-space-lg px-space-lg py-space-xs rounded-b-lg">
+<span class="font-caption text-caption text-on-surface-variant">12 en Graduando</span>
+<span class="font-caption text-caption text-on-surface-variant">7 en Dictaminador</span>
+</div>
+</div>
+<!-- KPI 4: Por Vencer (< 30 días) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-error uppercase tracking-wider font-semibold">Urgencia Normativa</span>
+<span class="font-body-md-medium text-body-md-medium text-on-surface mt-0.5">Por Vencer (< 30 días)</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">alarm_on</span>
+</div>
+</div>
+<div class="my-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg font-bold text-error text-[32px] leading-none">7</span>
+<span class="font-caption text-caption text-on-surface-variant">casos límite</span>
+</div>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-error text-on-error font-caption-medium text-caption-medium hover:opacity-90 transition-opacity" type="button">
+<span>Ver Casos</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-error-container/40 -mx-space-lg -mb-space-lg px-space-lg py-space-xs rounded-b-lg text-on-error-container">
+<span class="font-caption text-caption">Riesgo caducidad plan</span>
+<span class="font-caption-medium text-caption-medium">Ley N° 30220</span>
+</div>
+</div>
+</section>
+<!-- 3. Tarjetas de Alertas Accionables con Plazos Normativos & Resumen Rápido -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- Alerta A & B en contenedor -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">notification_important</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Plazos Normativos en Seguimiento Crítico</h2>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Actualizado automáticamente cada 15 min</span>
+</div>
+<!-- Alerta A: Vigencia Plan Tesis -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Vigencia de Plan de Tesis</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-surface-container-highest text-primary">Plazo legal: 18 meses</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-semibold">3 expedientes</strong> superan los 16 meses desde la aprobación de resolución decanal sin fijación de fecha.
+              </p>
+</div>
+</div>
+<button class="flex-shrink-0 inline-flex items-center gap-space-xs bg-surface-container px-space-md py-space-sm rounded-lg text-primary font-body-md-medium text-body-md-medium hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+<span>Notificar a Graduando / Asesor</span>
+</button>
+</div>
+<!-- Barra de Progreso Normativa -->
+<div class="mt-space-md pt-space-md bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-lg rounded-b-xl flex flex-col gap-space-xs">
+<div class="flex justify-between font-caption text-caption text-on-surface-variant">
+<span>Progreso medio del ciclo límite: <strong>16.8 / 18 meses (89%)</strong></span>
+<span class="text-error font-caption-medium">Quedan ~36 días para caducidad</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary rounded-full" style="width: 89%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-caption text-secondary">
+<span>Inicio: Inscripción</span>
+<span>Alerta: 12 meses</span>
+<span class="text-primary font-medium">Límite: 18 meses</span>
+</div>
+</div>
+</div>
+<!-- Alerta B: Dictamen Jurado Revisor -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-error-container/50 flex-shrink-0 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Dictamen de Jurado Revisor</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">Máx. 15 días hábiles</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface font-semibold">4 expedientes</strong> se encuentran en el <strong class="text-error font-semibold">Día 13</strong> de revisión sin informe emitido por miembros del comité.
+              </p>
+</div>
+</div>
+<button class="flex-shrink-0 inline-flex items-center gap-space-xs bg-error text-on-error px-space-md py-space-sm rounded-lg font-body-md-medium text-body-md-medium hover:opacity-95 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[18px]">send_time_extension</span>
+<span>Reiterar Oficio de Recordatorio</span>
+</button>
+</div>
+<!-- Barra de Progreso Normativa Jurados -->
+<div class="mt-space-md pt-space-md bg-surface-container-low/40 -mx-space-lg -mb-space-lg p-space-lg rounded-b-xl flex flex-col gap-space-xs">
+<div class="flex justify-between font-caption text-caption text-on-surface-variant">
+<span>Fase de revisión colegiada: <strong>Día 13 de 15 hábiles</strong></span>
+<span class="text-error font-caption-medium">Vence en 48 horas laborales</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-error rounded-full" style="width: 86%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-caption text-secondary">
+<span>Día 1: Sorteo / Designación</span>
+<span>Día 10: Primer Recordatorio</span>
+<span class="text-error font-medium">Día 15: Cierre Improrrogable</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. Accesos Rápidos a Reportes Frecuentes -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">analytics</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Reportes Frecuentes</h2>
+</div>
+<a class="font-caption-medium text-caption-medium text-primary hover:underline" href="#">Ver todos</a>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm h-full justify-between">
+<div class="flex flex-col gap-space-xs">
+<!-- Reporte 1 -->
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Consolidado para Consejo Univ.</span>
+<span class="font-caption text-caption text-secondary">Aprobaciones de Grado y Título</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 transition-transform">download</span>
+</a>
+<!-- Reporte 2 -->
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Padrón SUNEDU</span>
+<span class="font-caption text-caption text-secondary">Estructura XML / XLSX oficial</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 transition-transform">download</span>
+</a>
+<!-- Reporte 3 -->
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">history_edu</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Carga Horaria de Jurados</span>
+<span class="font-caption text-caption text-secondary">Distribución de dictámenes</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 transition-transform">download</span>
+</a>
+<!-- Reporte 4 -->
+<a class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Constancias de Expedición</span>
+<span class="font-caption text-caption text-secondary">Generación masiva en PDF con QR</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 transition-transform">download</span>
+</a>
+</div>
+<!-- Banner de auditoría rápida -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">format_image_left</span>
+<div class="flex flex-col min-w-0">
+<span class="font-caption-medium text-caption-medium text-on-surface">Validación de Criterios</span>
+<span class="font-caption text-caption text-secondary truncate">Certificados de idioma y no adeudo</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Tabla de 8 Expedientes Recientes -->
+<section class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+<!-- Header de la tabla -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Expedientes en Trámite Reciente</h2>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container font-caption-medium text-caption-medium text-primary">
+          Mostrando 8 de 142
+        </span>
+</div>
+<!-- Buscador y Filtro Tabla -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[18px] text-outline">search</span>
+<input class="pl-8 pr-3 py-1.5 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container transition-colors w-64" placeholder="Buscar por DNI o código..." type="text"/>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" title="Filtros avanzados" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant transition-colors" title="Exportar vista" type="button">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Contenedor scroll horizontal para tabla -->
+<div class="overflow-x-auto rounded-lg bg-surface-container-lowest">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-secondary font-label-xs text-label-xs uppercase tracking-wider">
+<th class="py-3 px-4 font-semibold">Código</th>
+<th class="py-3 px-4 font-semibold">Graduando / DNI</th>
+<th class="py-3 px-4 font-semibold">Escuela / Facultad</th>
+<th class="py-3 px-4 font-semibold">Modalidad</th>
+<th class="py-3 px-4 font-semibold">Trámite</th>
+<th class="py-3 px-4 font-semibold">Estado</th>
+<th class="py-3 px-4 font-semibold text-center">Días Fase</th>
+<th class="py-3 px-4 font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm font-body-sm text-on-surface">
+<!-- Fila 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0912</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Valdivia Rojas, Renzo</span>
+<span class="font-caption text-caption text-secondary">DNI 72418902</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Ingeniería de Sistemas e Informática">Ing. Sistemas e Info.</span>
+<span class="font-caption text-caption text-secondary">Fac. Ciencias</span>
+</td>
+<td class="py-3 px-4">Tesis</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-surface-container text-primary">Título</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>En Revisión
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium">4 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0894</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Mendoza Pérez, Lucía</span>
+<span class="font-caption text-caption text-secondary">DNI 74901234</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Ingeniería Civil">Ingeniería Civil</span>
+<span class="font-caption text-caption text-secondary">Fac. Civil (FIC)</span>
+</td>
+<td class="py-3 px-4">Tesis</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed">Bachiller</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Aprobado
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium">1 día</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0881</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Alvarado Cruz, Diego</span>
+<span class="font-caption text-caption text-secondary">DNI 48291044</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Economía">Economía</span>
+<span class="font-caption text-caption text-secondary">FCEAC</span>
+</td>
+<td class="py-3 px-4">Suficiencia Prof.</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-surface-container text-primary">Título</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Observado
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium text-error">11 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0870</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Guerrero Soto, María</span>
+<span class="font-caption text-caption text-secondary">DNI 70119283</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Enfermería">Enfermería</span>
+<span class="font-caption text-caption text-secondary">Ciencias Médicas</span>
+</td>
+<td class="py-3 px-4">Tesis</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-surface-container text-primary">Título</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Con Jurado
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium">13 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 5 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0865</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Espinoza Vega, Josué</span>
+<span class="font-caption text-caption text-secondary">DNI 76391029</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Agronomía">Agronomía</span>
+<span class="font-caption text-caption text-secondary">Ciencias Agrarias</span>
+</td>
+<td class="py-3 px-4">Tesis</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed">Bachiller</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>En Revisión
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium">2 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 6 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0852</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Quispe Morales, Yanet</span>
+<span class="font-caption text-caption text-secondary">DNI 71203948</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Ingeniería de Minas">Ing. de Minas</span>
+<span class="font-caption text-caption text-secondary">FIMGM</span>
+</td>
+<td class="py-3 px-4">Suficiencia Prof.</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-surface-container text-primary">Título</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Aprobado
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium">6 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 7 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0849</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Cárdenas López, Kevin</span>
+<span class="font-caption text-caption text-secondary">DNI 75892011</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Administración">Administración</span>
+<span class="font-caption text-caption text-secondary">FCEAC</span>
+</td>
+<td class="py-3 px-4">Tesis</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-surface-container text-primary">Título</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Con Jurado
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium">8 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 8 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-4 font-body-md-medium font-semibold text-primary">EXP-2025-0831</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface">Paucar Osorio, Brenda</span>
+<span class="font-caption text-caption text-secondary">DNI 73491028</span>
+</div>
+</td>
+<td class="py-3 px-4">
+<span class="truncate block max-w-[180px]" title="Educación Primaria">Educación</span>
+<span class="font-caption text-caption text-secondary">Fac. Educación</span>
+</td>
+<td class="py-3 px-4">Tesis</td>
+<td class="py-3 px-4">
+<span class="font-caption-medium text-caption-medium px-2 py-0.5 rounded bg-surface-container text-primary">Título</span>
+</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Observado
+              </span>
+</td>
+<td class="py-3 px-4 text-center font-medium text-error">15 días</td>
+<td class="py-3 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Ver detalle" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container transition-colors" title="Historial" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Paginación Limpia -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-sm">
+<div class="flex items-center gap-space-sm font-caption text-caption text-secondary">
+<span>Mostrando 1 – 8 de 142 registros</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center gap-1">
+<span>Filas:</span>
+<select class="bg-surface-container-low rounded px-1.5 py-0.5 font-caption text-caption text-on-surface focus:outline-none">
+<option>8</option>
+<option>15</option>
+<option>25</option>
+<option>50</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded bg-surface-container-low text-secondary hover:bg-surface-container hover:text-on-surface transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-7 h-7 rounded bg-primary text-on-primary font-caption-medium text-caption-medium flex items-center justify-center" type="button">1</button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface hover:bg-surface-container font-caption-medium text-caption-medium flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface hover:bg-surface-container font-caption-medium text-caption-medium flex items-center justify-center transition-colors" type="button">3</button>
+<span class="px-1 text-secondary font-caption text-caption">...</span>
+<button class="w-7 h-7 rounded bg-surface-container-low text-on-surface hover:bg-surface-container font-caption-medium text-caption-medium flex items-center justify-center transition-colors" type="button">18</button>
+<button class="p-1.5 rounded bg-surface-container-low text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 6. Toast Flotante de Notificación -->
+<div class="fixed bottom-6 right-6 z-50 flex items-center gap-space-sm bg-surface-container-lowest text-on-surface px-space-md py-space-sm rounded-xl shadow-xl transition-all duration-300 transform translate-y-0" id="toast-notif">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+<div class="flex flex-col min-w-0 pr-space-xs">
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Oficio N° 2025-084 emitido</span>
+<span class="font-caption text-caption text-on-surface-variant">Registrado con éxito en Mesa de Partes Digital</span>
+</div>
+<button class="p-1 text-outline hover:text-on-surface rounded-lg transition-colors ml-space-xs" onclick="document.getElementById('toast-notif').style.opacity = '0'; setTimeout(() => document.getElementById('toast-notif').remove(), 300)" title="Cerrar notificación" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div></main></div></body></html>

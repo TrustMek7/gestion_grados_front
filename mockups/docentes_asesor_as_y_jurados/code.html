@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "primary": "#4f0319",
+        "primary-fixed": "#ffd9dc",
+        "surface-container-highest": "#fadbdf",
+        "secondary-fixed-dim": "#d3c3c6",
+        "secondary-fixed": "#efdee1",
+        "on-background": "#27171a",
+        "on-primary-fixed": "#400011",
+        "secondary": "#675b5e",
+        "inverse-on-surface": "#ffecee",
+        "tertiary-container": "#67222d",
+        "on-tertiary-fixed": "#3e0310",
+        "inverse-surface": "#3e2b2f",
+        "outline": "#887273",
+        "on-tertiary": "#ffffff",
+        "surface": "#fff8f7",
+        "on-primary-fixed-variant": "#7e2839",
+        "surface-tint": "#9c3f50",
+        "on-surface-variant": "#554244",
+        "surface-container-low": "#fff0f1",
+        "surface-dim": "#f1d3d7",
+        "primary-container": "#6d1b2d",
+        "surface-bright": "#fff8f7",
+        "on-tertiary-container": "#e88993",
+        "tertiary": "#4a0c19",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#f28393",
+        "on-error": "#ffffff",
+        "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff",
+        "error-container": "#ffdad6",
+        "on-secondary-container": "#6e6164",
+        "on-surface": "#27171a",
+        "tertiary-fixed": "#ffdadc",
+        "error": "#ba1a1a",
+        "surface-container": "#ffe9eb",
+        "tertiary-fixed-dim": "#ffb2b9",
+        "surface-container-high": "#ffe1e5",
+        "background": "#fff8f7",
+        "surface-variant": "#fadbdf",
+        "on-secondary-fixed-variant": "#4f4447",
+        "on-primary": "#ffffff",
+        "secondary-container": "#efdee1",
+        "primary-fixed-dim": "#ffb2bb",
+        "outline-variant": "#dbc0c2",
+        "on-secondary-fixed": "#22191c",
+        "inverse-primary": "#ffb2bb",
+        "on-tertiary-fixed-variant": "#772e39"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "margin": "1.5rem",
+        "space-xs": "0.25rem",
+        "gutter": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem"
+      },
+      "fontFamily": {
+        "caption-medium": ["Inter"],
+        "body-md-medium": ["Inter"],
+        "body-sm": ["Inter"],
+        "caption": ["Inter"],
+        "label-xs": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"]
+      },
+      "fontSize": {
+        "caption-medium": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "body-md-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+        "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-sm": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed top-0 left-0 bottom-0 w-[240px] bg-primary-container z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary border-b border-white/10"><img alt="Logo UNASAM" class="w-8 h-8 rounded-full object-cover ring-1 ring-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary leading-tight truncate">UNASAM</span><span class="font-caption text-caption text-on-primary-container leading-tight truncate">Grados y Títulos</span></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-xs text-label-xs text-on-primary-container uppercase tracking-wider">Módulos Principales</span></div><nav class="flex flex-col gap-space-xs px-space-xs" data-active-classes="bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="inicio" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md truncate">Inicio</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="expedientes" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span class="font-body-md text-body-md truncate">Expedientes</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white" data-path="docentes" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span class="font-body-md text-body-md truncate">Docentes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="reportes" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md truncate">Reportes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="administracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md truncate">Administración</span></a></nav></div><div class="p-space-md border-t border-white/10"><div class="bg-tertiary-container/60 rounded-lg p-space-sm flex items-center justify-between"><div class="flex flex-col min-w-0"><span class="font-caption-medium text-caption-medium text-on-primary truncate">Soporte Técnico</span><span class="font-label-xs text-label-xs text-on-primary-container truncate">Anexo 1042</span></div><span class="material-symbols-outlined text-on-primary-container text-[18px]">help_outline</span></div></div></aside><div class="pl-[240px] flex flex-col min-h-screen"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 border-b border-outline-variant/30 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-primary transition-colors cursor-pointer">Plataforma</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="font-body-md-medium text-body-md-medium text-on-surface">Gestión de Grados y Títulos</span></div><span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-fixed font-caption-medium text-caption-medium border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Semestre 2025-I</span></div><div class="flex items-center gap-space-lg"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col text-left"><span class="font-body-md-medium text-body-md-medium text-on-surface leading-tight">Lic. Carmen Morales</span><span class="font-caption text-caption text-on-surface-variant leading-tight">Jefa de Grados y Títulos</span></div><a class="ml-space-xs p-space-xs rounded-lg text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login" href="#" title="Cerrar Sesión"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></header><main class="relative pt-16 w-full px-space-xl pb-space-xl flex-1 bg-surface"><div class="flex flex-col w-full gap-space-lg">
+<!-- Header Institucional y Contexto -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-xs text-label-xs uppercase tracking-wider">
+<span>Gestión de Grados y Títulos</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-caption-medium text-caption-medium">Cuerpo Académico Evaluador</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight mt-0.5">
+        Gestión de Docentes Asesores y Jurados
+      </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Control de carga académica, designaciones vigentes y compatibilidad de dictamen conforme al Reglamento General.
+      </p>
+</div>
+<!-- Quick Action / Export Toolbar -->
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg text-body-sm-medium font-body-sm-medium shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Exportar Reporte Carga</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary hover:bg-primary-container text-on-primary rounded-lg text-body-sm-medium font-body-sm-medium shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">
+<span class="material-symbols-outlined text-[18px]">assignment_add</span>
+<span>Asignar a Expediente</span>
+</button>
+</div>
+</div>
+<!-- Barra Superior de Búsqueda y Filtros con Autocomplete -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-center">
+<!-- Buscador Predictivo -->
+<div class="lg:col-span-7 relative" id="search-container">
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider block mb-1" for="docente-search">
+          Búsqueda de Catedrático / Asesor
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[20px] text-outline pointer-events-none">search</span>
+<input autocomplete="off" class="w-full pl-10 pr-10 py-2.5 bg-surface-container-low text-on-surface rounded-lg font-body-md text-body-md placeholder:text-outline transition-all focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1" id="docente-search" placeholder="Ingresar apellidos, DNI o código de docente..." type="text" value="Dr. Hugo Valdivia Pastor"/>
+<button class="absolute right-3 text-outline hover:text-on-surface transition-colors p-1" title="Limpiar búsqueda" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Predictivo Dropdown Simulador -->
+<div class="hidden absolute top-full left-0 right-0 mt-1 bg-surface-container-lowest rounded-lg shadow-xl py-space-xs z-30" id="autocomplete-panel">
+<div class="px-space-md py-space-xs font-label-xs text-label-xs text-outline uppercase tracking-wider">Resultados sugeridos</div>
+<button class="w-full px-space-md py-space-sm flex items-center justify-between hover:bg-surface-container text-left transition-colors" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">person</span>
+<div>
+<p class="font-body-md-medium text-body-md-medium text-on-surface">Dr. Hugo Valdivia Pastor</p>
+<p class="font-caption text-caption text-on-surface-variant">DNI: 09482103 · FII · Cód. DOC-3391</p>
+</div>
+</div>
+<span class="inline-flex px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption text-caption">6 asesorías</span>
+</button>
+<button class="w-full px-space-md py-space-sm flex items-center justify-between hover:bg-surface-container text-left transition-colors" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">person</span>
+<div>
+<p class="font-body-md-medium text-body-md-medium text-on-surface">Dra. Hilda Valdivieso Carrión</p>
+<p class="font-caption text-caption text-on-surface-variant">DNI: 41209844 · FCAM · Cód. DOC-2104</p>
+</div>
+</div>
+<span class="inline-flex px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-caption text-caption">2 asesorías</span>
+</button>
+</div>
+</div>
+<!-- Selector Departamento y Facultad -->
+<div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div>
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider block mb-1" for="faculty-select">
+            Facultad
+          </label>
+<div class="relative">
+<select class="w-full py-2.5 pl-3 pr-8 bg-surface-container-low text-on-surface rounded-lg font-body-sm text-body-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 transition-all" id="faculty-select">
+<option selected="">Fac. de Ingeniería Industrial (FII)</option>
+<option>Fac. de Ciencias del Ambiente (FCAM)</option>
+<option>Fac. de Economía y Contabilidad</option>
+<option>Fac. de Ciencias Médicas</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[20px]">expand_more</span>
+</div>
+</div>
+<div>
+<label class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider block mb-1" for="dept-select">
+            Dpto. Académico
+          </label>
+<div class="relative">
+<select class="w-full py-2.5 pl-3 pr-8 bg-surface-container-low text-on-surface rounded-lg font-body-sm text-body-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 transition-all" id="dept-select">
+<option selected="">Ingeniería de Producción</option>
+<option>Gestión de la Calidad y Sistemas</option>
+<option>Investigación y Operaciones</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ficha Completa del Docente & Métricas Clave Bento Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-md items-stretch">
+<!-- Ficha de Perfil -->
+<div class="xl:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start gap-space-md">
+<div class="relative">
+<img class="w-20 h-20 rounded-xl object-cover shadow-sm ring-2 ring-primary/20" data-alt="Photorealistic portrait photo of a senior Peruvian university professor, wearing formal maroon academic necktie and grey blazer, glasses, neutral academic office background with leather-bound books, soft morning lighting, high prestige." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGKlYrhQXeFATdHEB65lyIL2_JwEJVeNyqyDOjtl_MqE4QUOYEKJ8Msbp-w1Jq2MYH2YvzNZIWeZj-N1hPmGkEDGNDGBjddnXJUezieIz4oxpPAYtKrt5pok-zaXnDFfNobNWBYeSOjY5DGkbrYUPY5Rc_WtNi7bQ-EiVLB20KUtDUCW8qfR2rrLV31ahj0VObsMkgcpquy6EGT6K_qDob1YJ6ljZOhTp_1Jk9mnxHWMhXrxOVvvHc"/>
+<span class="absolute -bottom-1.5 -right-1.5 inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-700 text-white text-[12px] shadow-sm" title="Habilitado estatutariamente">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-primary text-on-primary font-semibold">D.E. ORDINARIO</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed">Cód. DOC-3391</span>
+<span class="font-caption-medium text-caption-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">Habilitado SUNEDU</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold mt-1.5 truncate">
+            Dr. Hugo Valdivia Pastor
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">
+            Doctor en Ciencias de la Ingeniería · Catedrático Principal
+          </p>
+<div class="flex flex-wrap items-center gap-y-1 gap-x-space-md mt-2 font-caption text-caption text-secondary">
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline">badge</span>
+              DNI: <strong class="text-on-surface font-medium">09482103</strong>
+</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline">science</span>
+              Reg. CONCYTEC: <strong class="text-primary font-semibold">P-4821 (Carlos Monge)</strong>
+</span>
+<span class="inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline">mail</span>
+              hvaldiviap@unasam.edu.pe
+            </span>
+</div>
+</div>
+</div>
+<!-- Resumen de Carga Global Asignada -->
+<div class="mt-space-md pt-space-sm bg-surface-container-low rounded-lg p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-lg">
+<div>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Asesorías Activas</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">6 <span class="font-body-sm text-body-sm text-outline">/ 7 máx.</span></p>
+</div>
+<div class="w-px h-8 bg-outline-variant/50"></div>
+<div>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Designación Jurado</p>
+<p class="font-headline-sm text-headline-sm text-on-surface font-semibold">3 <span class="font-body-sm text-body-sm text-outline">comisiones</span></p>
+</div>
+<div class="w-px h-8 bg-outline-variant/50"></div>
+<div>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Dictámenes Totales</p>
+<p class="font-headline-sm text-headline-sm text-primary font-semibold">42 <span class="font-body-sm text-body-sm text-secondary">históricos</span></p>
+</div>
+</div>
+<button class="inline-flex items-center gap-1 text-primary hover:text-tertiary-container font-caption-medium text-caption-medium focus:outline-none focus:ring-1 focus:ring-primary rounded p-1" type="button">
+<span>Ver legajo docencia</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Mini Tarjetas Métricas Clave (Bento) -->
+<div class="xl:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<!-- Card 1: Asesorías en límite -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-amber-500"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-amber-900 bg-amber-50 px-2 py-0.5 rounded font-semibold">Alerta Capacidad</span>
+<span class="material-symbols-outlined text-amber-600 text-[20px]">warning</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">6 / 7</span>
+<span class="font-caption-medium text-caption-medium text-amber-800">85.7% de cupo</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">Asesorías en límite reglamentario</p>
+<!-- Progress bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full mt-3 overflow-hidden">
+<div class="h-full bg-amber-600 rounded-full transition-all" style="width: 86%;"></div>
+</div>
+</div>
+<p class="font-caption text-caption text-secondary mt-space-sm">
+          Solo 1 vacante antes de bloqueo automático en sistema.
+        </p>
+</div>
+<!-- Card 2: Dictámenes Pendientes -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-primary bg-surface-container-highest px-2 py-0.5 rounded font-semibold">Por Dictaminar</span>
+<span class="material-symbols-outlined text-primary text-[20px]">pending_actions</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">1</span>
+<span class="inline-flex items-center gap-1 font-caption-medium text-caption-medium text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> En plazo (8d)
+            </span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">Dictamen pendiente de emisión</p>
+<!-- Countdown bar -->
+<div class="w-full h-2 bg-surface-container-high rounded-full mt-3 overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all" style="width: 53%;"></div>
+</div>
+</div>
+<p class="font-caption text-caption text-secondary mt-space-sm">
+          Exp. EXP-2025-0842 (Vence: 28 Abr 2025).
+        </p>
+</div>
+<!-- Card 3: Tasa de Sustentación -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-emerald-600"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-emerald-900 bg-emerald-50 px-2 py-0.5 rounded font-semibold">Efectividad</span>
+<span class="material-symbols-outlined text-emerald-600 text-[20px]">workspace_premium</span>
+</div>
+<div class="mt-space-md">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">94%</span>
+<span class="font-caption-medium text-caption-medium text-emerald-700 font-semibold">+6% vs. prom.</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">Tasa de sustentación exitosa</p>
+<!-- Mini sparkline SVG -->
+<div class="w-full h-2 mt-3 flex items-center">
+<svg class="w-full h-6 text-emerald-600 overflow-visible" fill="none" viewbox="0 0 100 24">
+<path d="M0 20 L20 18 L40 14 L60 15 L80 8 L100 4" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+<circle class="fill-emerald-600" cx="100" cy="4" r="3"></circle>
+</svg>
+</div>
+</div>
+<p class="font-caption text-caption text-secondary mt-space-sm">
+          32 graduandos aprobados en primera instancia.
+        </p>
+</div>
+</div>
+</div>
+<!-- Segmented Control de Navegación Interna Estilizado -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mt-space-xs">
+<div class="inline-flex p-1 bg-surface-container rounded-lg self-start">
+<button class="tab-btn px-space-md py-space-sm rounded-lg font-body-md-medium text-body-md-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary shadow-sm bg-surface-container-lowest text-primary" id="tab-asesor" onclick="switchTab('asesor')" type="button">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span>Como Asesor (6 expedientes)</span>
+</div>
+</button>
+<button class="tab-btn px-space-md py-space-sm rounded-lg font-body-md-medium text-body-md-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary text-secondary hover:text-on-surface" id="tab-jurado" onclick="switchTab('jurado')" type="button">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span>Como Jurado (4 expedientes)</span>
+</div>
+</button>
+<button class="tab-btn px-space-md py-space-sm rounded-lg font-body-md-medium text-body-md-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary text-secondary hover:text-on-surface" id="tab-historico" onclick="switchTab('historico')" type="button">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">history_edu</span>
+<span>Histórico de Sustentaciones</span>
+</div>
+</button>
+</div>
+<!-- Filtros Secundarios de Tabla -->
+<div class="flex items-center gap-space-xs self-end sm:self-auto">
+<span class="font-caption text-caption text-secondary">Filtrar estado:</span>
+<select class="py-1.5 pl-2.5 pr-7 bg-surface-container-lowest text-on-surface rounded-lg font-caption text-caption shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary">
+<option>Todos los estados</option>
+<option>En Revisión</option>
+<option>Dictamen Emitido</option>
+<option>Expediente Aprobado</option>
+</select>
+</div>
+</div>
+<!-- Contenedor de Tabla de Expedientes Asociados -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Toolbar -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Expedientes en calidad de Asesor</span>
+<span class="font-caption text-caption text-outline">|</span>
+<span class="font-caption text-caption text-on-surface-variant">Semestre Académico 2025-I</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-caption text-caption text-on-surface-variant">6 registros activos</span>
+</div>
+</div>
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse" style="font-variant-numeric: tabular-nums;">
+<thead>
+<tr class="bg-surface-container-high/40 text-secondary font-label-xs text-label-xs uppercase tracking-wider">
+<th class="py-3 px-space-md font-semibold">Cód. Expediente</th>
+<th class="py-3 px-space-md font-semibold">Graduando</th>
+<th class="py-3 px-space-md font-semibold min-w-[240px]">Título de Tesis / Modalidad</th>
+<th class="py-3 px-space-md font-semibold">Rol Asignado</th>
+<th class="py-3 px-space-md font-semibold">Fecha Asign.</th>
+<th class="py-3 px-space-md font-semibold">Estado de Trámite</th>
+<th class="py-3 px-space-md font-semibold">Tiempo en Fase</th>
+<th class="py-3 px-space-md font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-sm text-body-sm text-on-surface">
+<!-- Fila 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-body-md-medium text-body-md-medium text-primary font-semibold">EXP-2025-0842</span>
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity" title="Copiar código" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Vega Mendoza, Carlos Alberto</span>
+<span class="font-caption text-caption text-outline">Cód. 191.0204.412 · Ing. Industrial</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="line-clamp-2 text-on-surface font-medium" title="Optimización de la cadena de suministro hortofrutícola en el Callejón de Huaylas mediante modelo MILP">
+                  Optimización de la cadena de suministro hortofrutícola en el Callejón de Huaylas mediante modelo MILP
+                </span>
+<span class="font-caption text-caption text-primary mt-0.5">Tesis para Título Profesional</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-caption-medium text-caption-medium">
+<span class="material-symbols-outlined text-[14px]">star</span>
+                Asesor Principal
+              </span>
+</td>
+<td class="py-3 px-space-md text-on-surface-variant font-caption text-caption">
+              14/01/2025
+            </td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-caption-medium text-caption-medium bg-blue-50 text-blue-800">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                En Revisión de Informe
+              </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-caption-medium text-caption-medium text-on-surface font-semibold">18 días hábiles</span>
+<span class="font-caption text-caption text-emerald-700">En plazo regular</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary" title="Ver expediente digital" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary" title="Enviar recordatorio formal" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-body-md-medium text-body-md-medium text-primary font-semibold">EXP-2025-0791</span>
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity" title="Copiar código" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Pérez Guerrero, Diana Stephanie</span>
+<span class="font-caption text-caption text-outline">Cód. 182.0203.119 · Ing. Industrial</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="line-clamp-2 text-on-surface font-medium" title="Diseño ergonómico de estaciones de empaque para reducir trastornos musculoesqueléticos">
+                  Diseño ergonómico de estaciones de empaque para reducir trastornos musculoesqueléticos en agroexportadoras
+                </span>
+<span class="font-caption text-caption text-primary mt-0.5">Tesis para Título Profesional</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-caption-medium text-caption-medium">
+                Co-Asesor Metodológico
+              </span>
+</td>
+<td class="py-3 px-space-md text-on-surface-variant font-caption text-caption">
+              28/11/2024
+            </td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-caption-medium text-caption-medium bg-emerald-50 text-emerald-800">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                Dictamen Favorable Emitido
+              </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-caption-medium text-caption-medium text-on-surface">Fase completada</span>
+<span class="font-caption text-caption text-outline">Pasa a Consejo Fac.</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary" title="Ver expediente digital" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary" title="Enviar recordatorio formal" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Fila 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="font-body-md-medium text-body-md-medium text-primary font-semibold">EXP-2025-0622</span>
+<button class="text-outline hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity" title="Copiar código" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Robles Salazar, Marco Antonio</span>
+<span class="font-caption text-caption text-outline">Cód. 171.0201.034 · Maestría en Gestión</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="line-clamp-2 text-on-surface font-medium" title="Implementación del TPM para la mejora de la eficiencia global de equipos (OEE) en plantas lácteas">
+                  Implementación del TPM para la mejora de la eficiencia global de equipos (OEE) en plantas lácteas de Ancash
+                </span>
+<span class="font-caption text-caption text-primary mt-0.5">Tesis de Posgrado (Maestría)</span>
+</div>
+</td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-caption-medium text-caption-medium">
+<span class="material-symbols-outlined text-[14px]">star</span>
+                Asesor Principal
+              </span>
+</td>
+<td class="py-3 px-space-md text-on-surface-variant font-caption text-caption">
+              05/10/2024
+            </td>
+<td class="py-3 px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-caption-medium text-caption-medium bg-amber-50 text-amber-800">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                Observaciones Notificadas
+              </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex flex-col">
+<span class="font-caption-medium text-caption-medium text-amber-900 font-semibold">27 días en subsanación</span>
+<span class="font-caption text-caption text-outline">Por graduando</span>
+</div>
+</td>
+<td class="py-3 px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary" title="Ver expediente digital" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary" title="Enviar recordatorio formal" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Paginación de Tabla -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<p class="font-caption text-caption text-on-surface-variant">
+        Mostrando <strong class="text-on-surface">1–3</strong> de <strong class="text-on-surface">6</strong> expedientes activos de asesoría
+      </p>
+<div class="flex items-center gap-space-xs">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-outline font-caption text-caption shadow-sm hover:bg-surface-container disabled:opacity-40" disabled="" type="button">
+          Anterior
+        </button>
+<button class="px-2.5 py-1 rounded-lg bg-primary text-on-primary font-caption-medium text-caption-medium shadow-sm" type="button">
+          1
+        </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface font-caption text-caption hover:bg-surface-container shadow-sm" type="button">
+          2
+        </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface font-caption text-caption shadow-sm hover:bg-surface-container" type="button">
+          Siguiente
+        </button>
+</div>
+</div>
+</div>
+<!-- Estados de Sistema: Loading Indicator & Empty State Demostrativo -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Bloque Ilustrativo: Estado Vacío (Sin expedientes asignados) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row items-center gap-space-lg">
+<div class="w-24 h-24 rounded-2xl bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[44px] text-primary/40">folder_off</span>
+</div>
+<div class="flex flex-col text-center sm:text-left">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container text-outline-variant font-label-xs text-label-xs uppercase self-center sm:self-start">
+<span class="material-symbols-outlined text-[14px]">info</span>
+          Vista de contingencia / nuevo docente
+        </div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-1">
+          Docente sin expedientes asignados
+        </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-lg mt-1">
+          No registra expedientes activos en el ciclo académico seleccionado. El catedrático cuenta con disponibilidad total para conformar jurados evaluadores o asumir asesorías de tesis.
+        </p>
+<div class="mt-space-md flex items-center justify-center sm:justify-start gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-space-md py-space-xs bg-primary text-on-primary rounded-lg font-caption-medium text-caption-medium shadow-sm hover:bg-primary-container focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<span class="material-symbols-outlined text-[16px]">add_task</span>
+<span>Asignar Primera Tesis</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-space-md py-space-xs bg-surface-container-low text-on-surface rounded-lg font-caption-medium text-caption-medium hover:bg-surface-container focus:outline-none focus:ring-2 focus:ring-primary" type="button">
+<span>Ver historial inactivo</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Indicador de Estado de Carga con Spinner Vino Institucional -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col items-center justify-center text-center">
+<div class="relative flex items-center justify-center mb-space-md">
+<!-- Spinner Vino Institucional animado -->
+<div class="w-12 h-12 rounded-full border-4 border-primary/20 border-t-primary animate-spin"></div>
+<span class="material-symbols-outlined absolute text-primary text-[20px]">sync</span>
+</div>
+<h4 class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">
+        Sincronizando con SUNEDU & DINA
+      </h4>
+<p class="font-caption text-caption text-on-surface-variant mt-1">
+        Validando carga lectiva docente y compatibilidad de dictámenes en tiempo real...
+      </p>
+<div class="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed/40 text-primary font-caption-medium text-caption-medium">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>Consulta federada activa</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Behavior -->
+<script>
+  function switchTab(type) {
+    const tabs = ['asesor', 'jurado', 'historico'];
+    tabs.forEach(tab => {
+      const el = document.getElementById('tab-' + tab);
+      if (tab === type) {
+        el.className = 'tab-btn px-space-md py-space-sm rounded-lg font-body-md-medium text-body-md-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary shadow-sm bg-surface-container-lowest text-primary';
+      } else {
+        el.className = 'tab-btn px-space-md py-space-sm rounded-lg font-body-md-medium text-body-md-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary text-secondary hover:text-on-surface';
+      }
+    });
+  }
+
+  // Toggle predictivo al enfocar el input
+  const searchInput = document.getElementById('docente-search');
+  const autocompletePanel = document.getElementById('autocomplete-panel');
+
+  if (searchInput && autocompletePanel) {
+    searchInput.addEventListener('focus', () => {
+      autocompletePanel.classList.remove('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target) && !autocompletePanel.contains(e.target)) {
+        autocompletePanel.classList.add('hidden');
+      }
+    });
+  }
+</script></main></div></body></html>

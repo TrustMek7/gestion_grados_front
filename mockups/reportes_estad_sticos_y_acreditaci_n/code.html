@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "primary": "#4f0319",
+        "primary-fixed": "#ffd9dc",
+        "surface-container-highest": "#fadbdf",
+        "secondary-fixed-dim": "#d3c3c6",
+        "secondary-fixed": "#efdee1",
+        "on-background": "#27171a",
+        "on-primary-fixed": "#400011",
+        "secondary": "#675b5e",
+        "inverse-on-surface": "#ffecee",
+        "tertiary-container": "#67222d",
+        "on-tertiary-fixed": "#3e0310",
+        "inverse-surface": "#3e2b2f",
+        "outline": "#887273",
+        "on-tertiary": "#ffffff",
+        "surface": "#fff8f7",
+        "on-primary-fixed-variant": "#7e2839",
+        "surface-tint": "#9c3f50",
+        "on-surface-variant": "#554244",
+        "surface-container-low": "#fff0f1",
+        "surface-dim": "#f1d3d7",
+        "primary-container": "#6d1b2d",
+        "surface-bright": "#fff8f7",
+        "on-tertiary-container": "#e88993",
+        "tertiary": "#4a0c19",
+        "on-secondary": "#ffffff",
+        "on-primary-container": "#f28393",
+        "on-error": "#ffffff",
+        "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff",
+        "error-container": "#ffdad6",
+        "on-secondary-container": "#6e6164",
+        "on-surface": "#27171a",
+        "tertiary-fixed": "#ffdadc",
+        "error": "#ba1a1a",
+        "surface-container": "#ffe9eb",
+        "tertiary-fixed-dim": "#ffb2b9",
+        "surface-container-high": "#ffe1e5",
+        "background": "#fff8f7",
+        "surface-variant": "#fadbdf",
+        "on-secondary-fixed-variant": "#4f4447",
+        "on-primary": "#ffffff",
+        "secondary-container": "#efdee1",
+        "primary-fixed-dim": "#ffb2bb",
+        "outline-variant": "#dbc0c2",
+        "on-secondary-fixed": "#22191c",
+        "inverse-primary": "#ffb2bb",
+        "on-tertiary-fixed-variant": "#772e39"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      "spacing": {
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "margin": "1.5rem",
+        "space-xs": "0.25rem",
+        "gutter": "1rem",
+        "space-lg": "1.25rem",
+        "space-xl": "1.5rem"
+      },
+      "fontFamily": {
+        "caption-medium": ["Inter"],
+        "body-md-medium": ["Inter"],
+        "body-sm": ["Inter"],
+        "caption": ["Inter"],
+        "label-xs": ["Inter"],
+        "body-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"]
+      },
+      "fontSize": {
+        "caption-medium": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+        "body-md-medium": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+        "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "headline-sm": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed top-0 left-0 bottom-0 w-[240px] bg-primary-container z-50 flex flex-col justify-between select-none shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center gap-space-sm bg-primary border-b border-white/10"><img alt="Logo UNASAM" class="w-8 h-8 rounded-full object-cover ring-1 ring-white/20" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm text-on-primary leading-tight truncate">UNASAM</span><span class="font-caption text-caption text-on-primary-container leading-tight truncate">Grados y Títulos</span></div></div><div class="px-space-md pt-space-md pb-space-xs"><span class="font-label-xs text-label-xs text-on-primary-container uppercase tracking-wider">Módulos Principales</span></div><nav class="flex flex-col gap-space-xs px-space-xs" data-active-classes="bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="inicio" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-md text-body-md truncate">Inicio</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="expedientes" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span class="font-body-md text-body-md truncate">Expedientes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="docentes" href="#"><span class="material-symbols-outlined text-[20px]">school</span><span class="font-body-md text-body-md truncate">Docentes</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-tertiary-container text-on-primary font-body-md-medium border-l-[3px] border-white" data-path="reportes" href="#"><span class="material-symbols-outlined text-[20px]">bar_chart</span><span class="font-body-md text-body-md truncate">Reportes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-white/80 hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="administracion" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-body-md text-body-md truncate">Administración</span></a></nav></div><div class="p-space-md border-t border-white/10"><div class="bg-tertiary-container/60 rounded-lg p-space-sm flex items-center justify-between"><div class="flex flex-col min-w-0"><span class="font-caption-medium text-caption-medium text-on-primary truncate">Soporte Técnico</span><span class="font-label-xs text-label-xs text-on-primary-container truncate">Anexo 1042</span></div><span class="material-symbols-outlined text-on-primary-container text-[18px]">help_outline</span></div></div></aside><div class="pl-[240px] flex flex-col min-h-screen"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 border-b border-outline-variant/30 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-primary transition-colors cursor-pointer">Plataforma</span><span class="material-symbols-outlined text-[16px] text-outline">chevron_right</span><span class="font-body-md-medium text-body-md-medium text-on-surface">Gestión de Grados y Títulos</span></div><span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-fixed font-caption-medium text-caption-medium border border-outline-variant/40"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Semestre 2025-I</span></div><div class="flex items-center gap-space-lg"><button class="relative p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="h-6 w-px bg-outline-variant/50"></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1XzAAJr8Bq3FBIMTTFOjfqpgCxZccDMhx5Qn17JBcnp-dqvm1Uh-itFLm4NVMnSptaiblFcO7zTSCkeAT4QZb0G71MuYBRAirtpkCLJzMPV8qn4HuJc2-f3Wue2mks0O0zWIwcHitECXatKnV9jqFP-hFOYbRz2anLuqWqIlpduA6QWctVEHXHw4MagTJx6vBhMt_qFVf2vK07bLPZDVjILYUltTj1yGxU6sbK1ZMkMGvDAhWVCVg-ArOQ"/><div class="flex flex-col text-left"><span class="font-body-md-medium text-body-md-medium text-on-surface leading-tight">Lic. Carmen Morales</span><span class="font-caption text-caption text-on-surface-variant leading-tight">Jefa de Grados y Títulos</span></div><a class="ml-space-xs p-space-xs rounded-lg text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-colors" data-path="login" href="#" title="Cerrar Sesión"><span class="material-symbols-outlined text-[20px]">logout</span></a></div></div></header><main class="relative pt-16 w-full px-space-xl pb-space-xl flex-1 bg-surface"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-xs text-label-xs uppercase">SUNEDU / SINEACE Audit</span>
+<span class="text-outline text-caption">•</span>
+<span class="font-caption-medium text-caption-medium text-primary">Corte Oficial 2025-I</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Reportes Estadísticos y Acreditación</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Indicadores de eficiencia terminal, cumplimiento de plazos y expedición de grados para SUNEDU y SINEACE.
+      </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_month</span>
+<select class="bg-transparent text-on-surface font-body-md-medium text-body-md-medium focus:outline-none cursor-pointer pr-space-xs">
+<option value="2025-1">Período 2025-I (En curso)</option>
+<option value="2024-2">Período 2024-II</option>
+<option value="2024-1">Período 2024-I</option>
+<option value="quinquenal">Quinquenio 2020-2025</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">domain</span>
+<select class="bg-transparent text-on-surface font-body-md-medium text-body-md-medium focus:outline-none cursor-pointer pr-space-xs">
+<option value="all">Todas las Facultades (11)</option>
+<option value="fcm">Ciencias Médicas</option>
+<option value="fc">Ciencias</option>
+<option value="fii">Ingeniería Industrial</option>
+<option value="fcac">Ciencias Agrarias</option>
+<option value="fce">Economía y Contabilidad</option>
+</select>
+</div>
+<button class="relative inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container text-on-primary font-body-md-medium text-body-md-medium shadow-sm hover:bg-primary transition-all duration-200 focus:outline-none" id="btn-export-excel" type="button">
+<span class="animate-spin h-4 w-4 border-2 border-white/30 border-t-white rounded-full" id="export-spinner"></span>
+<span class="material-symbols-outlined text-[18px] hidden" id="export-icon">download</span>
+<span id="export-label">Exportando padrón filtrado...</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-space-xs p-1 bg-surface-container-low rounded-xl shadow-sm overflow-x-auto">
+<button class="subtab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface transition-colors whitespace-nowrap" id="tab-btn-asesores" onclick="switchReportTab('tab-asesores')" type="button">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span>Asesores y Jurados</span>
+</button>
+<button class="subtab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface transition-colors whitespace-nowrap" id="tab-btn-sorteos" onclick="switchReportTab('tab-sorteos')" type="button">
+<span class="material-symbols-outlined text-[18px]">casino</span>
+<span>Sorteos y Designaciones</span>
+</button>
+<button class="subtab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg font-body-md-medium text-body-md-medium bg-surface text-primary shadow-sm whitespace-nowrap" id="tab-btn-acreditacion" onclick="switchReportTab('tab-acreditacion')" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Acreditación (SUNEDU/SINEACE)</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<button class="subtab-btn flex items-center gap-space-xs px-space-md py-2 rounded-lg font-body-md-medium text-body-md-medium text-on-surface-variant hover:text-on-surface hover:bg-surface transition-colors whitespace-nowrap" id="tab-btn-titulos" onclick="switchReportTab('tab-titulos')" type="button">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+<span>Títulos de Tesis Agrupables</span>
+</button>
+</div>
+<div class="tab-content flex flex-col gap-space-lg" id="panel-acreditacion">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Eficiencia Terminal Global</span>
+<span class="p-1 rounded-md bg-surface-container-low text-primary material-symbols-outlined text-[18px]">speed</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">64.8%</span>
+<span class="font-caption-medium text-caption-medium text-primary flex items-center">+3.2% vs 2024</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 64.8%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Tiempo Promedio a Grado</span>
+<span class="p-1 rounded-md bg-surface-container-low text-primary material-symbols-outlined text-[18px]">timelapse</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">14.6</span>
+<span class="font-caption text-caption text-on-surface-variant">meses</span>
+<span class="font-caption-medium text-caption-medium text-primary ml-auto flex items-center">-2.1 m</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Cumplimiento Plazos Ley 30220</span>
+<span class="p-1 rounded-md bg-surface-container-low text-primary material-symbols-outlined text-[18px]">rule</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">92.4%</span>
+<span class="font-caption-medium text-caption-medium text-primary">Óptimo</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 92.4%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-caption-medium text-caption-medium text-on-surface-variant">Títulos Registrados en SUNEDU</span>
+<span class="p-1 rounded-md bg-surface-container-low text-primary material-symbols-outlined text-[18px]">fact_check</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">1,842</span>
+<span class="font-caption text-caption text-on-surface-variant">expedientes</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Tiempo Promedio Titulación</h2>
+<span class="font-caption text-caption text-on-surface-variant">Meses transcurridos desde egreso por facultad</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container-low px-space-xs py-0.5 rounded text-primary">Estándar: 18m</span>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-caption-medium text-caption-medium">
+<span class="text-on-surface">FC - Ciencias</span>
+<span class="text-primary font-body-md-medium">11.4 meses</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 48%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-caption-medium text-caption-medium">
+<span class="text-on-surface">FII - Ing. Industrial</span>
+<span class="text-primary font-body-md-medium">13.2 meses</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 55%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-caption-medium text-caption-medium">
+<span class="text-on-surface">FCM - Ciencias Médicas</span>
+<span class="text-primary font-body-md-medium">14.8 meses</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 62%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-caption-medium text-caption-medium">
+<span class="text-on-surface">FCAC - Ciencias Agrarias</span>
+<span class="text-primary font-body-md-medium">16.1 meses</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-caption-medium text-caption-medium">
+<span class="text-on-surface">FCE - Economía y Contab.</span>
+<span class="text-primary font-body-md-medium">17.5 meses</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 74%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-caption text-on-surface-variant">
+<span>Promedio institucional: 14.6 m</span>
+<span class="font-caption-medium text-caption-medium text-primary">Bajo umbral legal</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Grados Conferidos (2020-2025)</h2>
+<span class="font-caption text-caption text-on-surface-variant">Comparativo Bachiller vs Título Profesional</span>
+</div>
+<div class="flex items-center gap-space-xs font-caption text-caption">
+<span class="inline-block w-2.5 h-2.5 rounded-sm bg-primary"></span>
+<span class="text-on-surface-variant">Título</span>
+<span class="inline-block w-2.5 h-2.5 rounded-sm bg-surface-container-highest ml-1"></span>
+<span class="text-on-surface-variant">Bachiller</span>
+</div>
+</div>
+<div class="h-44 w-full flex items-end justify-between gap-space-xs pt-space-md">
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-3 bg-surface-container-highest rounded-t" style="height: 60%;" title="2020: 710 Bachilleres"></div>
+<div class="w-3 bg-primary rounded-t" style="height: 42%;" title="2020: 490 Títulos"></div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">2020</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-3 bg-surface-container-highest rounded-t" style="height: 68%;" title="2021: 830 Bachilleres"></div>
+<div class="w-3 bg-primary rounded-t" style="height: 50%;" title="2021: 590 Títulos"></div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">2021</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-3 bg-surface-container-highest rounded-t" style="height: 74%;" title="2022: 910 Bachilleres"></div>
+<div class="w-3 bg-primary rounded-t" style="height: 61%;" title="2022: 740 Títulos"></div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">2022</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-3 bg-surface-container-highest rounded-t" style="height: 82%;" title="2023: 1,020 Bachilleres"></div>
+<div class="w-3 bg-primary rounded-t" style="height: 70%;" title="2023: 860 Títulos"></div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">2023</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-3 bg-surface-container-highest rounded-t" style="height: 94%;" title="2024: 1,180 Bachilleres"></div>
+<div class="w-3 bg-primary rounded-t" style="height: 84%;" title="2024: 1,050 Títulos"></div>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">2024</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-3 bg-surface-container-highest rounded-t" style="height: 48%;" title="2025-I: 560 Bachilleres (Parcial)"></div>
+<div class="w-3 bg-primary rounded-t" style="height: 44%;" title="2025-I: 512 Títulos (Parcial)"></div>
+</div>
+<span class="font-caption-medium text-caption-medium text-primary">2025-I</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-caption text-on-surface-variant">
+<span>Relación Título/Bachiller: 89%</span>
+<span class="font-caption-medium text-caption-medium text-on-surface">Crecimiento +12.4%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-sm">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cumplimiento de Plazos Legales</h2>
+<span class="font-caption text-caption text-on-surface-variant">Límite 18m trámite / 15d dictamen</span>
+</div>
+<span class="p-1 rounded bg-surface-container-low text-primary material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div class="py-space-xs">
+<svg class="w-full h-32 overflow-visible" viewbox="0 0 280 120">
+<line class="text-surface-container" stroke="currentColor" stroke-dasharray="4" x1="10" x2="270" y1="20" y2="20"></line>
+<line class="text-surface-container" stroke="currentColor" stroke-dasharray="4" x1="10" x2="270" y1="65" y2="65"></line>
+<line class="text-surface-container" stroke="currentColor" x1="10" x2="270" y1="110" y2="110"></line>
+<polyline fill="none" points="20,70 70,62 120,55 170,40 220,32 265,28" stroke="#dbc0c2" stroke-width="2"></polyline>
+<polyline fill="none" points="20,85 70,72 120,50 170,42 220,28 265,22" stroke="#4f0319" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<circle cx="265" cy="22" fill="#4f0319" r="4"></circle>
+<circle cx="220" cy="28" fill="#4f0319" r="3.5"></circle>
+<circle cx="170" cy="42" fill="#4f0319" r="3"></circle>
+</svg>
+<div class="flex justify-between font-caption text-caption text-on-surface-variant px-1">
+<span>2020</span>
+<span>2021</span>
+<span>2022</span>
+<span>2023</span>
+<span>2024</span>
+<span class="text-primary font-body-md-medium">2025</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-caption-medium text-caption-medium text-on-surface">Dictámenes en ≤ 15 días</span>
+<span class="font-caption text-caption text-on-surface-variant">Tasa de celeridad docente</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">94.1%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Modalidad de Titulación</h2>
+<span class="font-caption text-caption text-on-surface-variant">Distribución de expedientes año lectivo</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">pie_chart</span>
+</div>
+<div class="flex items-center justify-center py-space-xs relative">
+<svg class="w-40 h-40 transform -rotate-90" viewbox="0 0 160 160">
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#dbc0c2" stroke-dasharray="339.29" stroke-dashoffset="0" stroke-width="20"></circle>
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#6d1b2d" stroke-dasharray="339.29" stroke-dashoffset="50.89" stroke-width="20"></circle>
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#4f0319" stroke-dasharray="339.29" stroke-dashoffset="142.50" stroke-width="20"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-headline-md text-headline-md text-on-surface">1,842</span>
+<span class="font-caption text-caption text-on-surface-variant">Total Grados</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-md">
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Tesis Tradicional</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-caption text-caption text-on-surface-variant">1,068</span>
+<span class="font-body-md-medium text-body-md-medium text-primary">58%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Trabajo de Suficiencia Profesional</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-caption text-caption text-on-surface-variant">497</span>
+<span class="font-body-md-medium text-body-md-medium text-primary">27%</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Proyecto de Investigación / Artículo</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-caption text-caption text-on-surface-variant">277</span>
+<span class="font-body-md-medium text-body-md-medium text-primary">15%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between overflow-hidden">
+<div class="flex items-start justify-between mb-space-md">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Resumen de Indicadores SUNEDU / SINEACE</h2>
+<span class="font-caption text-caption text-on-surface-variant">Matriz de cumplimiento institucional obligatoria CBC</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container text-on-primary-fixed-variant px-space-sm py-1 rounded-full uppercase">Ciclo 2025-I</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase tracking-wider">
+<th class="p-space-sm rounded-l-lg">Código CBC</th>
+<th class="p-space-sm">Nombre del Indicador</th>
+<th class="p-space-sm text-center">Meta Institucional</th>
+<th class="p-space-sm text-center">Valor Logrado</th>
+<th class="p-space-sm text-center">Semáforo</th>
+<th class="p-space-sm rounded-r-lg text-right">Dictamen</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-space-sm font-caption-medium text-caption-medium text-on-surface">CBC-IND-06.1</td>
+<td class="p-space-sm text-on-surface">
+<div class="font-body-md-medium text-body-md-medium">Tasa de Titulación Oportuna (≤ 24 meses)</div>
+<div class="font-caption text-caption text-on-surface-variant">Medido respecto a la cohorte de egresados</div>
+</td>
+<td class="p-space-sm text-center font-caption-medium text-caption-medium text-on-surface">≥ 60.0%</td>
+<td class="p-space-sm text-center font-body-md-medium text-body-md-medium text-primary">64.8%</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-xs text-label-xs bg-surface-container text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-1"></span> Conforme
+                  </span>
+</td>
+<td class="p-space-sm text-right">
+<span class="material-symbols-outlined text-[18px] text-primary" title="Acreditado">check_circle</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-space-sm font-caption-medium text-caption-medium text-on-surface">CBC-IND-06.2</td>
+<td class="p-space-sm text-on-surface">
+<div class="font-body-md-medium text-body-md-medium">Celeridad de Dictamen de Jurado (≤ 15 días hábiles)</div>
+<div class="font-caption text-caption text-on-surface-variant">Tiempo de evaluación por docente designado</div>
+</td>
+<td class="p-space-sm text-center font-caption-medium text-caption-medium text-on-surface">≥ 85.0%</td>
+<td class="p-space-sm text-center font-body-md-medium text-body-md-medium text-primary">92.4%</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-xs text-label-xs bg-surface-container text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-1"></span> Conforme
+                  </span>
+</td>
+<td class="p-space-sm text-right">
+<span class="material-symbols-outlined text-[18px] text-primary" title="Acreditado">check_circle</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-space-sm font-caption-medium text-caption-medium text-on-surface">SINEACE-E12</td>
+<td class="p-space-sm text-on-surface">
+<div class="font-body-md-medium text-body-md-medium">Depósito Automático en RENATI / ALICIA</div>
+<div class="font-caption text-caption text-on-surface-variant">Metadatos de tesis publicados en repositorio digital</div>
+</td>
+<td class="p-space-sm text-center font-caption-medium text-caption-medium text-on-surface">100.0%</td>
+<td class="p-space-sm text-center font-body-md-medium text-body-md-medium text-primary">98.9%</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-xs text-label-xs bg-secondary-container text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1"></span> En Rango
+                  </span>
+</td>
+<td class="p-space-sm text-right">
+<span class="material-symbols-outlined text-[18px] text-secondary" title="Observación menor">info</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-space-sm font-caption-medium text-caption-medium text-on-surface">SUNEDU-DEC-14</td>
+<td class="p-space-sm text-on-surface">
+<div class="font-body-md-medium text-body-md-medium">Ratio Asesor/Tesistas Activos (≤ 5 proyectos simultáneos)</div>
+<div class="font-caption text-caption text-on-surface-variant">Límite de saturación por docente ordinario</div>
+</td>
+<td class="p-space-sm text-center font-caption-medium text-caption-medium text-on-surface">≤ 5.0 tesistas</td>
+<td class="p-space-sm text-center font-body-md-medium text-body-md-medium text-primary">4.2 tesistas</td>
+<td class="p-space-sm text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-xs text-label-xs bg-surface-container text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-1"></span> Conforme
+                  </span>
+</td>
+<td class="p-space-sm text-right">
+<span class="material-symbols-outlined text-[18px] text-primary" title="Acreditado">check_circle</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-caption text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">find_replace</span>
+<span>Última sincronización con SUNEDU RENATI: Hoy, 08:30 hrs</span>
+</div>
+<button class="text-primary font-caption-medium text-caption-medium hover:underline flex items-center gap-1" type="button">
+<span>Descargar Informe Técnico PDF</span>
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-content hidden flex-col gap-space-md" id="panel-asesores">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Distribución de Carga Docente y Cumplimiento</h2>
+<p class="font-caption text-caption text-on-surface-variant">Supervisión de jurados dictaminadores y asesores designados por sorteo o resolución</p>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container-low text-primary px-space-sm py-1 rounded-full uppercase">86 Docentes Activos</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-caption text-caption text-on-surface-variant">Promedio Días de Dictamen</span>
+<span class="font-headline-lg text-headline-lg text-primary">8.4 días</span>
+<span class="font-caption text-caption text-on-surface">Plazo máximo normativo: 15 días útiles</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-caption text-caption text-on-surface-variant">Docentes en Límite de Carga (≥5)</span>
+<span class="font-headline-lg text-headline-lg text-secondary">6 docentes</span>
+<span class="font-caption text-caption text-on-surface">Bloqueados temporalmente para sorteos</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-caption text-caption text-on-surface-variant">Tasa de Aprobación en Primer Dictamen</span>
+<span class="font-headline-lg text-headline-lg text-primary">76.2%</span>
+<span class="font-caption text-caption text-on-surface">23.8% devuelto con observaciones</span>
+</div>
+</div>
+<div class="overflow-x-auto mt-space-sm">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase">
+<th class="p-space-sm">Docente / Grado</th>
+<th class="p-space-sm">Facultad</th>
+<th class="p-space-sm text-center">Tesis Asesoradas</th>
+<th class="p-space-sm text-center">Jurado Titular</th>
+<th class="p-space-sm text-center">Prom. Días Dictamen</th>
+<th class="p-space-sm text-center">Estado Disponibilidad</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low">
+<td class="p-space-sm font-body-md-medium text-body-md-medium text-on-surface">Dr. Manuel Valenzuela Ramos</td>
+<td class="p-space-sm text-on-surface-variant">Ingeniería Industrial</td>
+<td class="p-space-sm text-center font-body-md-medium text-primary">4</td>
+<td class="p-space-sm text-center font-body-md-medium text-primary">8</td>
+<td class="p-space-sm text-center">6.2 d</td>
+<td class="p-space-sm text-center"><span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">Disponible</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low">
+<td class="p-space-sm font-body-md-medium text-body-md-medium text-on-surface">Dra. Lucía Paredes Castillo</td>
+<td class="p-space-sm text-on-surface-variant">Ciencias Médicas</td>
+<td class="p-space-sm text-center font-body-md-medium text-primary">5</td>
+<td class="p-space-sm text-center font-body-md-medium text-primary">12</td>
+<td class="p-space-sm text-center">11.8 d</td>
+<td class="p-space-sm text-center"><span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-medium text-caption-medium">Carga Máxima</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low">
+<td class="p-space-sm font-body-md-medium text-body-md-medium text-on-surface">Mg. Carlos Figueroa Mendoza</td>
+<td class="p-space-sm text-on-surface-variant">Ciencias Agrarias</td>
+<td class="p-space-sm text-center font-body-md-medium text-primary">2</td>
+<td class="p-space-sm text-center font-body-md-medium text-primary">5</td>
+<td class="p-space-sm text-center">7.5 d</td>
+<td class="p-space-sm text-center"><span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-caption-medium text-caption-medium">Disponible</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-content hidden flex-col gap-space-md" id="panel-sorteos">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Registro Oficial de Sorteos Públicos</h2>
+<p class="font-caption text-caption text-on-surface-variant">Trazabilidad de balotas y actas de designación automatizada bajo estándar de transparencia</p>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-primary font-body-md-medium text-body-md-medium hover:bg-surface-container-high transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Validar Hash de Integridad</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase">
+<th class="p-space-sm">N° Acta Sorteo</th>
+<th class="p-space-sm">Expediente</th>
+<th class="p-space-sm">Tesista</th>
+<th class="p-space-sm">Modalidad</th>
+<th class="p-space-sm">Balota Extraída</th>
+<th class="p-space-sm">Jurado Titular Presidente</th>
+<th class="p-space-sm text-right">Acta Digital</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low">
+<td class="p-space-sm font-caption-medium text-caption-medium text-on-surface">ACT-2025-0481</td>
+<td class="p-space-sm text-primary font-body-md-medium">EXP-2025-1104</td>
+<td class="p-space-sm text-on-surface">Álvarez Romero, Diego</td>
+<td class="p-space-sm text-on-surface-variant">Tesis Ordinaria</td>
+<td class="p-space-sm"><span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-xs text-label-xs">BAL-14-A</span></td>
+<td class="p-space-sm text-on-surface">Dr. Raúl Santillán Vega</td>
+<td class="p-space-sm text-right">
+<a class="text-primary hover:underline font-caption-medium text-caption-medium flex items-center justify-end gap-1" href="#">
+<span>Descargar</span>
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low">
+<td class="p-space-sm font-caption-medium text-caption-medium text-on-surface">ACT-2025-0480</td>
+<td class="p-space-sm text-primary font-body-md-medium">EXP-2025-1098</td>
+<td class="p-space-sm text-on-surface">Mendoza Huerta, Patricia</td>
+<td class="p-space-sm text-on-surface-variant">Suficiencia Profesional</td>
+<td class="p-space-sm"><span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-xs text-label-xs">BAL-09-C</span></td>
+<td class="p-space-sm text-on-surface">Dra. Beatriz Solano Ríos</td>
+<td class="p-space-sm text-right">
+<a class="text-primary hover:underline font-caption-medium text-caption-medium flex items-center justify-end gap-1" href="#">
+<span>Descargar</span>
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tab-content hidden flex-col gap-space-md" id="panel-titulos">
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Catálogo Agrupable de Tesis e Investigaciones</h2>
+<p class="font-caption text-caption text-on-surface-variant">Desglose multinivel por Escuela Profesional, Líneas prioritarias y recuentos de títulos aprobados</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<input class="px-space-sm py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none w-64" placeholder="Buscar palabras clave en títulos..." type="text"/>
+<button class="p-1.5 rounded-lg bg-surface-container text-primary hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">filter_alt</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="rounded-lg bg-surface-container-low overflow-hidden">
+<button class="w-full flex items-center justify-between p-space-sm font-body-md-medium text-body-md-medium text-on-surface hover:bg-surface-container transition-colors text-left" onclick="toggleThesisGroup('group-industrial')" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary transition-transform duration-200" id="icon-group-industrial">expand_more</span>
+<span>Escuela Profesional de Ingeniería Industrial</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs">142 Tesis</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Líneas de Investigación: 4</span>
+</button>
+<div class="p-space-sm pt-0 flex flex-col gap-space-xs" id="group-industrial">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-caption-medium text-caption-medium text-primary">
+<span>Línea 1: Optimización de Procesos Productivos y Ergonomía (58 títulos)</span>
+<span class="font-label-xs text-label-xs uppercase text-on-surface-variant">92% Titulados</span>
+</div>
+<ul class="list-disc list-inside text-body-sm font-body-sm text-on-surface pl-2 space-y-1">
+<li class="truncate">"Aplicación de metodología Lean Manufacturing para reducir tiempos de ciclo en planta agroexportadora del Valle del Santa, 2024" - <em>Bach. Rojas P.</em></li>
+<li class="truncate">"Modelo ergonómico y su impacto en la productividad laboral del sector pesquero industrial, Chimbote 2023-2024" - <em>Bach. Silva M.</em></li>
+</ul>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-caption-medium text-caption-medium text-primary">
+<span>Línea 2: Gestión de la Calidad y Cadena de Suministro (46 títulos)</span>
+<span class="font-label-xs text-label-xs uppercase text-on-surface-variant">88% Titulados</span>
+</div>
+<ul class="list-disc list-inside text-body-sm font-body-sm text-on-surface pl-2 space-y-1">
+<li class="truncate">"Implementación del sistema HACCP en la cadena logística de almacenamiento en frío para exportación" - <em>Bach. Carranza H.</em></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="rounded-lg bg-surface-container-low overflow-hidden">
+<button class="w-full flex items-center justify-between p-space-sm font-body-md-medium text-body-md-medium text-on-surface hover:bg-surface-container transition-colors text-left" onclick="toggleThesisGroup('group-sistemas')" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary transition-transform duration-200" id="icon-group-sistemas">chevron_right</span>
+<span>Escuela Profesional de Ingeniería de Sistemas e Informática</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs">188 Tesis</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Líneas de Investigación: 3</span>
+</button>
+<div class="hidden p-space-sm pt-0 flex flex-col gap-space-xs" id="group-sistemas">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-caption-medium text-caption-medium text-primary">
+<span>Línea: Inteligencia Artificial y Procesamiento de Datos (84 títulos)</span>
+</div>
+<ul class="list-disc list-inside text-body-sm font-body-sm text-on-surface pl-2">
+<li class="truncate">"Sistema predictivo basado en Redes Neuronales Convolucionales para detección temprana de plagas en cultivos andinos" - <em>Bach. Quiroz T.</em></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="rounded-lg bg-surface-container-low overflow-hidden">
+<button class="w-full flex items-center justify-between p-space-sm font-body-md-medium text-body-md-medium text-on-surface hover:bg-surface-container transition-colors text-left" onclick="toggleThesisGroup('group-medicina')" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-primary transition-transform duration-200" id="icon-group-medicina">chevron_right</span>
+<span>Escuela Profesional de Medicina Humana</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs">96 Tesis</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Líneas de Investigación: 2</span>
+</button>
+<div class="hidden p-space-sm pt-0" id="group-medicina"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchReportTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(panel => {
+      panel.classList.add('hidden');
+      panel.classList.remove('flex');
+    });
+
+    document.querySelectorAll('.subtab-btn').forEach(btn => {
+      btn.classList.remove('bg-surface', 'text-primary', 'shadow-sm');
+      btn.classList.add('text-on-surface-variant');
+      const dot = btn.querySelector('.bg-primary');
+      if (dot) dot.remove();
+    });
+
+    const activePanel = document.getElementById(tabId.replace('tab-', 'panel-'));
+    if (activePanel) {
+      activePanel.classList.remove('hidden');
+      activePanel.classList.add('flex');
+    }
+
+    const activeBtn = document.getElementById('tab-btn-' + tabId.replace('tab-', ''));
+    if (activeBtn) {
+      activeBtn.classList.remove('text-on-surface-variant');
+      activeBtn.classList.add('bg-surface', 'text-primary', 'shadow-sm');
+      if (!activeBtn.querySelector('.bg-primary')) {
+        const dot = document.createElement('span');
+        dot.className = 'w-2 h-2 rounded-full bg-primary';
+        activeBtn.appendChild(dot);
+      }
+    }
+  }
+
+  function toggleThesisGroup(groupId) {
+    const group = document.getElementById(groupId);
+    const icon = document.getElementById('icon-' + groupId);
+    if (group.classList.contains('hidden')) {
+      group.classList.remove('hidden');
+      if (icon) icon.innerText = 'expand_more';
+    } else {
+      group.classList.add('hidden');
+      if (icon) icon.innerText = 'chevron_right';
+    }
+  }
+
+  const exportBtn = document.getElementById('btn-export-excel');
+  const exportSpinner = document.getElementById('export-spinner');
+  const exportIcon = document.getElementById('export-icon');
+  const exportLabel = document.getElementById('export-label');
+
+  if (exportBtn) {
+    setTimeout(() => {
+      exportSpinner.classList.add('hidden');
+      exportIcon.classList.remove('hidden');
+      exportLabel.innerText = 'Exportar a Excel (.xlsx)';
+    }, 2400);
+
+    exportBtn.addEventListener('click', function() {
+      exportSpinner.classList.remove('hidden');
+      exportIcon.classList.add('hidden');
+      exportLabel.innerText = 'Exportando padrón filtrado...';
+      setTimeout(() => {
+        exportSpinner.classList.add('hidden');
+        exportIcon.classList.remove('hidden');
+        exportLabel.innerText = 'Exportar a Excel (.xlsx)';
+      }, 1800);
+    });
+  }
+</script></main></div></body></html>
