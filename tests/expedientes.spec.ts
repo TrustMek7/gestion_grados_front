@@ -1,0 +1,95 @@
+import { expect, test } from '@playwright/test'
+import type { Page } from '@playwright/test'
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('/login')
+  await page.getByRole('button', { name: 'Continuar con Google' }).click()
+  await expect(page).toHaveURL(/\/inicio$/)
+})
+
+async function fillDossier(page: Page, id: string) {
+  await page.getByLabel('Número de expediente').fill(id)
+  await page.getByLabel('Fecha de inicio').fill('2026-09-01')
+  await page.getByLabel('Nombres y apellidos').fill('Persona de Prueba')
+  await page.getByLabel('Código del graduando').fill('DEMO-GR-TEST')
+  await page.getByLabel('Escuela profesional').selectOption('Ingeniería de Sistemas')
+  await page.getByLabel('Especialidad o programa').fill('Programa de demostración')
+  await page.getByLabel('Título de tesis o artículo').fill('Trabajo ficticio de verificación')
+}
+
+test('crear, recargar, editar y reflejar los cambios en el dashboard', async ({ page }) => {
+  await page.goto('/expedientes')
+  await page.getByRole('link', { name: 'Nuevo expediente', exact: true }).click()
+  await fillDossier(page, 'DEMO-TEST-001')
+  await page.getByRole('button', { name: 'Crear expediente' }).click()
+  await expect(page).toHaveURL(/\/expedientes\/DEMO-TEST-001$/)
+  await expect(page.getByRole('status')).toHaveText('Expediente guardado en la demostración.')
+  await expect(page.getByRole('heading', { name: 'Persona de Prueba' })).toBeVisible()
+  await page.reload()
+  await expect(page.getByText('Programa de demostración', { exact: true })).toBeVisible()
+  await page.getByRole('link', { name: 'Editar expediente' }).click()
+  await page.getByLabel('Nombres y apellidos').fill('Persona Actualizada')
+  await page.getByLabel('Estado').selectOption('Observado')
+  await page.getByRole('button', { name: 'Guardar cambios' }).click()
+  await expect(page.getByRole('heading', { name: 'Persona Actualizada' })).toBeVisible()
+  await expect(page.getByText('Observado', { exact: true })).toBeVisible()
+  await page.goto('/inicio')
+  await expect(page.getByRole('region', { name: 'Indicadores de expedientes' }).locator('dd')).toHaveText(['11', '7', '3', '4'])
+  await page.goto('/expedientes')
+  await page.getByLabel('Buscar expediente').fill('Trabajo ficticio de verificacion')
+  await expect(page.getByText('Persona Actualizada', { exact: true })).toBeVisible()
+  await expect(page.getByRole('status')).toHaveText('1–1 de 1 registros')
+  // Un número normalizado a NUEVO no debe confundirse con la ruta /nuevo.
+  await page.goto('/expedientes/nuevo')
+  await fillDossier(page, 'nuevo')
+  await page.getByRole('button', { name: 'Crear expediente' }).click()
+  await expect(page).toHaveURL(/\/expedientes\/NUEVO$/)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('NUEVO')
+})
+
+test('validaciones, número duplicado, cancelación y ruta desconocida', async ({ page }) => {
+  await page.goto('/expedientes/nuevo')
+  await page.getByRole('button', { name: 'Crear expediente' }).click()
+  await expect(page.getByRole('alert')).toContainText('Revisa los datos del expediente')
+  await expect(page.getByLabel('Número de expediente')).toHaveAttribute('aria-invalid', 'true')
+  await fillDossier(page, 'demo-2026-0010')
+  await page.getByRole('button', { name: 'Crear expediente' }).click()
+  await expect(page.getByRole('alert')).toContainText('Este número de expediente ya existe.')
+  await page.getByLabel('Número de expediente').fill('DEMO-NO-GUARDADO')
+  await page.getByLabel('Fecha de inicio').fill('2099-01-01')
+  await page.getByRole('button', { name: 'Crear expediente' }).click()
+  await expect(page.getByRole('alert')).toContainText('no sea posterior a hoy')
+  await page.getByRole('link', { name: 'Cancelar', exact: true }).click()
+  await page.getByLabel('Buscar expediente').fill('DEMO-NO-GUARDADO')
+  await expect(page.getByRole('heading', { name: 'No se encontraron expedientes' })).toBeVisible()
+  await page.goto('/expedientes/DEMO-2026-0010/editar')
+  await page.getByLabel('Nombres y apellidos').fill('Cambio que se descarta')
+  await page.getByRole('link', { name: 'Cancelar', exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Lucía Paredes' })).toBeVisible()
+  await page.goto('/expedientes/NO-EXISTE/editar')
+  await expect(page.getByRole('heading', { name: 'No encontramos este expediente' })).toBeVisible()
+})
+
+test('filtros combinados, paginación y pantallas responsive', async ({ page }, testInfo) => {
+  await page.goto('/expedientes')
+  await page.getByRole('button', { name: 'Página siguiente' }).click()
+  await expect(page.getByRole('status')).toHaveText('7–12 de 12 registros')
+  await page.getByLabel('Escuela profesional').selectOption('Ingeniería de Sistemas')
+  await page.getByLabel('Estado', { exact: true }).selectOption('Observado')
+  await expect(page.getByRole('status')).toHaveText('1–1 de 1 registros')
+  await expect(page.getByText('Lucía Paredes', { exact: true })).toBeVisible()
+  await page.getByLabel('Modalidad', { exact: true }).selectOption('Artículo de investigación')
+  await expect(page.getByRole('heading', { name: 'No se encontraron expedientes' })).toBeVisible()
+  await page.getByRole('button', { name: 'Limpiar filtros' }).click()
+  await page.getByLabel('Año de ingreso').selectOption('2025')
+  await expect(page.getByRole('status')).toHaveText('1–2 de 2 registros')
+  await page.getByRole('button', { name: 'Limpiar filtros' }).click()
+  for (const route of ['/expedientes', '/expedientes/nuevo', '/expedientes/DEMO-2026-0010']) {
+    await page.goto(route)
+    for (const width of [320, 390, 1440]) {
+      await page.setViewportSize({ width, height: 1000 })
+      await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+      if (width !== 320) await page.screenshot({ path: testInfo.outputPath(`${route.replaceAll('/', '-')}-${width}.png`), fullPage: true })
+    }
+  }
+})

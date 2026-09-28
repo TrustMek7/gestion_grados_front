@@ -4,13 +4,14 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 4: panel de inicio con datos mock, acceso simulado y navegación responsive
+Entrega 5: gestión básica de expedientes, panel con datos mock y acceso simulado
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
 Rutas: `/login`, `/inicio`, `/expedientes`, `/docentes`, `/reportes` y `/administracion`.
 El inicio muestra indicadores, estados, próximas sustentaciones y expedientes
-recientes. Los demás módulos muestran su alcance y estado de preparación;
+recientes. Expedientes permite registrar, consultar y editar datos básicos.
+Los demás módulos muestran su alcance y estado de preparación;
 sus funciones se incorporarán por entrega. Todo el acceso es mock: no hay SDK de Google, peticiones
 de autenticación, tokens, contratos de API ni conexión al backend.
 Las referencias originales se conservan en `mockups/`.
@@ -46,7 +47,7 @@ El botón de salida y la etiqueta **Demo** están disponibles también en móvil
 
 ## Panel de inicio (mock)
 
-`src/features/dashboard/dashboard.mock.ts` contiene 12 expedientes ficticios con
+`src/features/dashboard/dashboard.mock.ts` contiene la base de 12 expedientes ficticios con
 un corte fijo al 28 de septiembre de 2026. Los indicadores, distribución por estado,
 agenda y tabla usan esa misma fuente y responden a los filtros de año de ingreso
 y escuela. La selección inicial corresponde a los 10 expedientes ingresados en 2026.
@@ -61,9 +62,30 @@ sin distinguir tildes, pagina de seis en seis y permite desplegar un resumen de
 solo lectura. Su búsqueda afecta únicamente la tabla. Al cambiar los filtros
 generales se restablecen búsqueda, página y resumen abierto.
 
-Los accesos rápidos llevan a los módulos todavía en preparación. No se implementan
-alertas reglamentarias pendientes de formalización, exportaciones ni registro de
-expedientes en esta entrega. No hay peticiones de datos, API ni contratos propuestos.
+Los accesos rápidos llevan a expedientes y a docentes/reportes, aún en preparación. No se implementan
+alertas reglamentarias pendientes de formalización ni exportaciones.
+El panel comparte los registros con el contexto de expedientes; crear o editar
+un expediente actualiza los indicadores y tablas de acuerdo con sus filtros.
+No hay peticiones de datos, API ni contratos propuestos.
+
+## Expedientes (mock)
+
+- `/expedientes`: listado con búsqueda por número, graduando, código o título del
+  trabajo; filtros combinados por escuela, año de ingreso, modalidad y estado.
+- `/expedientes/nuevo`: formulario de registro con campos obligatorios, número
+  único (sin distinguir mayúsculas), longitudes y fecha de inicio hasta hoy.
+- `/expedientes/:id`: detalle básico, trabajo de investigación y última actualización.
+- `/expedientes/:id/editar`: edición de esos datos. Cancelar no guarda cambios.
+
+La colección compartida en `features/expedientes` se guarda en `sessionStorage`
+bajo `unsa.mock-dossiers.v1`. Se conserva al recargar o cerrar la sesión mock en
+la misma pestaña; no se envía a ningún servicio. Usar únicamente datos ficticios.
+Si el almacenamiento no está disponible, se advierte que los cambios solo duran
+hasta la recarga. Los datos inválidos en almacenamiento recuperan la base de ejemplo.
+
+Las escuelas, estados y modalidades son catálogos de demostración. Asesores,
+jurados, sorteos, resoluciones y sustentaciones se incorporarán en la entrega 6.
+Las fechas de sustentación existentes en los ejemplos se conservan al editar.
 
 ## Comandos
 
@@ -82,7 +104,7 @@ expedientes en esta entrega. No hay peticiones de datos, API ni contratos propue
 ```text
 src/
   app/         # Rutas, navegación, layout y páginas provisionales
-  features/    # Auth y dashboard mock; futuros módulos funcionales
+  features/    # Auth, dashboard y expedientes mock
   shared/      # Identidad centralizada y componentes de interfaz
   styles/      # Tailwind y tokens visuales
   main.tsx     # Punto de entrada

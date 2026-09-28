@@ -15,7 +15,7 @@ export function AppLayout() {
   const drawer = useRef<HTMLDialogElement>(null)
   const main = useRef<HTMLElement>(null)
   const previousPath = useRef(pathname)
-  const current = navigation.find((item) => item.path === pathname)?.label ?? 'Página no encontrada'
+  const current = navigation.find((item) => item.path === pathname || pathname.startsWith(item.path + '/'))?.label ?? 'Página no encontrada'
 
   useEffect(() => {
     document.title = `${current} | ${brand.application} · ${brand.acronym}`

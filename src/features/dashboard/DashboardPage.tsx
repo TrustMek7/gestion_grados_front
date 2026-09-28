@@ -6,15 +6,14 @@ import { Button } from '../../shared/ui/Button'
 import { Card } from '../../shared/ui/Card'
 import { PageHeader } from '../../shared/ui/PageHeader'
 import { SelectField } from '../../shared/ui/SelectField'
-import { dashboardDossiers, referenceDate } from './dashboard.mock'
+import { referenceDate } from './dashboard.mock'
+import { useDossiers } from '../expedientes/dossier-context'
 import { formatDate, summarizeDossiers } from './dashboard-model'
 import { StatCard } from './components/StatCard'
 import { StatusDistribution } from './components/StatusDistribution'
 import { UpcomingDefenses } from './components/UpcomingDefenses'
 import { RecentDossiers } from './components/RecentDossiers'
 
-const schools = [...new Set(dashboardDossiers.map((item) => item.school))].sort((a, b) => a.localeCompare(b, 'es'))
-const years = [...new Set(dashboardDossiers.map((item) => item.openedAt.slice(0, 4)))].sort().reverse()
 const shortcuts = [
   { label: 'Reporte de graduados', description: 'Estadísticas y acreditación', icon: ChartNoAxesCombined, path: '/reportes' },
   { label: 'Participación docente', description: 'Asesorías y jurados', icon: UsersRound, path: '/docentes' },
@@ -22,9 +21,12 @@ const shortcuts = [
 ]
 
 export function DashboardPage() {
+  const { records: allRecords } = useDossiers()
+  const schools = [...new Set(allRecords.map((item) => item.school))].sort((a, b) => a.localeCompare(b, 'es'))
+  const years = [...new Set(allRecords.map((item) => item.openedAt.slice(0, 4)))].sort().reverse()
   const [year, setYear] = useState('2026')
   const [school, setSchool] = useState('all')
-  const records = dashboardDossiers.filter((item) => (year === 'all' || item.openedAt.startsWith(year)) && (school === 'all' || item.school === school))
+  const records = allRecords.filter((item) => (year === 'all' || item.openedAt.startsWith(year)) && (school === 'all' || item.school === school))
   const stats = summarizeDossiers(records, referenceDate)
 
   return (
@@ -52,7 +54,7 @@ export function DashboardPage() {
       </div>
       <Card className="p-5 sm:p-6">
             <h2 className="flex items-center gap-2 text-lg font-semibold"><FileCheck2 size={20} className="text-brand" aria-hidden="true" />Accesos rápidos</h2>
-            <p className="mt-1 text-xs leading-5 text-muted">Los módulos de destino se incorporarán en las siguientes entregas.</p>
+            <p className="mt-1 text-xs leading-5 text-muted">Expedientes disponible en modo demo. Docentes y reportes están en preparación.</p>
             <ul className="mt-4 grid gap-3 md:grid-cols-3">{shortcuts.map(({ label, description, icon: Icon, path }) => <li key={label}><Link to={path} className="flex h-full items-center gap-3 rounded-lg border border-outline p-3 hover:bg-brand-soft/30"><Icon size={18} className="shrink-0 text-brand" aria-hidden="true" /><span className="flex-1"><span className="block text-sm font-medium">{label}</span><span className="mt-1 block text-xs text-muted">{description}</span></span><ArrowRight size={16} className="shrink-0 text-muted" aria-hidden="true" /></Link></li>)}</ul>
       </Card>
 
