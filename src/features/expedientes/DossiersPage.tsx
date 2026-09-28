@@ -9,6 +9,8 @@ import { SelectField } from '../../shared/ui/SelectField'
 import { formatDate, normalizeSearch, statusTone } from '../dashboard/dashboard-model'
 import { useDossiers } from './dossier-context'
 import { modalities, schools, statuses } from './dossier-model'
+import { academicData } from './academic/academic-model'
+import { teacherName } from '../docentes/docentes.mock'
 
 const emptyFilters = { query: '', school: '', year: '', modality: '', status: '' }
 
@@ -21,7 +23,7 @@ export function DossiersPage() {
     && (!filters.year || item.openedAt.startsWith(filters.year))
     && (!filters.modality || item.modality === filters.modality)
     && (!filters.status || item.status === filters.status)
-    && normalizeSearch(`${item.id} ${item.graduate} ${item.studentCode} ${item.research}`).includes(normalizeSearch(filters.query)))
+    && normalizeSearch(`${item.id} ${item.graduate} ${item.studentCode} ${item.research} ${academicData(item).resolutions.map((resolution) => resolution.number).join(' ')} ${academicData(item).advisor ? teacherName(academicData(item).advisor!.teacherId) : ''} ${academicData(item).jury?.members.map((member) => teacherName(member.teacherId)).join(' ') ?? ''}`).includes(normalizeSearch(filters.query)))
     .sort((a, b) => b.updatedAtTime.localeCompare(a.updatedAtTime) || a.id.localeCompare(b.id))
   const pageSize = 6
   const totalPages = Math.max(1, Math.ceil(results.length / pageSize))
@@ -41,7 +43,7 @@ export function DossiersPage() {
           <SelectField label="Modalidad" value={filters.modality} onChange={(event) => filter('modality', event.target.value)}><option value="">Todas las modalidades</option>{modalities.map((value) => <option key={value}>{value}</option>)}</SelectField>
           <SelectField label="Estado" value={filters.status} onChange={(event) => filter('status', event.target.value)}><option value="">Todos los estados</option>{statuses.map((value) => <option key={value}>{value}</option>)}</SelectField>
         </div>
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="text-xs text-muted">Los filtros se combinan para acotar los resultados.</p><Button variant="ghost" onClick={() => { setFilters(emptyFilters); setPage(1) }}>Limpiar filtros</Button></div>
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="text-xs text-muted">También puedes buscar por número de resolución, asesor o integrante del jurado.</p><Button variant="ghost" onClick={() => { setFilters(emptyFilters); setPage(1) }}>Limpiar filtros</Button></div>
       </Card>
       <Card className="min-w-0 overflow-hidden">
         <div className="flex items-center justify-between gap-3 p-5"><h2 id="dossiers-title" className="text-lg font-semibold">Expedientes registrados</h2><Badge>{results.length} registros</Badge></div>

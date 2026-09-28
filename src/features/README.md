@@ -12,4 +12,10 @@ no se conecta a Google ni al backend, ni define contratos de integración.
 Los dos módulos consumen la colección de `DossierProvider`, persistida en la pestaña
 con `sessionStorage`. No hay contratos ni servicios HTTP.
 
+`expedientes/academic/` agrupa asesor, jurado, resoluciones, resultados de sorteos
+externos y sustentación. Sus vínculos usan identificadores estables del mock.
+Las referencias PDF guardan solo nombre y tamaño; no se conserva contenido.
+`docentes/docentes.mock.ts` aporta el catálogo ficticio compartido; la pantalla
+de gestión de docentes queda para su propia entrega.
+
 Alcance: RF-GT-01 a RF-GT-21. Las funciones de negocio se incorporarán por entrega.

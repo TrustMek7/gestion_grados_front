@@ -4,7 +4,7 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 5: gestión básica de expedientes, panel con datos mock y acceso simulado
+Entrega 6: información académica de expedientes, panel con datos mock y acceso simulado
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
@@ -54,8 +54,8 @@ y escuela. La selección inicial corresponde a los 10 expedientes ingresados en 
 
 - Activos: registrados, en trámite y observados.
 - Observados: subconjunto de activos que requiere revisión.
-- Sustentados: fecha de sustentación registrada hasta el corte, incluidos completados.
-- Próximas sustentaciones: las tres fechas posteriores al corte más cercanas.
+- Sustentados: fecha hasta el corte y resultado Aprobado o Desaprobado.
+- Próximas sustentaciones: las tres fechas pendientes posteriores al corte más cercanas.
 
 La tabla se ordena por última actualización, busca por nombre, código o escuela
 sin distinguir tildes, pagina de seis en seis y permite desplegar un resumen de
@@ -74,7 +74,7 @@ No hay peticiones de datos, API ni contratos propuestos.
   trabajo; filtros combinados por escuela, año de ingreso, modalidad y estado.
 - `/expedientes/nuevo`: formulario de registro con campos obligatorios, número
   único (sin distinguir mayúsculas), longitudes y fecha de inicio hasta hoy.
-- `/expedientes/:id`: detalle básico, trabajo de investigación y última actualización.
+- `/expedientes/:id`: datos generales, asesor y jurado, resoluciones, sorteos externos y sustentación.
 - `/expedientes/:id/editar`: edición de esos datos. Cancelar no guarda cambios.
 
 La colección compartida en `features/expedientes` se guarda en `sessionStorage`
@@ -83,9 +83,29 @@ la misma pestaña; no se envía a ningún servicio. Usar únicamente datos ficti
 Si el almacenamiento no está disponible, se advierte que los cambios solo duran
 hasta la recarga. Los datos inválidos en almacenamiento recuperan la base de ejemplo.
 
-Las escuelas, estados y modalidades son catálogos de demostración. Asesores,
-jurados, sorteos, resoluciones y sustentaciones se incorporarán en la entrega 6.
-Las fechas de sustentación existentes en los ejemplos se conservan al editar.
+Las escuelas, estados, modalidades y docentes son catálogos de demostración.
+Las secciones del detalle se pueden abrir mediante `?seccion=asignaciones`,
+`resoluciones`, `sorteos` o `sustentacion`.
+
+- Asesor y jurado se vinculan a resoluciones del expediente. El jurado admite
+  cargos parciales y evita repetir docentes entre Presidente, Secretario, Vocal y Accesitario.
+- Las resoluciones se registran, buscan y editan conservando sus asociaciones.
+  Los números son únicos dentro de cada expediente. Cambiar el tipo no puede
+  invalidar asociaciones existentes. El listado de expedientes también busca por
+  resolución, asesor e integrante del jurado.
+- Los PDF son referencias mock: únicamente nombre y tamaño (hasta 10 MB).
+  No se guarda contenido ni se ofrece descarga o carga a un servidor.
+- Los sorteos registran resultados realizados externamente, con docentes, fecha
+  y resolución. No hay selección aleatoria ni asignación automática del jurado.
+- La sustentación registra fecha, resultado y observaciones. Una fecha futura
+  solo admite resultado Pendiente. El resultado actualiza el dashboard y la agenda;
+  el estado administrativo del expediente se edita por separado.
+
+Los cambios académicos actualizan la fecha y el responsable mock. La edición
+básica conserva estas secciones y valida la cronología de sorteos y sustentación.
+Los registros de entregas anteriores se recuperan sin exigir información académica;
+sus fechas de sustentación se conservan. Los ejemplos Sustentado/Completado se
+interpretan como Aprobado mientras no se registre un resultado explícito.
 
 ## Comandos
 

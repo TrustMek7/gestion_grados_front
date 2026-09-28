@@ -1,10 +1,10 @@
 import { CalendarDays } from 'lucide-react'
 import { Card } from '../../../shared/ui/Card'
-import { formatDate } from '../dashboard-model'
+import { defenseResult, formatDate } from '../dashboard-model'
 import type { DashboardDossier } from '../types'
 
 export function UpcomingDefenses({ records, referenceDate }: { records: DashboardDossier[]; referenceDate: string }) {
-  const upcoming = records.filter((item) => item.defenseAt && item.defenseAt > referenceDate)
+  const upcoming = records.filter((item) => item.defenseAt && item.defenseAt > referenceDate && defenseResult(item) === 'Pendiente')
     .sort((a, b) => a.defenseAt!.localeCompare(b.defenseAt!)).slice(0, 3)
   return (
     <Card className="p-5 sm:p-6">

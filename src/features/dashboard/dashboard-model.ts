@@ -15,11 +15,15 @@ export function formatDate(value: string) {
     .format(new Date(value + 'T12:00:00Z'))
 }
 
+export function defenseResult(record: DashboardDossier) {
+  return record.defenseResult ?? (['Sustentado', 'Completado'].includes(record.status) ? 'Aprobado' : 'Pendiente')
+}
+
 export function summarizeDossiers(records: DashboardDossier[], referenceDate: string) {
   return {
     total: records.length,
     active: records.filter((item) => ['Registrado', 'En trámite', 'Observado'].includes(item.status)).length,
     observed: records.filter((item) => item.status === 'Observado').length,
-    defended: records.filter((item) => item.defenseAt && item.defenseAt <= referenceDate).length,
+    defended: records.filter((item) => item.defenseAt && item.defenseAt <= referenceDate && defenseResult(item) !== 'Pendiente').length,
   }
 }

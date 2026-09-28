@@ -10,5 +10,6 @@ export interface DashboardDossier {
   openedAt: string
   updatedAt: string
   defenseAt?: string
+  defenseResult?: 'Pendiente' | 'Aprobado' | 'Desaprobado'
   research: string
 }

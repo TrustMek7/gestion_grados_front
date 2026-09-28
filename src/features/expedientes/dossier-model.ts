@@ -1,5 +1,6 @@
 import { dashboardDossiers } from '../dashboard/dashboard.mock'
 import type { Dossier, DossierInput } from './types'
+import { academicData, isAcademicData, validateAcademic } from './academic/academic-model'
 
 export const storageKey = 'unsa.mock-dossiers.v1'
 export const schools = ['Administración', 'Economía', 'Educación', 'Ingeniería Civil', 'Ingeniería de Sistemas']
@@ -37,6 +38,7 @@ function isDossier(value: unknown): value is Dossier {
     && schools.includes(record.school as string)
     && validDate(record.openedAt as string) && validDate(record.updatedAt as string)
     && (record.defenseAt === undefined || (typeof record.defenseAt === 'string' && validDate(record.defenseAt)))
+    && (record.academic === undefined || (isAcademicData(record.academic) && validateAcademic(record.academic, record.openedAt as string, today()).length === 0))
 }
 
 function validDate(value: string) {
@@ -56,5 +58,7 @@ export function validateDossier(input: DossierInput, records: Dossier[], previou
   if (!degrees.includes(input.degree)) errors.degree = 'Selecciona un grado.'
   if (!modalities.includes(input.modality)) errors.modality = 'Selecciona una modalidad.'
   if (!statuses.includes(input.status)) errors.status = 'Selecciona un estado.'
+  const previous = records.find((record) => record.id === previousId)
+  if (previous && validDate(input.openedAt) && validateAcademic(academicData(previous), input.openedAt, today()).length > 0) errors.openedAt = 'La fecha de inicio no puede ser posterior a los sorteos o la sustentación registrados.'
   return errors
 }
