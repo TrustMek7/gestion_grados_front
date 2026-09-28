@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react'
-import { ChevronRight, Menu, X } from 'lucide-react'
+import { ChevronRight, LogOut, Menu, X } from 'lucide-react'
 import { Link, Outlet, useLocation } from 'react-router'
 import { brand } from '../../shared/config/brand'
 import { Button } from '../../shared/ui/Button'
 import { Badge } from '../../shared/ui/Badge'
 import { navigation } from '../navigation'
 import { Sidebar } from './Sidebar'
+import { useAuth } from '../../features/auth/auth-context'
+import { mockUser } from '../../features/auth/mock-session'
 
 export function AppLayout() {
+  const { signOut } = useAuth()
   const { pathname } = useLocation()
   const drawer = useRef<HTMLDialogElement>(null)
   const main = useRef<HTMLElement>(null)
@@ -71,7 +74,11 @@ export function AppLayout() {
               </ol>
             </nav>
           </div>
-          <div className="shrink-0"><Badge>Vista previa</Badge></div>
+          <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+            <div className="hidden text-right lg:block"><p className="text-xs font-medium">{mockUser.name}</p><p className="mt-1 text-[11px] text-muted">Sesión simulada</p></div>
+            <Badge>Demo</Badge>
+            <Button variant="ghost" className="px-2" aria-label="Cerrar sesión" title="Cerrar sesión de demostración" onClick={signOut}><LogOut size={19} aria-hidden="true" /></Button>
+          </div>
         </header>
 
         <main id="main-content" ref={main} tabIndex={-1} className="mx-auto w-full max-w-400 flex-1 p-4 outline-none sm:p-6 xl:p-8"><Outlet /></main>

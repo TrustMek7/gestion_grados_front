@@ -4,15 +4,15 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 2: identidad institucional, componentes compartidos y navegación responsive
+Entrega 3: acceso y sesión simulados, identidad institucional y navegación responsive
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
-Rutas: `/inicio`, `/expedientes`, `/docentes`, `/reportes` y `/administracion`.
+Rutas: `/login`, `/inicio`, `/expedientes`, `/docentes`, `/reportes` y `/administracion`.
 El inicio permite explorar las áreas; los módulos muestran su alcance y estado
-de preparación. El dashboard, las funciones de negocio, la autenticación y la
-integración con Spring Boot se implementarán en sus entregas correspondientes.
-Esta vista previa no representa una sesión autenticada ni contiene datos reales.
+de preparación. El dashboard y las funciones de negocio se implementarán en sus
+entregas correspondientes. Todo el acceso es mock: no hay SDK de Google, peticiones
+de autenticación, tokens, contratos de API ni conexión al backend.
 Las referencias originales se conservan en `mockups/`.
 
 ## Requisitos y ejecución
@@ -30,6 +30,20 @@ Abrir la URL indicada por Vite, normalmente http://localhost:5173.
 En PowerShell, si se bloquea `npm.ps1`, usar `npm.cmd` en lugar de `npm`,
 sin cambiar la política de ejecución del equipo.
 
+## Acceso de demostración
+
+El proyecto abre la pantalla de acceso. **Continuar con Google** simula un acceso
+autorizado después de una breve espera, sin abrir Google ni pedir credenciales.
+En **Escenarios de demostración** se puede elegir acceso denegado, error de
+autenticación o sesión vencida, y luego volver al escenario autorizado.
+
+La sesión mock se conserva al recargar, en `sessionStorage`, durante 30 minutos.
+Se guarda únicamente su fecha de vencimiento, sin datos personales ni tokens.
+Cerrar sesión elimina ese estado y devuelve al login; las rutas internas redirigen
+al login cuando no hay sesión mock. El acceso devuelve al módulo solicitado.
+Este comportamiento es una simulación de interfaz, no un control de seguridad real.
+El botón de salida y la etiqueta **Demo** están disponibles también en móvil.
+
 ## Comandos
 
 | Comando | Propósito |
@@ -40,14 +54,14 @@ sin cambiar la política de ejecución del equipo.
 | `npm run build` | Validación de tipos y compilación en `dist/`. |
 | `npm run check` | Lint y compilación. |
 | `npm run preview` | Servir la compilación local; requiere build previo. |
-| `npm run test:e2e` | Pruebas de navegación y menú responsive en navegador. |
+| `npm run test:e2e` | Pruebas de acceso mock, sesión, navegación y menú responsive. |
 
 ## Estructura
 
 ```text
 src/
   app/         # Rutas, navegación, layout y páginas provisionales
-  features/    # Módulos funcionales, incorporados por entrega
+  features/    # Auth mock y futuros módulos funcionales
   shared/      # Identidad centralizada y componentes de interfaz
   styles/      # Tailwind y tokens visuales
   main.tsx     # Punto de entrada

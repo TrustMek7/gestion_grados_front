@@ -4,20 +4,28 @@ import { modules } from './navigation'
 import { WelcomePage } from './pages/WelcomePage'
 import { ModulePage } from './pages/ModulePage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { AuthProvider } from '../features/auth/AuthProvider'
+import { RequireAuth } from '../features/auth/RequireAuth'
+import { LoginPage } from '../features/auth/LoginPage'
 
 export function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route index element={<Navigate to="/inicio" replace />} />
-          <Route path="inicio" element={<WelcomePage />} />
-          {modules.map((module) => (
-            <Route key={module.path} path={module.path} element={<ModulePage module={module} />} />
-          ))}
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="login" element={<LoginPage />} />
+          <Route element={<RequireAuth />}>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate to="/inicio" replace />} />
+              <Route path="inicio" element={<WelcomePage />} />
+              {modules.map((module) => (
+                <Route key={module.path} path={module.path} element={<ModulePage module={module} />} />
+              ))}
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   )
 }

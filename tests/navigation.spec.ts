@@ -1,5 +1,11 @@
 import { expect, test } from '@playwright/test'
 
+test.beforeEach(async ({ page }) => {
+  await page.goto('/login')
+  await page.getByRole('button', { name: 'Continuar con Google' }).click()
+  await expect(page).toHaveURL(/\/inicio$/)
+})
+
 test('navegación de escritorio, historial y recarga de rutas', async ({ page }, testInfo) => {
   const errors: string[] = []
   page.on('pageerror', (error) => errors.push(error.message))
