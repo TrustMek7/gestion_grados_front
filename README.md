@@ -4,14 +4,14 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 3: acceso y sesión simulados, identidad institucional y navegación responsive
+Entrega 4: panel de inicio con datos mock, acceso simulado y navegación responsive
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
 Rutas: `/login`, `/inicio`, `/expedientes`, `/docentes`, `/reportes` y `/administracion`.
-El inicio permite explorar las áreas; los módulos muestran su alcance y estado
-de preparación. El dashboard y las funciones de negocio se implementarán en sus
-entregas correspondientes. Todo el acceso es mock: no hay SDK de Google, peticiones
+El inicio muestra indicadores, estados, próximas sustentaciones y expedientes
+recientes. Los demás módulos muestran su alcance y estado de preparación;
+sus funciones se incorporarán por entrega. Todo el acceso es mock: no hay SDK de Google, peticiones
 de autenticación, tokens, contratos de API ni conexión al backend.
 Las referencias originales se conservan en `mockups/`.
 
@@ -44,6 +44,27 @@ al login cuando no hay sesión mock. El acceso devuelve al módulo solicitado.
 Este comportamiento es una simulación de interfaz, no un control de seguridad real.
 El botón de salida y la etiqueta **Demo** están disponibles también en móvil.
 
+## Panel de inicio (mock)
+
+`src/features/dashboard/dashboard.mock.ts` contiene 12 expedientes ficticios con
+un corte fijo al 28 de septiembre de 2026. Los indicadores, distribución por estado,
+agenda y tabla usan esa misma fuente y responden a los filtros de año de ingreso
+y escuela. La selección inicial corresponde a los 10 expedientes ingresados en 2026.
+
+- Activos: registrados, en trámite y observados.
+- Observados: subconjunto de activos que requiere revisión.
+- Sustentados: fecha de sustentación registrada hasta el corte, incluidos completados.
+- Próximas sustentaciones: las tres fechas posteriores al corte más cercanas.
+
+La tabla se ordena por última actualización, busca por nombre, código o escuela
+sin distinguir tildes, pagina de seis en seis y permite desplegar un resumen de
+solo lectura. Su búsqueda afecta únicamente la tabla. Al cambiar los filtros
+generales se restablecen búsqueda, página y resumen abierto.
+
+Los accesos rápidos llevan a los módulos todavía en preparación. No se implementan
+alertas reglamentarias pendientes de formalización, exportaciones ni registro de
+expedientes en esta entrega. No hay peticiones de datos, API ni contratos propuestos.
+
 ## Comandos
 
 | Comando | Propósito |
@@ -54,14 +75,14 @@ El botón de salida y la etiqueta **Demo** están disponibles también en móvil
 | `npm run build` | Validación de tipos y compilación en `dist/`. |
 | `npm run check` | Lint y compilación. |
 | `npm run preview` | Servir la compilación local; requiere build previo. |
-| `npm run test:e2e` | Pruebas de acceso mock, sesión, navegación y menú responsive. |
+| `npm run test:e2e` | Pruebas de acceso mock, sesión, navegación y panel responsive. |
 
 ## Estructura
 
 ```text
 src/
   app/         # Rutas, navegación, layout y páginas provisionales
-  features/    # Auth mock y futuros módulos funcionales
+  features/    # Auth y dashboard mock; futuros módulos funcionales
   shared/      # Identidad centralizada y componentes de interfaz
   styles/      # Tailwind y tokens visuales
   main.tsx     # Punto de entrada
@@ -75,7 +96,7 @@ El escaneo de clases se limita a `src/` para excluir los mockups.
 La marca está centralizada en `src/shared/config/brand.ts`. Se utiliza una marca
 tipográfica UNSA; el icono académico es genérico y no representa el escudo oficial.
 Los componentes compartidos son `Brand`, `Button`, `Badge`, `Card`, `PageHeader`
-y `EmptyState`. Los colores semánticos se reservan para estados operativos.
+y `EmptyState`, además de `SelectField`. Los colores semánticos se reservan para estados operativos.
 
 ## Verificación en navegador
 

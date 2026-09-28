@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { AppLayout } from './layout/AppLayout'
 import { modules } from './navigation'
-import { WelcomePage } from './pages/WelcomePage'
+import { DashboardPage } from '../features/dashboard/DashboardPage'
 import { ModulePage } from './pages/ModulePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { AuthProvider } from '../features/auth/AuthProvider'
@@ -17,7 +17,7 @@ export function App() {
           <Route element={<RequireAuth />}>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate to="/inicio" replace />} />
-              <Route path="inicio" element={<WelcomePage />} />
+              <Route path="inicio" element={<DashboardPage />} />
               {modules.map((module) => (
                 <Route key={module.path} path={module.path} element={<ModulePage module={module} />} />
               ))}

@@ -12,7 +12,7 @@ test('navegación de escritorio, historial y recarga de rutas', async ({ page },
   await page.setViewportSize({ width: 1440, height: 1000 })
   await page.goto('/')
   await expect(page).toHaveURL(/\/inicio$/)
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Gestión de Grados y Títulos')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Panel de control')
   await expect(page.getByRole('button', { name: 'Abrir menú' })).toBeHidden()
   await page.screenshot({ path: testInfo.outputPath('inicio-escritorio.png'), fullPage: true })
 
