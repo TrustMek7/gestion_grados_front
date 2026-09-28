@@ -24,3 +24,9 @@ Alcance: RF-GT-01 a RF-GT-21. Las funciones de negocio se incorporarán por entr
 `reportes/` implementa consultas mock de participaciones, sorteos, estadísticas
 y trabajos sustentados, además de exportación Excel local con filtros y criterios.
 Comparte la colección de expedientes y la lógica de participación docente.
+
+`administracion/` contiene carga histórica de datos básicos desde una plantilla
+Excel mock, previsualización, observaciones y consulta de lotes confirmados.
+La incorporación se realiza en una sola actualización del contexto de expedientes,
+con metadatos del lote persistidos junto a los registros. También incluye un
+catálogo independiente de accesos simulados, sin conexión a la autenticación real.

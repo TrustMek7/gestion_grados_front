@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react'
 import type { Dossier, DossierInput } from './types'
 import type { AcademicData } from './academic/types'
+import type { ImportBatch, ImportRow } from '../administracion/import-model'
 
 export type SaveResult = { ok: true; id: string } | { ok: false; message: string }
 export const DossierContext = createContext<{
@@ -8,6 +9,7 @@ export const DossierContext = createContext<{
   storageWarning: boolean
   save: (input: DossierInput, previousId?: string) => SaveResult
   saveAcademic: (id: string, data: AcademicData) => SaveResult
+  importRecords: (rows: ImportRow[], file: string) => ImportBatch | null
 } | null>(null)
 
 export function useDossiers() {

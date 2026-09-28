@@ -32,6 +32,13 @@ function isDossier(value: unknown): value is Dossier {
   const record = value as Record<string, unknown>
   const strings = ['id', 'graduate', 'studentCode', 'school', 'program', 'degree', 'modality', 'status', 'openedAt', 'updatedAt', 'research', 'updatedBy', 'updatedAtTime']
   if (!strings.every((key) => typeof record[key] === 'string')) return false
+  if (record.importBatch !== undefined) {
+    if (!record.importBatch || typeof record.importBatch !== 'object') return false
+    const batch = record.importBatch as Record<string, unknown>
+    if (!['id', 'file', 'date', 'user'].every((key) => typeof batch[key] === 'string')
+      || !Number.isFinite(Date.parse(batch.date as string))
+      || !['total', 'accepted', 'rejected', 'observed'].every((key) => typeof batch[key] === 'number' && Number.isInteger(batch[key]) && (batch[key] as number) >= 0)) return false
+  }
   return statuses.some((status) => status === record.status)
     && degrees.some((degree) => degree === record.degree)
     && modalities.some((modality) => modality === record.modality)

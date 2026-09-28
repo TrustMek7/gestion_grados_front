@@ -1,7 +1,7 @@
 import { useId } from 'react'
-import type { InputHTMLAttributes } from 'react'
+import type { ComponentProps } from 'react'
 
-export function InputField({ label, error, id, className = '', ...props }: InputHTMLAttributes<HTMLInputElement> & { label: string; error?: string }) {
+export function InputField({ label, error, id, className = '', ...props }: ComponentProps<'input'> & { label: string; error?: string }) {
   const generatedId = useId()
   const fieldId = id ?? generatedId
   return (

@@ -57,6 +57,7 @@ export function DossierDetailPage() {
       <Card className="p-5 sm:p-6"><h2 className="text-lg font-semibold">Trabajo de investigación</h2><p className="mt-3 break-words text-sm leading-6">{record.research}</p></Card>
       </>}
       <Card className="p-5 sm:p-6"><h2 className="text-lg font-semibold">Última actualización</h2><dl className="mt-4 grid gap-6 sm:grid-cols-2"><Datum label="Fecha">{formatDate(record.updatedAt)}</Datum><Datum label="Responsable">{record.updatedBy}</Datum></dl></Card>
+      {record.importBatch && <Card className="p-5 sm:p-6"><h2 className="text-lg font-semibold">Origen de carga histórica</h2><p className="mt-3 break-all text-sm">{record.importBatch.file}</p><p className="mt-2 text-xs text-muted">{new Date(record.importBatch.date).toLocaleString('es-PE', { timeZone: 'America/Lima' })} · {record.importBatch.user}</p></Card>}
       <p className="text-xs leading-5 text-muted">Datos ficticios guardados en esta pestaña. Los documentos conservan únicamente una referencia; no se cargan archivos a ningún servicio.</p>
     </div>
   )

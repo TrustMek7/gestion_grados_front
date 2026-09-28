@@ -1,8 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { AppLayout } from './layout/AppLayout'
-import { modules } from './navigation'
 import { DashboardPage } from '../features/dashboard/DashboardPage'
-import { ModulePage } from './pages/ModulePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { AuthProvider } from '../features/auth/AuthProvider'
 import { RequireAuth } from '../features/auth/RequireAuth'
@@ -14,6 +12,7 @@ import { DossierFormPage } from '../features/expedientes/DossierFormPage'
 import { TeachersPage } from '../features/docentes/TeachersPage'
 import { TeacherDetailPage } from '../features/docentes/TeacherDetailPage'
 import { ReportsPage } from '../features/reportes/ReportsPage'
+import { AdministrationPage } from '../features/administracion/AdministrationPage'
 
 export function App() {
   return (
@@ -33,9 +32,7 @@ export function App() {
               <Route path="docentes" element={<TeachersPage />} />
               <Route path="docentes/:id" element={<TeacherDetailPage />} />
               <Route path="reportes" element={<ReportsPage />} />
-              {modules.filter((module) => !['/expedientes', '/docentes', '/reportes'].includes(module.path)).map((module) => (
-                <Route key={module.path} path={module.path} element={<ModulePage module={module} />} />
-              ))}
+              <Route path="administracion" element={<AdministrationPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Route>

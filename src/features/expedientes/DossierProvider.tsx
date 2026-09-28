@@ -7,6 +7,8 @@ import { readDossiers, storageKey, today, validateDossier } from './dossier-mode
 import type { Dossier, DossierInput } from './types'
 import type { AcademicData } from './academic/types'
 import { validateAcademic } from './academic/academic-model'
+import { reviewImport } from '../administracion/import-model'
+import type { ImportBatch, ImportRow } from '../administracion/import-model'
 
 export function DossierProvider({ children }: { children: ReactNode }) {
   const [records, setRecords] = useState(readDossiers)
@@ -45,5 +47,16 @@ export function DossierProvider({ children }: { children: ReactNode }) {
     return { ok: true, id: record.id }
   }
 
-  return <DossierContext.Provider value={{ records, storageWarning, save, saveAcademic }}>{children}</DossierContext.Provider>
+  function importRecords(rows: ImportRow[], file: string): ImportBatch | null {
+    const reviewed = reviewImport(rows, records)
+    const valid = reviewed.filter((row) => !row.errors.length)
+    if (!valid.length) return null
+    const batch: ImportBatch = { id: crypto.randomUUID(), file, date: new Date().toISOString(), user: mockUser.name,
+      total: rows.length, accepted: valid.length, rejected: rows.length - valid.length, observed: valid.filter((row) => row.warnings.length).length }
+    const imported: Dossier[] = valid.map(({ input }) => ({ ...input, updatedAt: today(), updatedAtTime: batch.date, updatedBy: batch.user, importBatch: batch }))
+    persist([...imported, ...records])
+    return batch
+  }
+
+  return <DossierContext.Provider value={{ records, storageWarning, save, saveAcademic, importRecords }}>{children}</DossierContext.Provider>
 }

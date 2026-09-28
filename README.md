@@ -4,15 +4,15 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 8: reportes y exportación Excel, historial docente, expedientes y acceso simulado
+Entrega 9: administración y carga histórica, reportes Excel, docentes, expedientes y acceso simulado
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
 Rutas: `/login`, `/inicio`, `/expedientes`, `/docentes`, `/reportes` y `/administracion`.
 El inicio muestra indicadores, estados, próximas sustentaciones y expedientes
 recientes. Expedientes permite registrar, consultar y editar datos básicos.
-Los demás módulos muestran su alcance y estado de preparación;
-sus funciones se incorporarán por entrega. Todo el acceso es mock: no hay SDK de Google, peticiones
+Docentes, reportes y administración cuentan con sus pantallas de demostración.
+Todo el acceso es mock: no hay SDK de Google, peticiones
 de autenticación, tokens, contratos de API ni conexión al backend.
 Las referencias originales se conservan en `mockups/`.
 
@@ -149,6 +149,39 @@ descarga. Los textos se escriben como valores, no como fórmulas. ExcelJS se car
 bajo demanda al exportar; su paquete añade aproximadamente 256 KB comprimidos
 a esa descarga, separado de la carga inicial de la aplicación.
 
+## Administración (mock)
+
+`/administracion` muestra la carga histórica; `?seccion=accesos` abre la simulación
+de accesos administrativos. La plantilla y los datos son de demostración.
+
+La carga inicial permite descargar una plantilla `.xlsx`, leer la hoja
+`Expedientes`, revisar cada fila y confirmar solamente los registros válidos.
+Admite hasta 5 MB y 500 filas. Conserva encabezados y orden de la plantilla;
+Programa puede estar vacío. Las fechas aceptan `AAAA-MM-DD` o celdas de fecha Excel.
+Los códigos deben guardarse como texto para conservar ceros iniciales.
+
+- Se rechazan campos inválidos, fórmulas, enlaces, números existentes y todas las
+  apariciones de un número repetido dentro del lote. Nunca se sobrescriben registros.
+- La previsualización y la descarga de observaciones identifican filas y motivos.
+  Cancelar descarta la preparación sin modificar expedientes.
+- La plantilla incluye solo datos generales. Todos los registros válidos tienen
+  una observación informativa para completar asesor, jurado, resoluciones y
+  sustentación en el expediente; no impide importarlos. El total de observados
+  es un subconjunto de los importados, no una categoría adicional de rechazados.
+- Al confirmar, se vuelven a validar los duplicados. Se guardan los registros y
+  metadatos del lote juntos en la colección local: archivo, fecha, responsable y
+  cantidades importadas, rechazadas y observadas. El historial incluye cargas
+  confirmadas con al menos un registro importado, no intentos fallidos.
+- Los expedientes importados se pueden consultar y editar, conservan su origen
+  de carga y se reflejan en reportes. La información dura en la misma pestaña.
+  Los lotes sirven a la carga inicial; no hay importación periódica automática.
+
+Accesos permite registrar nombres y correos ficticios, buscar, activar y desactivar
+administrativos. Rechaza correos duplicados sin distinguir mayúsculas; la cuenta
+actual de demostración permanece activa. Persiste en `unsa.mock-access.v1` de
+`sessionStorage`. Esta lista no modifica el login, no autentica cuentas reales,
+no comprueba pertenencia institucional ni envía invitaciones.
+
 ## Comandos
 
 | Comando | Propósito |
@@ -166,7 +199,7 @@ a esa descarga, separado de la carga inicial de la aplicación.
 ```text
 src/
   app/         # Rutas, navegación, layout y páginas provisionales
-  features/    # Auth, dashboard y expedientes mock
+  features/    # Auth, dashboard, expedientes, docentes, reportes y administración mock
   shared/      # Identidad centralizada y componentes de interfaz
   styles/      # Tailwind y tokens visuales
   main.tsx     # Punto de entrada
