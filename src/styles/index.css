@@ -1,0 +1,19 @@
+@import "tailwindcss" source("../");
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #6d1b2d;
+  --color-brand-hover: #551420;
+  --color-brand-soft: #f4e3e6;
+  --color-canvas: #fdfbfb;
+  --color-outline: #e9dee0;
+  --color-ink: #241417;
+  --color-muted: #665659;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    min-width: 320px;
+  }
+}
