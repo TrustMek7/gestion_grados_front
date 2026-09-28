@@ -20,3 +20,7 @@ derivado de las designaciones de cada expediente (RF-GT-12). Incluye filtros por
 participación y año de resolución y enlaces a expedientes y resoluciones.
 
 Alcance: RF-GT-01 a RF-GT-21. Las funciones de negocio se incorporarán por entrega.
+
+`reportes/` implementa consultas mock de participaciones, sorteos, estadísticas
+y trabajos sustentados, además de exportación Excel local con filtros y criterios.
+Comparte la colección de expedientes y la lógica de participación docente.

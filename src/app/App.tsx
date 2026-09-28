@@ -13,6 +13,7 @@ import { DossierDetailPage } from '../features/expedientes/DossierDetailPage'
 import { DossierFormPage } from '../features/expedientes/DossierFormPage'
 import { TeachersPage } from '../features/docentes/TeachersPage'
 import { TeacherDetailPage } from '../features/docentes/TeacherDetailPage'
+import { ReportsPage } from '../features/reportes/ReportsPage'
 
 export function App() {
   return (
@@ -31,7 +32,8 @@ export function App() {
               <Route path="expedientes/:id/editar" element={<DossierFormPage />} />
               <Route path="docentes" element={<TeachersPage />} />
               <Route path="docentes/:id" element={<TeacherDetailPage />} />
-              {modules.filter((module) => !['/expedientes', '/docentes'].includes(module.path)).map((module) => (
+              <Route path="reportes" element={<ReportsPage />} />
+              {modules.filter((module) => !['/expedientes', '/docentes', '/reportes'].includes(module.path)).map((module) => (
                 <Route key={module.path} path={module.path} element={<ModulePage module={module} />} />
               ))}
               <Route path="*" element={<NotFoundPage />} />

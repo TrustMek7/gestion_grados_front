@@ -4,7 +4,7 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 7: consulta e historial de docentes, información académica de expedientes y acceso simulado
+Entrega 8: reportes y exportación Excel, historial docente, expedientes y acceso simulado
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
@@ -62,8 +62,8 @@ sin distinguir tildes, pagina de seis en seis y permite desplegar un resumen de
 solo lectura. Su búsqueda afecta únicamente la tabla. Al cambiar los filtros
 generales se restablecen búsqueda, página y resumen abierto.
 
-Los accesos rápidos llevan a expedientes, docentes y reportes (este último aún en preparación). No se implementan
-alertas reglamentarias pendientes de formalización ni exportaciones.
+Los accesos rápidos llevan a expedientes, docentes y reportes. No se implementan
+alertas reglamentarias pendientes de formalización.
 El panel comparte los registros con el contexto de expedientes; crear o editar
 un expediente actualiza los indicadores y tablas de acuerdo con sus filtros.
 No hay peticiones de datos, API ni contratos propuestos.
@@ -122,6 +122,32 @@ Editar una designación o resolución actualiza la consulta. Se muestran las
 designaciones actuales de expedientes de cualquier año; no se implementa una
 auditoría de versiones anteriores. Los resultados de sorteos no son designaciones
 y no se cuentan como participaciones del jurado. Todo permanece en el mock local.
+
+## Reportes y Excel (mock)
+
+`/reportes` ofrece cuatro consultas, seleccionables con `?tipo=estadisticas`,
+`docentes`, `sorteos` o `trabajos`. Los datos se calculan desde la colección local
+de expedientes y responden a los filtros; cambiar de tipo restablece sus filtros.
+
+- Estadísticas: cohortes por año de ingreso, escuela y modalidad, con cantidades
+  ingresadas, sustentadas y distribución por estado. Completado representa el
+  estado administrativo: no se presenta como un grado emitido, porque el mock
+  no registra fecha de graduación ni emisión del grado.
+- Asesores y jurados: participaciones en tesis por docente, escuela del expediente
+  y año de resolución; incluye cargo, expediente y resolución. Se cuentan
+  designaciones actuales, no versiones históricas de una designación.
+- Sorteos externos: fecha, expediente, seleccionados y resolución; filtro por
+  año del sorteo y escuela. No asigna jurados automáticamente.
+- Trabajos sustentados: tesis y artículos ordenados por escuela y año de
+  sustentación, con filtros de año, escuela y modalidad. Incluye Aprobado y
+  Desaprobado hasta el corte mock (28/09/2026), excluyendo Pendiente.
+
+La exportación genera un `.xlsx` real en el navegador, sin peticiones al backend.
+Incluye todas las páginas filtradas en Resultados, indicadores en Resumen y los
+filtros, marca UNSA y criterios en otra hoja. Sin resultados, se deshabilita la
+descarga. Los textos se escriben como valores, no como fórmulas. ExcelJS se carga
+bajo demanda al exportar; su paquete añade aproximadamente 256 KB comprimidos
+a esa descarga, separado de la carga inicial de la aplicación.
 
 ## Comandos
 
