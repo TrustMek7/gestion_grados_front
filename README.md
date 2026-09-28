@@ -4,7 +4,7 @@ Frontend administrativo de la **Universidad Nacional de San Agustín**.
 
 ## Estado
 
-Entrega 6: información académica de expedientes, panel con datos mock y acceso simulado
+Entrega 7: consulta e historial de docentes, información académica de expedientes y acceso simulado
 sobre React + Vite + TypeScript + Tailwind CSS. Menú lateral fijo desde 1280 px y
 panel modal en pantallas pequeñas, con cierre por Escape, fondo o selección.
 
@@ -62,7 +62,7 @@ sin distinguir tildes, pagina de seis en seis y permite desplegar un resumen de
 solo lectura. Su búsqueda afecta únicamente la tabla. Al cambiar los filtros
 generales se restablecen búsqueda, página y resumen abierto.
 
-Los accesos rápidos llevan a expedientes y a docentes/reportes, aún en preparación. No se implementan
+Los accesos rápidos llevan a expedientes, docentes y reportes (este último aún en preparación). No se implementan
 alertas reglamentarias pendientes de formalización ni exportaciones.
 El panel comparte los registros con el contexto de expedientes; crear o editar
 un expediente actualiza los indicadores y tablas de acuerdo con sus filtros.
@@ -106,6 +106,22 @@ básica conserva estas secciones y valida la cronología de sorteos y sustentaci
 Los registros de entregas anteriores se recuperan sin exigir información académica;
 sus fechas de sustentación se conservan. Los ejemplos Sustentado/Completado se
 interpretan como Aprobado mientras no se registre un resultado explícito.
+
+## Docentes (mock)
+
+- `/docentes`: catálogo de ocho docentes ficticios con búsqueda por nombre o código,
+  filtro por escuela y totales de asesorías y participaciones como jurado.
+- `/docentes/:id`: historial con expediente, graduando, trabajo, cargo, estado y
+  resolución asociada. Filtros por participación y año de la resolución, con paginación.
+- Los enlaces permiten consultar el expediente y sus resoluciones. Los totales de
+  la ficha corresponden al historial completo, independientemente de los filtros.
+
+El historial se calcula desde las designaciones guardadas en los expedientes;
+no duplica datos. Inicialmente aparece vacío hasta registrar asesorías o jurados.
+Editar una designación o resolución actualiza la consulta. Se muestran las
+designaciones actuales de expedientes de cualquier año; no se implementa una
+auditoría de versiones anteriores. Los resultados de sorteos no son designaciones
+y no se cuentan como participaciones del jurado. Todo permanece en el mock local.
 
 ## Comandos
 

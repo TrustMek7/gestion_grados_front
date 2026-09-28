@@ -11,6 +11,8 @@ import { DossierProvider } from '../features/expedientes/DossierProvider'
 import { DossiersPage } from '../features/expedientes/DossiersPage'
 import { DossierDetailPage } from '../features/expedientes/DossierDetailPage'
 import { DossierFormPage } from '../features/expedientes/DossierFormPage'
+import { TeachersPage } from '../features/docentes/TeachersPage'
+import { TeacherDetailPage } from '../features/docentes/TeacherDetailPage'
 
 export function App() {
   return (
@@ -27,7 +29,9 @@ export function App() {
               <Route path="expedientes/nuevo" caseSensitive element={<DossierFormPage />} />
               <Route path="expedientes/:id" element={<DossierDetailPage />} />
               <Route path="expedientes/:id/editar" element={<DossierFormPage />} />
-              {modules.filter((module) => module.path !== '/expedientes').map((module) => (
+              <Route path="docentes" element={<TeachersPage />} />
+              <Route path="docentes/:id" element={<TeacherDetailPage />} />
+              {modules.filter((module) => !['/expedientes', '/docentes'].includes(module.path)).map((module) => (
                 <Route key={module.path} path={module.path} element={<ModulePage module={module} />} />
               ))}
               <Route path="*" element={<NotFoundPage />} />

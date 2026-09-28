@@ -15,7 +15,8 @@ con `sessionStorage`. No hay contratos ni servicios HTTP.
 `expedientes/academic/` agrupa asesor, jurado, resoluciones, resultados de sorteos
 externos y sustentación. Sus vínculos usan identificadores estables del mock.
 Las referencias PDF guardan solo nombre y tamaño; no se conserva contenido.
-`docentes/docentes.mock.ts` aporta el catálogo ficticio compartido; la pantalla
-de gestión de docentes queda para su propia entrega.
+`docentes/` aporta el catálogo ficticio compartido, su consulta y el historial
+derivado de las designaciones de cada expediente (RF-GT-12). Incluye filtros por
+participación y año de resolución y enlaces a expedientes y resoluciones.
 
 Alcance: RF-GT-01 a RF-GT-21. Las funciones de negocio se incorporarán por entrega.
