@@ -1,4 +1,4 @@
-import { ArrowLeft, Pencil, FolderSearch } from 'lucide-react'
+import { AlertCircle, ArrowLeft, Pencil, FolderSearch } from 'lucide-react'
 import { Link, useLocation, useParams, useSearchParams } from 'react-router'
 import { AssignmentPanel } from './academic/AssignmentPanel'
 import { ResolutionPanel } from './academic/ResolutionPanel'
@@ -10,6 +10,7 @@ import { EmptyState } from '../../shared/ui/EmptyState'
 import { PageHeader } from '../../shared/ui/PageHeader'
 import { formatDate, statusTone } from '../dashboard/dashboard-model'
 import { useDossiers } from './dossier-context'
+import { statusDescriptions } from './dossier-model'
 import type { ReactNode } from 'react'
 
 function Datum({ label, children }: { label: string; children: ReactNode }) {
@@ -43,8 +44,25 @@ export function DossierDetailPage() {
       {section === 'sorteos' && <DrawPanel key={record.id} record={record} />}
       {section === 'sustentacion' && <DefensePanel key={record.id} record={record} />}
       {section === 'general' && <>
+      {record.status === 'Observado' && (
+        <div role="region" aria-label="Observaciones del trámite" className="rounded-xl border border-warning/40 bg-warning-soft p-5 text-warning">
+          <div className="flex items-start gap-3">
+            <AlertCircle className="mt-0.5 size-5 shrink-0 text-warning" aria-hidden="true" />
+            <div className="space-y-1">
+              <h3 className="font-semibold text-sm">Trámite con observaciones pendientes</h3>
+              <p className="text-sm leading-6">{record.observations || 'Este expediente tiene observaciones por subsanar antes de continuar con la gestión del trámite.'}</p>
+            </div>
+          </div>
+        </div>
+      )}
       <Card className="p-5 sm:p-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-outline pb-5"><div><p className="text-xs text-muted">Graduando</p><h2 className="mt-1 text-xl font-semibold">{record.graduate}</h2></div><Badge tone={statusTone[record.status]}>{record.status}</Badge></div>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-outline pb-5">
+          <div><p className="text-xs text-muted">Graduando</p><h2 className="mt-1 text-xl font-semibold">{record.graduate}</h2></div>
+          <div className="text-right">
+            <Badge tone={statusTone[record.status]}>{record.status}</Badge>
+            <p className="mt-1 text-xs text-muted">{statusDescriptions[record.status]}</p>
+          </div>
+        </div>
         <dl className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Datum label="Código del graduando">{record.studentCode}</Datum>
           <Datum label="Escuela profesional">{record.school}</Datum>
@@ -52,6 +70,11 @@ export function DossierDetailPage() {
           <Datum label="Fecha de inicio">{formatDate(record.openedAt)}</Datum>
           <Datum label="Grado o título">{record.degree}</Datum>
           <Datum label="Modalidad">{record.modality}</Datum>
+          {record.observations && record.status !== 'Observado' && (
+            <div className="sm:col-span-2 lg:col-span-3">
+              <Datum label="Observaciones">{record.observations}</Datum>
+            </div>
+          )}
         </dl>
       </Card>
       <Card className="p-5 sm:p-6"><h2 className="text-lg font-semibold">Trabajo de investigación</h2><p className="mt-3 break-words text-sm leading-6">{record.research}</p></Card>
