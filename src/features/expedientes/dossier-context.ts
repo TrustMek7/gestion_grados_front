@@ -2,12 +2,14 @@ import { createContext, useContext } from 'react'
 import type { Dossier, DossierInput } from './types'
 import type { AcademicData } from './academic/types'
 import type { ImportBatch, ImportRow } from '../administracion/import-model'
+import type { DossierStatus } from '../dashboard/types'
 
 export type SaveResult = { ok: true; id: string } | { ok: false; message: string }
 export const DossierContext = createContext<{
   records: Dossier[]
   storageWarning: boolean
   save: (input: DossierInput, previousId?: string) => SaveResult
+  updateStatus: (id: string, status: DossierStatus, observations?: string) => SaveResult
   saveAcademic: (id: string, data: AcademicData) => SaveResult
   importRecords: (rows: ImportRow[], file: string) => ImportBatch | null
 } | null>(null)

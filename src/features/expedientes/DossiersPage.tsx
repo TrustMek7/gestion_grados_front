@@ -43,6 +43,30 @@ export function DossiersPage() {
           <SelectField label="Modalidad" value={filters.modality} onChange={(event) => filter('modality', event.target.value)}><option value="">Todas las modalidades</option>{modalities.map((value) => <option key={value}>{value}</option>)}</SelectField>
           <SelectField label="Estado" value={filters.status} onChange={(event) => filter('status', event.target.value)}><option value="">Todos los estados</option>{statuses.map((value) => <option key={value}>{value}</option>)}</SelectField>
         </div>
+        <div className="mt-4 flex flex-wrap items-center gap-2 pt-3 border-t border-outline">
+          <span className="text-xs font-medium text-muted mr-1">Filtrar por estado:</span>
+          <button
+            type="button"
+            onClick={() => filter('status', '')}
+            className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${!filters.status ? 'bg-brand text-white shadow-xs' : 'border border-outline bg-canvas text-muted hover:bg-brand-soft hover:text-brand'}`}
+          >
+            Todos ({records.length})
+          </button>
+          {statuses.map((st) => {
+            const count = records.filter((r) => r.status === st).length
+            const active = filters.status === st
+            return (
+              <button
+                key={st}
+                type="button"
+                onClick={() => filter('status', active ? '' : st)}
+                className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${active ? 'bg-brand text-white shadow-xs' : 'border border-outline bg-canvas text-muted hover:bg-brand-soft hover:text-brand'}`}
+              >
+                {st} ({count})
+              </button>
+            )
+          })}
+        </div>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="text-xs text-muted">También puedes buscar por número de resolución, asesor o integrante del jurado.</p><Button variant="ghost" onClick={() => { setFilters(emptyFilters); setPage(1) }}>Limpiar filtros</Button></div>
       </Card>
       <Card className="min-w-0 overflow-hidden">
