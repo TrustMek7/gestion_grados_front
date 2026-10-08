@@ -53,7 +53,14 @@ export function DossierProvider({ children }: { children: ReactNode }) {
     if (!valid.length) return null
     const batch: ImportBatch = { id: crypto.randomUUID(), file, date: new Date().toISOString(), user: mockUser.name,
       total: rows.length, accepted: valid.length, rejected: rows.length - valid.length, observed: valid.filter((row) => row.warnings.length).length }
-    const imported: Dossier[] = valid.map(({ input }) => ({ ...input, updatedAt: today(), updatedAtTime: batch.date, updatedBy: batch.user, importBatch: batch }))
+    const imported: Dossier[] = valid.map(({ input, warnings }) => ({
+      ...input,
+      observations: input.observations || (warnings.length ? warnings.join(' ') : undefined),
+      updatedAt: today(),
+      updatedAtTime: batch.date,
+      updatedBy: batch.user,
+      importBatch: batch,
+    }))
     persist([...imported, ...records])
     return batch
   }

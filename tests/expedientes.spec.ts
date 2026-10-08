@@ -93,3 +93,19 @@ test('filtros combinados, paginación y pantallas responsive', async ({ page }, 
     }
   }
 })
+
+test('incorporar observaciones, descripción de estados y búsqueda por observaciones', async ({ page }) => {
+  await page.goto('/expedientes/nuevo')
+  await fillDossier(page, 'DEMO-OBS-001')
+  await page.getByLabel('Estado').selectOption('Observado')
+  await expect(page.getByText('Estado Observado seleccionado')).toBeVisible()
+  await page.getByLabel('Observaciones del trámite').fill('Falta constancia de idioma extranjero y firma de asesor')
+  await page.getByRole('button', { name: 'Crear expediente' }).click()
+  await expect(page).toHaveURL(/\/expedientes\/DEMO-OBS-001$/)
+  await expect(page.getByRole('region', { name: 'Observaciones del trámite' })).toContainText('Falta constancia de idioma extranjero')
+  await page.goto('/expedientes')
+  await page.getByLabel('Buscar expediente').fill('idioma extranjero')
+  await expect(page.getByText('DEMO-OBS-001')).toBeVisible()
+  await expect(page.getByText('Obs: Falta constancia de idioma extranjero')).toBeVisible()
+})
+

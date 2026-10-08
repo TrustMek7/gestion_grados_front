@@ -8,6 +8,14 @@ export const modalities = ['Tesis', 'Artículo de investigación'] as const
 export const degrees = ['Bachiller', 'Título profesional'] as const
 export const statuses = ['Registrado', 'En trámite', 'Observado', 'Sustentado', 'Completado'] as const
 
+export const statusDescriptions: Record<(typeof statuses)[number], string> = {
+  'Registrado': 'Expediente nuevo registrado en el sistema; pendiente de revisión inicial y asignaciones.',
+  'En trámite': 'En proceso regular de gestión académica (dictámenes, designación de jurados o sorteos).',
+  'Observado': 'El trámite cuenta con observaciones administrativas o académicas pendientes de subsanar.',
+  'Sustentado': 'La sustentación del trabajo de investigación ha sido llevada a cabo.',
+  'Completado': 'Trámite concluido formalmente con expedición de resolución y cierre administrativo.',
+}
+
 export function today() {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Lima', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date())
 }
@@ -15,7 +23,9 @@ export function today() {
 export function initialDossiers(): Dossier[] {
   return dashboardDossiers.map((record, index) => ({
     ...record, studentCode: `DEMO-GR-${String(index + 1).padStart(4, '0')}`,
-    program: '', updatedBy: 'Carga de demostración', updatedAtTime: record.updatedAt + 'T12:00:00Z',
+    program: '',
+    observations: record.status === 'Observado' ? 'Pendiente de subsanación de observaciones reglamentarias y actualización de requisitos.' : '',
+    updatedBy: 'Carga de demostración', updatedAtTime: record.updatedAt + 'T12:00:00Z',
   }))
 }
 
@@ -32,6 +42,7 @@ function isDossier(value: unknown): value is Dossier {
   const record = value as Record<string, unknown>
   const strings = ['id', 'graduate', 'studentCode', 'school', 'program', 'degree', 'modality', 'status', 'openedAt', 'updatedAt', 'research', 'updatedBy', 'updatedAtTime']
   if (!strings.every((key) => typeof record[key] === 'string')) return false
+  if (record.observations !== undefined && typeof record.observations !== 'string') return false
   if (record.importBatch !== undefined) {
     if (!record.importBatch || typeof record.importBatch !== 'object') return false
     const batch = record.importBatch as Record<string, unknown>
@@ -60,6 +71,7 @@ export function validateDossier(input: DossierInput, records: Dossier[], previou
   if (!input.studentCode.trim() || input.studentCode.length > 30) errors.studentCode = 'Ingresa un código de graduando (máximo 30 caracteres).'
   if (!schools.includes(input.school)) errors.school = 'Selecciona una escuela profesional.'
   if (input.program.length > 120) errors.program = 'Usa un máximo de 120 caracteres.'
+  if (input.observations && input.observations.length > 500) errors.observations = 'Las observaciones no pueden superar los 500 caracteres.'
   if (!validDate(input.openedAt) || input.openedAt > today()) errors.openedAt = 'Ingresa una fecha válida que no sea posterior a hoy.'
   if (!input.research.trim() || input.research.length > 300) errors.research = 'Ingresa el título del trabajo (máximo 300 caracteres).'
   if (!degrees.includes(input.degree)) errors.degree = 'Selecciona un grado.'
