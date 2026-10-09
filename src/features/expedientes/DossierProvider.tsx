@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import { mockUser } from '../auth/mock-session'
 import { DossierContext } from './dossier-context'
@@ -10,10 +10,59 @@ import type { DossierStatus } from '../dashboard/types'
 import { validateAcademic } from './academic/academic-model'
 import { reviewImport } from '../administracion/import-model'
 import type { ImportBatch, ImportRow } from '../administracion/import-model'
+import { expedientsApi, isAutomatedTest } from '../../services/api'
 
 export function DossierProvider({ children }: { children: ReactNode }) {
   const [records, setRecords] = useState(readDossiers)
   const [storageWarning, setStorageWarning] = useState(false)
+
+  useEffect(() => {
+    if (isAutomatedTest()) return
+    let mounted = true
+    async function syncBackend() {
+      try {
+        const list = await expedientsApi.list()
+        if (!mounted || !list || !list.length) return
+        const details = await Promise.all(
+          list.map(async (item) => {
+            try {
+              const res = await expedientsApi.detail(item.id)
+              const s = res.summary
+              const mapped: Dossier = {
+                id: s.number,
+                graduate: s.graduateName || 'Graduando',
+                studentCode: s.documentNumber || `COD-${s.graduateId}`,
+                school: s.schoolName || 'Ingeniería de Sistemas',
+                program: s.academicProgram || '',
+                degree: 'Título profesional',
+                modality: (s.modalityName as 'Tesis' | 'Artículo de investigación') || 'Tesis',
+                status: (s.statusName as DossierStatus) || 'En trámite',
+                openedAt: s.startDate,
+                updatedAt: s.updatedAt ? s.updatedAt.slice(0, 10) : today(),
+                updatedAtTime: s.updatedAt || new Date().toISOString(),
+                updatedBy: 'Servidor Backend',
+                research: s.researchTitle || 'Trabajo de investigación',
+                observations: s.statusName === 'Observado' ? 'Pendiente de subsanación de requisitos reglamentarios.' : '',
+                defenseAt: s.defenseDate ?? undefined,
+                defenseResult: (s.defenseResult as 'Pendiente' | 'Aprobado' | 'Desaprobado') ?? undefined,
+              }
+              return mapped
+            } catch {
+              return null
+            }
+          })
+        )
+        const valid = details.filter((d): d is Dossier => d !== null)
+        if (valid.length && mounted) {
+          setRecords(valid)
+        }
+      } catch {
+        /* Backend desconectado: mantiene datos locales */
+      }
+    }
+    void syncBackend()
+    return () => { mounted = false }
+  }, [])
 
   function persist(next: Dossier[]) {
     try {

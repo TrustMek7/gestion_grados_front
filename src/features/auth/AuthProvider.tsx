@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 import { AuthContext } from './auth-context'
 import { clearMockSession, readMockSession, saveMockSession, sessionDuration } from './mock-session'
 import type { AuthState, LoginScenario } from './mock-session'
+import { authApi, clearStoredToken, setStoredToken } from '../../services/api'
+import { decodeJwt } from '../../services/googleAuth'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AuthState>(readMockSession)
@@ -11,8 +13,41 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = useCallback(() => {
     if (pending.current) clearTimeout(pending.current)
     pending.current = null
+    clearStoredToken()
     clearMockSession()
     setState({ status: 'anonymous' })
+  }, [])
+
+  const signInWithGoogle = useCallback(async (credential: string) => {
+    if (pending.current) clearTimeout(pending.current)
+    setState({ status: 'authenticating' })
+    try {
+      setStoredToken(credential)
+      const decoded = decodeJwt(credential)
+      let fullName = decoded.name || 'Usuario UNSA'
+      let email = decoded.email || 'usuario@unsa.edu.pe'
+      let role = 'ADMIN_GT'
+
+      try {
+        const backendUser = await authApi.me()
+        if (backendUser) {
+          fullName = backendUser.fullName || fullName
+          email = backendUser.email || email
+          role = backendUser.role || role
+        }
+      } catch {
+        /* Si el backend no tiene endpoint o devuelve error temporal, usamos el perfil decodificado del JWT */
+      }
+
+      const expiresAt = Date.now() + sessionDuration
+      const user = { name: fullName, email, role }
+      saveMockSession(expiresAt, user)
+      setState({ status: 'authenticated', expiresAt, user })
+    } catch {
+      clearStoredToken()
+      clearMockSession()
+      setState({ status: 'error' })
+    }
   }, [])
 
   const signIn = useCallback((scenario: LoginScenario) => {
@@ -46,5 +81,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => { clearTimeout(timer); window.removeEventListener('focus', expire) }
   }, [state])
 
-  return <AuthContext.Provider value={{ state, signIn, signOut }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ state, signIn, signInWithGoogle, signOut }}>{children}</AuthContext.Provider>
 }
+

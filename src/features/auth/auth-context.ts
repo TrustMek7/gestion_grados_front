@@ -4,6 +4,7 @@ import type { AuthState, LoginScenario } from './mock-session'
 export const AuthContext = createContext<{
   state: AuthState
   signIn: (scenario: LoginScenario) => void
+  signInWithGoogle: (credential: string) => Promise<void>
   signOut: () => void
 } | null>(null)
 
