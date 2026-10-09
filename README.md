@@ -236,6 +236,14 @@ recarga, historial, foco por teclado, cierre del menú y ausencia de desborde
 horizontal entre 320 y 1920 px. Las capturas quedan en `test-results/`, ignorado
 por Git. La compilación incluye también el chequeo de tipos de las pruebas.
 
+## Pruebas automáticas
+
+El frontend cuenta con una suite integral de 33 pruebas autónomas End-to-End con Playwright que verifican la interacción de todos los controles y botones, formularios reactivos, sugerencias de especialidad, filtros y transiciones de estados (RF-GT-02 y RF-GT-05).
+
+La documentación técnica, matriz de validación de botones y reporte de ejecución se encuentra centralizada en:
+👉 [Documentación de Pruebas y Validación de Botones (PRUEBAS.md)](./PRUEBAS.md)
+
+
 ## Rutas en despliegue
 
 `vercel.json` configura el retorno a `index.html` para las rutas de la SPA.
