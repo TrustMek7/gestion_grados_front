@@ -29,6 +29,7 @@ declare global {
               logo_alignment?: 'left' | 'center'
               width?: number | string
               locale?: string
+              click_listener?: () => void
             }
           ) => void
           prompt: () => void

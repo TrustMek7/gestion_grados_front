@@ -37,7 +37,7 @@ export function LoginPage() {
     if (!isPrompting) return
     const timer = setTimeout(() => {
       setIsPrompting(false)
-    }, 15000)
+    }, 45000)
     return () => clearTimeout(timer)
   }, [isPrompting])
 
@@ -65,6 +65,9 @@ export function LoginPage() {
           width: 320,
           text: 'continue_with',
           locale: 'es',
+          click_listener: () => {
+            setIsPrompting(true)
+          },
         })
         setGoogleReady(true)
       }
@@ -100,17 +103,27 @@ export function LoginPage() {
               <div
                 ref={googleBtnRef}
                 className={`w-full flex justify-center transition-opacity ${isBusy ? 'pointer-events-none opacity-40 select-none' : ''}`}
-                onMouseDownCapture={() => {
-                  if (!isBusy) setIsPrompting(true)
-                }}
               />
               {isBusy && (
                 <div
-                  className="absolute inset-0 z-20 flex items-center justify-center gap-2.5 rounded-lg border border-brand/20 bg-white/95 px-4 text-sm font-medium text-brand shadow-xs backdrop-blur-xs select-none pointer-events-auto"
+                  className="absolute inset-0 z-20 flex items-center justify-center gap-2 rounded-lg border border-brand/20 bg-white/95 px-3 text-sm font-medium text-brand shadow-xs backdrop-blur-xs select-none pointer-events-auto"
                   aria-live="polite"
                 >
-                  <LoaderCircle size={18} className="animate-spin text-brand motion-reduce:animate-none" aria-hidden="true" />
-                  <span>{pending ? 'Iniciando sesión…' : 'Conectando con Google…'}</span>
+                  <LoaderCircle size={18} className="animate-spin text-brand motion-reduce:animate-none shrink-0" aria-hidden="true" />
+                  <span className="truncate">{pending ? 'Iniciando sesión…' : 'Ventana de Google abierta…'}</span>
+                  {!pending && (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setIsPrompting(false)
+                      }}
+                      className="ml-2 text-xs font-normal text-muted hover:text-brand underline cursor-pointer"
+                      title="Cancelar o reactivar botón"
+                    >
+                      Cancelar
+                    </button>
+                  )}
                 </div>
               )}
             </div>
