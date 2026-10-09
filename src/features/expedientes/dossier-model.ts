@@ -38,12 +38,61 @@ export function initialDossiers(): Dossier[] {
   }))
 }
 
+export function sanitizeText(text: string): string {
+  if (!text) return ''
+  return text
+    .replace(/Sof\?a/g, 'Sofía')
+    .replace(/Nicol\?s/g, 'Nicolás')
+    .replace(/Luc\?a/g, 'Lucía')
+    .replace(/Valeria N\?+ez/g, 'Valeria Núñez')
+    .replace(/Andr\?s/g, 'Andrés')
+    .replace(/Joaqu\?n/g, 'Joaquín')
+    .replace(/H\?ctor/g, 'Héctor')
+    .replace(/Le\?n/g, 'León')
+    .replace(/Ingenier\?a/g, 'Ingeniería')
+    .replace(/Administraci\?n/g, 'Administración')
+    .replace(/Econom\?a/g, 'Economía')
+    .replace(/Educaci\?n/g, 'Educación')
+    .replace(/Gesti\?n/g, 'Gestión')
+    .replace(/P\?blica/g, 'Pública')
+    .replace(/Art\?culo/g, 'Artículo')
+    .replace(/investigaci\?n/g, 'investigación')
+    .replace(/tr\?mite/g, 'trámite')
+    .replace(/Organizaci\?n/g, 'Organización')
+    .replace(/acad\?micos/g, 'académicos')
+    .replace(/Evaluaci\?n/g, 'Evaluación')
+    .replace(/atenci\?n/g, 'atención')
+    .replace(/Informaci\?n/g, 'Información')
+    .replace(/An\?lisis/g, 'Análisis')
+    .replace(/Planificaci\?n/g, 'Planificación')
+    .replace(/Visualizaci\?n/g, 'Visualización')
+    .replace(/Distribuci\?n/g, 'Distribución')
+    .replace(/Clasificaci\?n/g, 'Clasificación')
+    .replace(/Sustentaci\?n/g, 'Sustentación')
+    .replace(/T\?tulo/g, 'Título')
+}
+
+export function sanitizeDossier(record: Dossier): Dossier {
+  return {
+    ...record,
+    graduate: sanitizeText(record.graduate),
+    school: sanitizeText(record.school),
+    program: sanitizeText(record.program),
+    modality: sanitizeText(record.modality) as Dossier['modality'],
+    status: sanitizeText(record.status) as Dossier['status'],
+    research: sanitizeText(record.research),
+    observations: record.observations ? sanitizeText(record.observations) : '',
+  }
+}
+
 export function readDossiers(): Dossier[] {
   try {
     const data: unknown = JSON.parse(sessionStorage.getItem(storageKey) ?? 'null')
-    if (Array.isArray(data) && data.length > 0 && data.every(isDossier) && new Set(data.map((item) => item.id.toUpperCase())).size === data.length) return data
+    if (Array.isArray(data) && data.length > 0 && data.every(isDossier) && new Set(data.map((item) => item.id.toUpperCase())).size === data.length) {
+      return (data as Dossier[]).map(sanitizeDossier)
+    }
   } catch { /* El prototipo puede funcionar sin almacenamiento. */ }
-  return initialDossiers()
+  return initialDossiers().map(sanitizeDossier)
 }
 
 function isDossier(value: unknown): value is Dossier {

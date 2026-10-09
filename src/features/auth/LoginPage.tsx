@@ -84,31 +84,35 @@ export function LoginPage() {
           </div>}
 
           <div className="mt-7 space-y-3">
-            {/* Botón de Google oficial si está disponible */}
-            {googleReady && (
-              <div className="flex justify-center w-full min-h-[44px]">
-                <div ref={googleBtnRef} className="w-full flex justify-center" />
-              </div>
+            {/* Contenedor oficial de Google Identity Services */}
+            <div className={`flex justify-center w-full min-h-[44px] ${googleReady ? '' : 'hidden'}`}>
+              <div ref={googleBtnRef} className="w-full flex justify-center" />
+            </div>
+
+            {/* Botón estándar del sistema (en pruebas o mientras carga Google) */}
+            {!googleReady && (
+              <Button
+                className="w-full"
+                disabled={pending}
+                onClick={() => {
+                  if (window.google?.accounts?.id) {
+                    window.google.accounts.id.prompt()
+                  } else {
+                    signIn(scenario)
+                  }
+                }}
+              >
+                {pending ? <LoaderCircle size={18} className="animate-spin motion-reduce:animate-none" aria-hidden="true" /> : <LogIn size={18} aria-hidden="true" />}
+                {pending ? 'Iniciando sesión…' : 'Continuar con Google'}
+              </Button>
             )}
 
-            {/* Botón estándar del sistema */}
-            <Button
-              className="w-full"
-              disabled={pending}
-              onClick={() => {
-                if (googleReady && window.google?.accounts?.id) {
-                  window.google.accounts.id.prompt()
-                } else {
-                  signIn(scenario)
-                }
-              }}
-            >
-              {pending ? <LoaderCircle size={18} className="animate-spin motion-reduce:animate-none" aria-hidden="true" /> : <LogIn size={18} aria-hidden="true" />}
-              {pending ? 'Iniciando sesión…' : 'Continuar con Google'}
-            </Button>
-
             <p role="status" className="mt-3 text-center text-xs leading-5 text-muted">
-              {pending ? 'Validando el acceso de demostración…' : 'Acceso simulado. No se conecta con Google ni utiliza una cuenta real.'}
+              {pending
+                ? 'Validando el acceso…'
+                : googleReady
+                  ? 'Acceso institucional UNSA mediante Google Identity Services.'
+                  : 'Acceso simulado. No se conecta con Google ni utiliza una cuenta real.'}
             </p>
           </div>
 

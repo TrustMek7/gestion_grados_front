@@ -10,7 +10,7 @@ import { useAuth } from '../../features/auth/auth-context'
 import { mockUser } from '../../features/auth/mock-session'
 
 export function AppLayout() {
-  const { signOut } = useAuth()
+  const { state, signOut } = useAuth()
   const { pathname } = useLocation()
   const drawer = useRef<HTMLDialogElement>(null)
   const main = useRef<HTMLElement>(null)
@@ -75,9 +75,14 @@ export function AppLayout() {
             </nav>
           </div>
           <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-            <div className="hidden text-right lg:block"><p className="text-xs font-medium">{mockUser.name}</p><p className="mt-1 text-[11px] text-muted">Sesión simulada</p></div>
-            <Badge>Demo</Badge>
-            <Button variant="ghost" className="px-2" aria-label="Cerrar sesión" title="Cerrar sesión de demostración" onClick={signOut}><LogOut size={19} aria-hidden="true" /></Button>
+            <div className="hidden text-right lg:block">
+              <p className="text-xs font-medium">{state.status === 'authenticated' && state.user ? state.user.name : mockUser.name}</p>
+              <p className="mt-1 text-[11px] text-muted">{state.status === 'authenticated' && state.user ? state.user.email : 'Sesión simulada'}</p>
+            </div>
+            <Badge tone={state.status === 'authenticated' && state.user ? 'success' : 'neutral'}>
+              {state.status === 'authenticated' && state.user ? 'UNSA' : 'Demo'}
+            </Badge>
+            <Button variant="ghost" className="px-2" aria-label="Cerrar sesión" title="Cerrar sesión" onClick={signOut}><LogOut size={19} aria-hidden="true" /></Button>
           </div>
         </header>
 

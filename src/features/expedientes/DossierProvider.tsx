@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { mockUser } from '../auth/mock-session'
 import { DossierContext } from './dossier-context'
 import type { SaveResult } from './dossier-context'
-import { readDossiers, statuses, storageKey, today, validateDossier } from './dossier-model'
+import { readDossiers, sanitizeDossier, statuses, storageKey, today, validateDossier } from './dossier-model'
 import type { Dossier, DossierInput } from './types'
 import type { AcademicData } from './academic/types'
 import type { DossierStatus } from '../dashboard/types'
@@ -46,7 +46,7 @@ export function DossierProvider({ children }: { children: ReactNode }) {
                 defenseAt: s.defenseDate ?? undefined,
                 defenseResult: (s.defenseResult as 'Pendiente' | 'Aprobado' | 'Desaprobado') ?? undefined,
               }
-              return mapped
+              return sanitizeDossier(mapped)
             } catch {
               return null
             }
