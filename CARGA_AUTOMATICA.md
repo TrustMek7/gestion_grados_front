@@ -19,23 +19,25 @@ docker compose -f compose.dev.yml up -d
 Puedes ejecutar la carga con cualquiera de las siguientes opciones:
 
 ### Opción A (Recomendada — PowerShell):
-Desde la carpeta del backend (`gestion_grados_back`):
+Desde la raíz del frontend (`gestion_grados_front`):
 ```powershell
+.\mock-database\cargar_datos_mock.ps1
+```
+
+O desde la carpeta `mock-database`:
+```powershell
+cd mock-database
 .\cargar_datos_mock.ps1
 ```
 
-O directamente desde cualquier terminal de PowerShell:
-```powershell
-powershell -ExecutionPolicy Bypass -File "C:\Users\paulo_xxg0vy8\Personal\workspace\pis\gestion_grados_back\cargar_datos_mock.ps1"
-```
-
 ### Opción B (Doble clic en Windows):
-Haz doble clic en el archivo:
-📁 `C:\Users\paulo_xxg0vy8\Personal\workspace\pis\gestion_grados_back\cargar_datos_mock.bat`
+Haz doble clic en el archivo ubicado en el repositorio frontend:
+📁 `gestion_grados_front\mock-database\cargar_datos_mock.bat`
 
 ### Opción C (Comando directo Docker):
 ```powershell
-Get-Content "C:\Users\paulo_xxg0vy8\Personal\workspace\pis\gestion_grados_back\docker\seed_initial_data.sql" | docker exec -i grado-db psql -U root -d grades_management
+docker cp mock-database\seed_initial_data.sql grado-db:/tmp/seed_initial_data.sql
+docker exec grado-db psql -U root -d grades_management -f /tmp/seed_initial_data.sql
 ```
 
 ---

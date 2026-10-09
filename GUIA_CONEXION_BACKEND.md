@@ -72,11 +72,11 @@ Abre tu navegador en:
 
 Para no tener que registrar manualmente las escuelas, modalidades, docentes y expedientes desde cero, ejecuta el script de siembra automática:
 
-### En PowerShell:
+### En PowerShell (desde la raíz del frontend):
 ```powershell
-.\cargar_datos_mock.ps1
+.\mock-database\cargar_datos_mock.ps1
 ```
-*(O haz doble clic en `cargar_datos_mock.bat` desde el explorador de archivos de Windows).*
+*(O haz doble clic en `mock-database\cargar_datos_mock.bat` desde el explorador de archivos de Windows).*
 
 Este comando poblará de inmediato:
 * 5 Escuelas Profesionales (Sistemas, Civil, Administración, Economía, Educación).
