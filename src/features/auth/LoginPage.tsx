@@ -25,11 +25,21 @@ export function LoginPage() {
   const location = useLocation()
   const [scenario, setScenario] = useState<LoginScenario>('authorized')
   const [googleReady, setGoogleReady] = useState(false)
+  const [isPrompting, setIsPrompting] = useState(false)
   const googleBtnRef = useRef<HTMLDivElement>(null)
   const pending = state.status === 'authenticating'
+  const isBusy = pending || isPrompting
   const message = state.status === 'denied' || state.status === 'error' || state.status === 'expired' ? messages[state.status] : null
 
   useEffect(() => { document.title = `Acceso institucional | ${brand.acronym}` }, [])
+
+  useEffect(() => {
+    if (!isPrompting) return
+    const timer = setTimeout(() => {
+      setIsPrompting(false)
+    }, 15000)
+    return () => clearTimeout(timer)
+  }, [isPrompting])
 
   useEffect(() => {
     // Solo carga Google Identity Services en entorno real de navegador (no en test automatizado)
@@ -41,6 +51,7 @@ export function LoginPage() {
         window.google.accounts.id.initialize({
           client_id: GOOGLE_CLIENT_ID,
           callback: (response) => {
+            setIsPrompting(false)
             if (response.credential) {
               void signInWithGoogle(response.credential)
             }
@@ -84,18 +95,34 @@ export function LoginPage() {
           </div>}
 
           <div className="mt-7 space-y-3">
-            {/* Contenedor oficial de Google Identity Services */}
-            <div className={`flex justify-center w-full min-h-[44px] ${googleReady ? '' : 'hidden'}`}>
-              <div ref={googleBtnRef} className="w-full flex justify-center" />
+            {/* Contenedor oficial de Google Identity Services con overlay de bloqueo anti-duplicados */}
+            <div className={`relative flex justify-center w-full min-h-[44px] ${googleReady ? '' : 'hidden'}`}>
+              <div
+                ref={googleBtnRef}
+                className={`w-full flex justify-center transition-opacity ${isBusy ? 'pointer-events-none opacity-40 select-none' : ''}`}
+                onMouseDownCapture={() => {
+                  if (!isBusy) setIsPrompting(true)
+                }}
+              />
+              {isBusy && (
+                <div
+                  className="absolute inset-0 z-20 flex items-center justify-center gap-2.5 rounded-lg border border-brand/20 bg-white/95 px-4 text-sm font-medium text-brand shadow-xs backdrop-blur-xs select-none pointer-events-auto"
+                  aria-live="polite"
+                >
+                  <LoaderCircle size={18} className="animate-spin text-brand motion-reduce:animate-none" aria-hidden="true" />
+                  <span>{pending ? 'Iniciando sesión…' : 'Conectando con Google…'}</span>
+                </div>
+              )}
             </div>
 
             {/* Botón estándar del sistema (en pruebas o mientras carga Google) */}
             {!googleReady && (
               <Button
                 className="w-full"
-                disabled={pending}
+                disabled={isBusy}
                 onClick={() => {
                   if (window.google?.accounts?.id) {
+                    setIsPrompting(true)
                     window.google.accounts.id.prompt()
                   } else {
                     signIn(scenario)
@@ -109,10 +136,12 @@ export function LoginPage() {
 
             <p role="status" className="mt-3 text-center text-xs leading-5 text-muted">
               {pending
-                ? 'Validando el acceso…'
-                : googleReady
-                  ? 'Acceso institucional UNSA mediante Google Identity Services.'
-                  : 'Acceso simulado. No se conecta con Google ni utiliza una cuenta real.'}
+                ? 'Validando credenciales con la plataforma…'
+                : isPrompting
+                  ? 'Esperando selección de cuenta en la ventana de Google…'
+                  : googleReady
+                    ? 'Acceso institucional UNSA mediante Google Identity Services.'
+                    : 'Acceso simulado. No se conecta con Google ni utiliza una cuenta real.'}
             </p>
           </div>
 
