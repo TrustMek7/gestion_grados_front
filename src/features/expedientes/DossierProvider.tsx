@@ -3,9 +3,10 @@ import type { ReactNode } from 'react'
 import { mockUser } from '../auth/mock-session'
 import { DossierContext } from './dossier-context'
 import type { SaveResult } from './dossier-context'
-import { readDossiers, storageKey, today, validateDossier } from './dossier-model'
+import { readDossiers, statuses, storageKey, today, validateDossier } from './dossier-model'
 import type { Dossier, DossierInput } from './types'
 import type { AcademicData } from './academic/types'
+import type { DossierStatus } from '../dashboard/types'
 import { validateAcademic } from './academic/academic-model'
 import { reviewImport } from '../administracion/import-model'
 import type { ImportBatch, ImportRow } from '../administracion/import-model'
@@ -47,6 +48,23 @@ export function DossierProvider({ children }: { children: ReactNode }) {
     return { ok: true, id: record.id }
   }
 
+  function updateStatus(id: string, nextStatus: DossierStatus, observations?: string): SaveResult {
+    const previous = records.find((record) => record.id === id)
+    if (!previous) return { ok: false, message: 'El expediente ya no está disponible.' }
+    if (!statuses.includes(nextStatus)) return { ok: false, message: 'Estado inválido.' }
+    if (observations && observations.length > 500) return { ok: false, message: 'Las observaciones no pueden superar los 500 caracteres.' }
+    const updated: Dossier = {
+      ...previous,
+      status: nextStatus,
+      observations: observations !== undefined ? observations.trim() : previous.observations,
+      updatedAt: today(),
+      updatedAtTime: new Date().toISOString(),
+      updatedBy: mockUser.name,
+    }
+    persist(records.map((item) => item.id === id ? updated : item))
+    return { ok: true, id }
+  }
+
   function importRecords(rows: ImportRow[], file: string): ImportBatch | null {
     const reviewed = reviewImport(rows, records)
     const valid = reviewed.filter((row) => !row.errors.length)
@@ -65,5 +83,5 @@ export function DossierProvider({ children }: { children: ReactNode }) {
     return batch
   }
 
-  return <DossierContext.Provider value={{ records, storageWarning, save, saveAcademic, importRecords }}>{children}</DossierContext.Provider>
+  return <DossierContext.Provider value={{ records, storageWarning, save, updateStatus, saveAcademic, importRecords }}>{children}</DossierContext.Provider>
 }

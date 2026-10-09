@@ -7,6 +7,15 @@ export const schools = ['Administración', 'Economía', 'Educación', 'Ingenier�
 export const modalities = ['Tesis', 'Artículo de investigación'] as const
 export const degrees = ['Bachiller', 'Título profesional'] as const
 export const statuses = ['Registrado', 'En trámite', 'Observado', 'Sustentado', 'Completado'] as const
+export const statusLifecycle = ['Registrado', 'En trámite', 'Sustentado', 'Completado'] as const
+
+export const schoolPrograms: Record<string, string[]> = {
+  'Administración': ['Gestión Pública', 'Marketing y Finanzas', 'Recursos Humanos', 'Negocios Internacionales'],
+  'Economía': ['Economía Pública', 'Finanzas y Proyectos', 'Desarrollo Regional'],
+  'Educación': ['Ciencias Sociales', 'Lengua y Literatura', 'Matemática e Informática', 'Educación Primaria'],
+  'Ingeniería Civil': ['Estructuras', 'Geotecnia', 'Hidráulica y Ambiental', 'Transportes'],
+  'Ingeniería de Sistemas': ['Ingeniería de Software', 'Seguridad de la Información', 'Gestión de TI', 'Ciencia de Datos'],
+}
 
 export const statusDescriptions: Record<(typeof statuses)[number], string> = {
   'Registrado': 'Expediente nuevo registrado en el sistema; pendiente de revisión inicial y asignaciones.',

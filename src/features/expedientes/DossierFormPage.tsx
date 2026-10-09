@@ -8,7 +8,7 @@ import { InputField } from '../../shared/ui/InputField'
 import { PageHeader } from '../../shared/ui/PageHeader'
 import { SelectField } from '../../shared/ui/SelectField'
 import { useDossiers } from './dossier-context'
-import { degrees, modalities, schools, statusDescriptions, statuses, today, validateDossier } from './dossier-model'
+import { degrees, modalities, schools, schoolPrograms, statusDescriptions, statuses, today, validateDossier } from './dossier-model'
 import { MissingDossier } from './DossierDetailPage'
 import type { Dossier, DossierInput } from './types'
 
@@ -85,7 +85,27 @@ function DossierForm({ record }: { record?: Dossier }) {
           <InputField label="Nombres y apellidos" value={draft.graduate} onChange={(event) => update('graduate', event.target.value)} error={errors.graduate} required maxLength={120} autoComplete="off" />
           <InputField label="Código del graduando" value={draft.studentCode} onChange={(event) => update('studentCode', event.target.value)} error={errors.studentCode} required maxLength={30} autoComplete="off" placeholder="DEMO-GR-0013" />
           <div><SelectField label="Escuela profesional *" value={draft.school} onChange={(event) => update('school', event.target.value)} required aria-invalid={Boolean(errors.school)} aria-describedby={errors.school ? 'school-error' : undefined}><option value="">Selecciona una escuela</option>{schools.map((value) => <option key={value}>{value}</option>)}</SelectField>{errors.school && <p id="school-error" className="mt-1.5 text-xs text-danger">{errors.school}</p>}</div>
-          <InputField label="Especialidad o programa (opcional)" value={draft.program} onChange={(event) => update('program', event.target.value)} error={errors.program} maxLength={120} />
+          <div>
+            <InputField label="Especialidad o programa (opcional)" list="programs-list" value={draft.program} onChange={(event) => update('program', event.target.value)} error={errors.program} maxLength={120} />
+            <datalist id="programs-list">
+              {(schoolPrograms[draft.school] ?? []).map((prog) => <option key={prog} value={prog} />)}
+            </datalist>
+            {draft.school && schoolPrograms[draft.school] && (
+              <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                <span className="text-[11px] text-muted">Sugerencias:</span>
+                {schoolPrograms[draft.school].map((prog) => (
+                  <button
+                    key={prog}
+                    type="button"
+                    onClick={() => update('program', prog)}
+                    className={`rounded-md border px-2 py-0.5 text-[11px] transition-colors ${draft.program === prog ? 'border-brand bg-brand-soft text-brand font-medium' : 'border-outline bg-canvas text-muted hover:bg-brand-soft/50'}`}
+                  >
+                    {prog}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div></Card>
         <Card className="p-5 sm:p-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
