@@ -5,7 +5,9 @@
 
 import { isAutomatedTest } from './api'
 
-export const GOOGLE_CLIENT_ID = '1057211665863-ltc8etssds12rvru95v9nn61ene5rqeb.apps.googleusercontent.com'
+export const GOOGLE_CLIENT_ID =
+  (import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined) ||
+  '1057211665863-ltc8etssds12rvru95v9nn61ene5rqeb.apps.googleusercontent.com'
 
 declare global {
   interface Window {
